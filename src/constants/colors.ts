@@ -11,6 +11,8 @@ const whitePalette = {
   ghostWhite: '#F7F7FC',
   antiFlash: '#EFF0F6',
   lavendarBlush: '#FCF4F3',
+  white75: 'rgba(255, 255, 255, 0.75)',
+  white50: 'rgba(255, 255, 255, 0.50)',
 };
 
 const bluePalette = {

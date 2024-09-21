@@ -24,11 +24,18 @@ const textPalette = {
   textDisabled: grayPalette.lavendarGray,
 };
 
+const bgTextPallette = {
+  bgTextHigh: whitePalette.white,
+  bgTextMid: whitePalette.white75,
+  bgTextLow: whitePalette.white50,
+};
+
 const light = {
   name: LIGHT_THEME,
   ...primaryPalette,
   ...backgroundPalette,
   ...textPalette,
+  ...bgTextPallette,
 };
 
 export default light;
