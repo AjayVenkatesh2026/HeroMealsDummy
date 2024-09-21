@@ -1,6 +1,6 @@
-import {ColorValue, ImageStyle, TextStyle, ViewStyle} from 'react-native';
+import type {ColorValue} from 'react-native';
 
-type Style = ViewStyle | TextStyle | ImageStyle;
+import type {Style} from 'src/interfaces/global';
 
 const getThemedStyles = ({
   backgroundColor,
