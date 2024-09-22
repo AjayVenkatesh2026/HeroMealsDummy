@@ -17,6 +17,9 @@ interface ITheme {
   bgTextHigh: ColorValue;
   bgTextMid: ColorValue;
   bgTextLow: ColorValue;
+  borderPrimary: ColorValue;
+  borderSecondary: ColorValue;
+  borderTertiary: ColorValue;
 }
 
 export {type ITheme};
