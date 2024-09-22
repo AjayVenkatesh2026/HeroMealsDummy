@@ -26,7 +26,7 @@ const LoginScreen = () => {
   const onPressContinue = () => {
     if (number && number.length === 10) {
       setLoading(true);
-      // TODO: navigate to OTP page
+      // TODO: call /login to generate otp
       console.log('navigaet to OTP screen');
       setTimeout(() => {
         setLoading(false);
