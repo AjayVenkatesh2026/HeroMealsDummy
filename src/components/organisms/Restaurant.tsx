@@ -1,10 +1,9 @@
-import {Image, StyleSheet, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React from 'react';
 
 import {Button, Card, Text} from 'react-native-paper';
 
 import type {IRestaurant} from 'src/types/ordering';
-import {isValidHttpUrl} from 'src/utils/helpers';
 import font from 'src/styles/font';
 import {getThemedStyles} from 'src/utils/theme';
 import {useAppSelector} from 'src/hooks/reduxHooks';
@@ -12,14 +11,13 @@ import containers from 'src/styles/containers';
 import {STAR} from 'src/constants/icons';
 import copies from 'src/constants/copies';
 
-import defautImage from 'src/assets/default.png';
+import FDAImage from '../atoms/FDAImage';
 
 const {MINS} = copies;
 
 const Restaurant = ({restaurant}: {restaurant: IRestaurant}) => {
   const theme = useAppSelector(state => state.themeReducer.theme);
   const {name, image, distance, duration, rating} = restaurant;
-  const source = isValidHttpUrl(image) ? {uri: image} : defautImage;
   const description = `${distance} \u2022 ${duration} ${MINS}`;
 
   const onPressRestaurantCard = () => {
@@ -28,7 +26,7 @@ const Restaurant = ({restaurant}: {restaurant: IRestaurant}) => {
 
   return (
     <Card style={styles.mainContainer} onPress={onPressRestaurantCard}>
-      <Image source={source} style={styles.image} resizeMode="cover" />
+      <FDAImage url={image} style={styles.image} resizeMode="cover" />
       <View style={styles.contentContainer}>
         <View style={containers.rowCenterBetween}>
           <Text

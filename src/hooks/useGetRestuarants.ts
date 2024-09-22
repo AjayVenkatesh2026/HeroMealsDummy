@@ -1,6 +1,6 @@
 import {useCallback, useState} from 'react';
 import {dummyRestaurantsList} from 'src/constants/dummyData';
-import {IRestaurant} from 'src/types/ordering';
+import type {IRestaurant} from 'src/types/ordering';
 
 const useGetRestaurants = () => {
   const [restaurants, setRestaurants] = useState<IRestaurant[]>([]);
