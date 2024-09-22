@@ -1,22 +1,12 @@
-import {View, type GestureResponderEvent} from 'react-native';
+import {View} from 'react-native';
 import React, {PropsWithChildren} from 'react';
 
 import {Appbar, Text} from 'react-native-paper';
 
 import containers from 'src/styles/containers';
-import type {Style} from 'src/types/global';
 import {useAppSelector} from 'src/hooks/reduxHooks';
 import {getThemedStyles} from 'src/utils/theme';
-
-type HeaderProps = {
-  leadingIcon: string;
-  trailingIcon: string;
-  onPressLeadingIcon?: (event?: GestureResponderEvent) => void;
-  onPressTrailingIcon?: (event?: GestureResponderEvent) => void;
-  trailingIconStyles?: Style;
-  trailingIconLabel?: string;
-  containerStyles?: Style;
-};
+import type {HeaderProps} from 'src/types/global';
 
 const Header = ({
   leadingIcon,
@@ -41,18 +31,22 @@ const Header = ({
       ) : null}
       {children}
       <View style={{...containers.columnCenterCenter}}>
-        <Appbar.Action
-          icon={trailingIcon}
-          onPress={onPressTrailingIcon}
-          color={theme?.bgTextHigh}
-          style={trailingIconStyles}
-        />
-        {trailingIconLabel ? (
-          <Text
-            variant="bodySmall"
-            style={getThemedStyles({color: theme?.bgTextHigh})}>
-            {trailingIconLabel}
-          </Text>
+        {trailingIcon ? (
+          <>
+            <Appbar.Action
+              icon={trailingIcon}
+              onPress={onPressTrailingIcon}
+              color={theme?.bgTextHigh}
+              style={trailingIconStyles}
+            />
+            {trailingIconLabel ? (
+              <Text
+                variant="bodySmall"
+                style={getThemedStyles({color: theme?.bgTextHigh})}>
+                {trailingIconLabel}
+              </Text>
+            ) : null}
+          </>
         ) : null}
       </View>
     </Appbar.Header>

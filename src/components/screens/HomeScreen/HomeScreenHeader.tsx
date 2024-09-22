@@ -53,6 +53,8 @@ const HomeScreenHeader = () => {
           value={searchQuery}
           placeholder={SEARCH}
           onChangeText={setSearchQuery}
+          // TODO: implement search
+          onSubmitEditing={() => null}
         />
       </View>
     </View>

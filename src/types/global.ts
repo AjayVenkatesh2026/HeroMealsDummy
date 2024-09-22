@@ -1,4 +1,10 @@
-import type {ImageStyle, TextStyle, ViewStyle} from 'react-native';
+import type {
+  ImageStyle,
+  TextStyle,
+  ViewStyle,
+  GestureResponderEvent,
+  StyleProp,
+} from 'react-native';
 
 type Style = ViewStyle | TextStyle | ImageStyle;
 
@@ -14,4 +20,14 @@ interface INavigation {
   navigate: Function;
 }
 
-export type {Style, IProfileOption, INavigation};
+type HeaderProps = {
+  leadingIcon?: string;
+  trailingIcon?: string;
+  onPressLeadingIcon?: (event?: GestureResponderEvent) => void;
+  onPressTrailingIcon?: (event?: GestureResponderEvent) => void;
+  trailingIconStyles?: Style;
+  trailingIconLabel?: string;
+  containerStyles?: StyleProp<ViewStyle>;
+};
+
+export type {Style, IProfileOption, INavigation, HeaderProps};

@@ -1,4 +1,7 @@
 import type {IProfile, IAddress} from 'src/types/ordering';
+import copies from 'src/constants/copies';
+
+const {RUPEE} = copies;
 
 const isValidProfile = (profile: any): profile is IProfile => {
   if (typeof profile === 'object') {
@@ -53,4 +56,14 @@ const isValidHttpUrl = (string: string) => {
   return !!pattern.test(string);
 };
 
-export {getInitials, isValidProfile, getMergedAddress, isValidHttpUrl};
+const getFormattedPrice = (price: number) => {
+  return `${RUPEE}${price.toFixed(2)}`;
+};
+
+export {
+  getInitials,
+  isValidProfile,
+  getMergedAddress,
+  isValidHttpUrl,
+  getFormattedPrice,
+};

@@ -21,6 +21,8 @@ const copies = {
   YOUR_ORDERS: 'Your Orders',
   ABOUT: 'About',
   SIGN_OUT: 'Sign Out',
+  ORDER_PLACED_ON: 'Order placed on',
+  RUPEE: '\u20B9',
 };
 
 export default copies;
