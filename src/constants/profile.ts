@@ -1,19 +1,25 @@
 import {INavigation, IProfileOption} from 'src/types/global';
 import screenNames from './screenNames';
+import {
+  ACCOUNT_OUTLINE,
+  CART_OUTLINE,
+  INFORMATION_OUTLINE,
+  POWER,
+} from './icons';
 
 const {bottomTabScreenNames} = screenNames;
 
 const options: IProfileOption[] = [
   {
     id: 'your-profile',
-    icon: 'account-outline',
+    icon: ACCOUNT_OUTLINE,
     name: 'Your Profile',
     onClick: ({}) => {},
     trailingIcon: 'chevron-right',
   },
   {
     id: 'your-orders',
-    icon: 'cart-outline',
+    icon: CART_OUTLINE,
     name: 'Your Orders',
     onClick: ({navigation}: {navigation: INavigation}) => {
       navigation?.navigate(bottomTabScreenNames.OrderHistoryScreen);
@@ -27,14 +33,14 @@ const options: IProfileOption[] = [
   // },
   {
     id: 'about',
-    icon: 'information-outline',
+    icon: INFORMATION_OUTLINE,
     name: 'About',
     onClick: ({}) => {},
     trailingIcon: 'chevron-right',
   },
   {
     id: 'sign-out',
-    icon: 'power',
+    icon: POWER,
     name: 'Sign Out',
     onClick: ({}) => {},
     trailingIcon: 'chevron-right',

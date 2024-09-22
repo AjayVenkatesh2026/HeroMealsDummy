@@ -2,6 +2,7 @@ import HomeScreen from 'src/components/screens/HomeScreen/HomeScreen';
 import OrderHistoryScreen from 'src/components/screens/OrderHistoryScreen/OrderHistoryScreen';
 import ProfileScreen from 'src/components/screens/ProfileScreen/ProfileScreen';
 import type {ITab} from 'src/types/navigator';
+import {ACCOUNT, HISTORY, HOME} from './icons';
 
 const tabs: ITab[] = [
   {
@@ -9,7 +10,7 @@ const tabs: ITab[] = [
     component: HomeScreen,
     color: 'pink',
     options: {
-      icon: 'home',
+      icon: HOME,
       tabBarLabel: 'Home',
     },
   },
@@ -17,7 +18,7 @@ const tabs: ITab[] = [
     name: 'OrderHistoryScreen',
     component: OrderHistoryScreen,
     options: {
-      icon: 'history',
+      icon: HISTORY,
       tabBarLabel: 'Orders',
     },
   },
@@ -25,7 +26,7 @@ const tabs: ITab[] = [
     name: 'ProfileScreen',
     component: ProfileScreen,
     options: {
-      icon: 'account',
+      icon: ACCOUNT,
       tabBarLabel: 'Profile',
     },
   },
