@@ -1,9 +1,11 @@
 import {configureStore} from '@reduxjs/toolkit';
 import themeReducer from './slices/themeSlice';
+import profileReducer from './slices/profileSlice';
 
 const store = configureStore({
   reducer: {
     themeReducer,
+    profileReducer,
   },
 });
 
