@@ -1,4 +1,4 @@
-import {ColorValue} from 'react-native';
+type ColorValue = string | undefined;
 
 interface ITheme {
   name: ColorValue;
