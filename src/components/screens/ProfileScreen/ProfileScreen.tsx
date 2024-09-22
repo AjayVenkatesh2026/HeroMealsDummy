@@ -18,7 +18,7 @@ const ProfileScreen = () => {
   const theme = useAppSelector(state => state.themeReducer.theme);
 
   if (!isValidProfile(profile)) {
-    return null;
+    return <></>;
   }
 
   const {name} = profile;

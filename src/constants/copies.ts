@@ -17,6 +17,10 @@ const copies = {
   LOGIN: 'Login',
   RESEND_OTP: 'Resend OTP',
   BACK: 'Back',
+  YOUR_PROFILE: 'Your Profile',
+  YOUR_ORDERS: 'Your Orders',
+  ABOUT: 'About',
+  SIGN_OUT: 'Sign Out',
 };
 
 export default copies;
