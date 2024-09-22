@@ -6,8 +6,9 @@ import containers from 'src/styles/containers';
 import {getThemedStyles} from 'src/utils/theme';
 import {useAppSelector} from 'src/hooks/reduxHooks';
 import font from 'src/styles/font';
+import Logo from 'src/components/atoms/Logo';
 
-const {FDA, NUMBER_1_FOOD_DELIVERY_APP_IN_INDIA} = copies;
+const {NUMBER_1_FOOD_DELIVERY_APP_IN_INDIA} = copies;
 
 const SplashScreen = () => {
   const theme = useAppSelector(state => state.themeReducer.theme);
@@ -19,15 +20,7 @@ const SplashScreen = () => {
         getThemedStyles({backgroundColor: theme?.primaryDark}),
       ]}>
       <View style={styles.textContainer}>
-        <Text
-          style={[
-            styles.title,
-            getThemedStyles({
-              color: theme?.bgTextHigh,
-            }),
-          ]}>
-          {FDA}
-        </Text>
+        <Logo />
         <Text
           style={[styles.tagline, getThemedStyles({color: theme?.bgTextMid})]}>
           {NUMBER_1_FOOD_DELIVERY_APP_IN_INDIA}

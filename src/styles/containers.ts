@@ -18,10 +18,17 @@ const columnCenterCenter: ViewStyle = {
   justifyContent: 'center',
 };
 
+const rowCenterStart: ViewStyle = {
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'flex-start',
+};
+
 const containers = {
   rowCenterCenter,
   columnStretchCenter,
   columnCenterCenter,
+  rowCenterStart,
 };
 
 export default containers;

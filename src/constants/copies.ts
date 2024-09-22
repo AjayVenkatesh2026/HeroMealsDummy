@@ -1,6 +1,15 @@
 const copies = {
   FDA: 'FDA',
   NUMBER_1_FOOD_DELIVERY_APP_IN_INDIA: '#1 food delivery app in india',
+  NUMBER_1_FOOD_DELIVERY_APP_IN_INDIA_CAPITALIZED:
+    '#1 Food Delivery App In India',
+  ENTER_MOBILE_NUMBER: 'Enter Mobile Number',
+  CONTINUE: 'Continue',
+  LOGIN_OR: 'Login or',
+  SIGN_UP: 'sign up',
+  BY_CONTINUING_YOU_AGREE_TO_OUT: 'By continuing, you agree to our',
+  TERMS_AND_SERVICES: 'Terms and Services',
+  PRIVACY_POLICY: 'Privacy Policy',
 };
 
 export default copies;

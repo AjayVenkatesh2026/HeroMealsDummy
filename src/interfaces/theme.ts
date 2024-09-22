@@ -1,4 +1,4 @@
-import {ColorValue} from 'react-native';
+type ColorValue = string | undefined;
 
 interface ITheme {
   name: ColorValue;
@@ -17,6 +17,9 @@ interface ITheme {
   bgTextHigh: ColorValue;
   bgTextMid: ColorValue;
   bgTextLow: ColorValue;
+  borderPrimary: ColorValue;
+  borderSecondary: ColorValue;
+  borderTertiary: ColorValue;
 }
 
 export {type ITheme};

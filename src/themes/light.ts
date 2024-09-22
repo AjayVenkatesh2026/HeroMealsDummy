@@ -24,10 +24,16 @@ const textPalette = {
   textDisabled: grayPalette.lavendarGray,
 };
 
-const bgTextPallette = {
+const bgTextPalette = {
   bgTextHigh: whitePalette.white,
   bgTextMid: whitePalette.white75,
   bgTextLow: whitePalette.white50,
+};
+
+const borderPallette = {
+  borderPrimary: grayPalette.lavendarGray,
+  borderSecondary: grayPalette.gainsboro,
+  borderTertiary: whitePalette.antiFlash,
 };
 
 const light = {
@@ -35,7 +41,8 @@ const light = {
   ...primaryPalette,
   ...backgroundPalette,
   ...textPalette,
-  ...bgTextPallette,
+  ...bgTextPalette,
+  ...borderPallette,
 };
 
 export default light;
