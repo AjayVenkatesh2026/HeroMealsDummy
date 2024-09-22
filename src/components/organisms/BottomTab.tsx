@@ -40,7 +40,12 @@ export default function BottomTab() {
       tabBar={renderTabBar}>
       {tabs.map(({name, component, options}) => {
         return (
-          <Tab.Screen name={name} component={component} options={options} />
+          <Tab.Screen
+            key={name}
+            name={name}
+            component={component}
+            options={options}
+          />
         );
       })}
     </Tab.Navigator>

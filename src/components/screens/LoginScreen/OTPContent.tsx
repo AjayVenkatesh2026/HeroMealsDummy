@@ -4,6 +4,9 @@ import {OtpInput} from 'react-native-otp-entry';
 import {Button} from 'react-native-paper';
 import {useAppSelector} from 'src/hooks/reduxHooks';
 import {getThemedStyles} from 'src/utils/theme';
+import copies from 'src/constants/copies';
+
+const {LOGIN, RESEND_OTP, BACK} = copies;
 
 const OTPContent = ({setShowOTP}: {setShowOTP: Function}) => {
   const theme = useAppSelector(state => state.themeReducer.theme);
@@ -34,7 +37,7 @@ const OTPContent = ({setShowOTP}: {setShowOTP: Function}) => {
         buttonColor={theme?.primaryDark}
         onPress={onPressLogin}
         style={styles.button}>
-        Login
+        {LOGIN}
       </Button>
       <Button
         mode="outlined"
@@ -44,10 +47,10 @@ const OTPContent = ({setShowOTP}: {setShowOTP: Function}) => {
           styles.button,
           getThemedStyles({borderColor: theme?.primaryDark}),
         ]}>
-        Resend OTP
+        {RESEND_OTP}
       </Button>
       <Button mode="text" textColor={theme?.primaryDark} onPress={onPressBack}>
-        Back
+        {BACK}
       </Button>
     </View>
   );
