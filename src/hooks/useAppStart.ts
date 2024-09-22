@@ -25,7 +25,7 @@ const useAppStart = () => {
           }),
         );
       }
-    }, 3000);
+    }, 1500);
   }, [dispatch, navigation]);
 };
 
