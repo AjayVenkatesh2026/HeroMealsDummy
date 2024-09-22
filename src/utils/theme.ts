@@ -1,6 +1,6 @@
 import type {ColorValue} from 'react-native';
 
-import type {Style} from 'src/interfaces/global';
+import type {Style} from 'src/types/global';
 
 const getThemedStyles = ({
   backgroundColor,
