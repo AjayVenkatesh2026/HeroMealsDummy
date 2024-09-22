@@ -54,7 +54,7 @@ const LoginContent = ({
               style={[styles.text, getThemedStyles({color: theme?.textMid})]}>
               {LOGIN_OR}{' '}
             </Text>
-            <TouchableOpacity onPress={onPressSignUp}>
+            <TouchableOpacity onPress={onPressSignUp} disabled>
               <Text
                 style={[
                   styles.signUpText,
