@@ -23,6 +23,7 @@ const copies = {
   SIGN_OUT: 'Sign Out',
   ORDER_PLACED_ON: 'Order placed on',
   RUPEE: '\u20B9',
+  RATINGS: 'ratings',
 };
 
 export default copies;

@@ -7,6 +7,7 @@ import containers from 'src/styles/containers';
 import {useAppSelector} from 'src/hooks/reduxHooks';
 import {getThemedStyles} from 'src/utils/theme';
 import type {HeaderProps} from 'src/types/global';
+import {useNavigation} from '@react-navigation/native';
 
 const Header = ({
   leadingIcon,
@@ -17,11 +18,18 @@ const Header = ({
   trailingIconLabel = '',
   children,
   containerStyles = {},
+  showBack = false,
 }: PropsWithChildren<HeaderProps>) => {
+  const navigation = useNavigation();
   const theme = useAppSelector(state => state.themeReducer.theme);
+
+  const onPressBack = () => {
+    navigation.goBack();
+  };
 
   return (
     <Appbar.Header style={[containerStyles]}>
+      {showBack ? <Appbar.BackAction onPress={onPressBack} /> : null}
       {leadingIcon ? (
         <Appbar.Action
           icon={leadingIcon}

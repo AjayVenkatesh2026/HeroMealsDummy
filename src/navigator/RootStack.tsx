@@ -8,6 +8,7 @@ import useAppStart from 'src/hooks/useAppStart';
 import AuthStack from './AuthStack';
 import screenNames from 'src/constants/screenNames';
 import BottomTab from '../components/organisms/BottomTab';
+import ProductsStack from './ProductsStack';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const {rootStackScreenNames} = screenNames;
@@ -30,6 +31,10 @@ const RootStack = () => {
       <Stack.Screen
         name={rootStackScreenNames.BottomTab}
         component={BottomTab}
+      />
+      <Stack.Screen
+        name={rootStackScreenNames.ProductStack}
+        component={ProductsStack}
       />
     </Stack.Navigator>
   );

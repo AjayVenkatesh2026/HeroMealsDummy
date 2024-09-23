@@ -1,4 +1,5 @@
 import type {NavigatorScreenParams} from '@react-navigation/native';
+import {IRestaurant} from '../ordering';
 
 type BottomTabOption = {
   icon: string;
@@ -15,17 +16,30 @@ type BottomTabParamList = {
   ProfileScreen: BottomTabOption;
 };
 
+type ProductStackParamList = {
+  ProductsScreen: {
+    restaurant: IRestaurant;
+  };
+};
+
 type RootStackParamList = {
   SplashScreen: undefined;
   AuthStack: NavigatorScreenParams<AuthStackParamList>;
   BottomTab: NavigatorScreenParams<BottomTabParamList>;
+  ProductStack: NavigatorScreenParams<ProductStackParamList>;
 };
 
-type RootStackScreens = 'SplashScreen' | 'AuthStack' | 'BottomTab';
+type RootStackScreens =
+  | 'SplashScreen'
+  | 'AuthStack'
+  | 'BottomTab'
+  | 'ProductStack';
 
 type AuthStackScreens = 'LoginScreen';
 
 type BottomTabScreens = 'HomeScreen' | 'OrderHistoryScreen' | 'ProfileScreen';
+
+type ProductStackScreens = 'ProductsScreen';
 
 interface ITab {
   name: BottomTabScreens;
@@ -42,5 +56,7 @@ export type {
   AuthStackScreens,
   BottomTabScreens,
   BottomTabOption,
+  ProductStackParamList,
+  ProductStackScreens,
   ITab,
 };

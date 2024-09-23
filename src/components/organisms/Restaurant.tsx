@@ -1,7 +1,8 @@
-import {StyleSheet, View} from 'react-native';
+import {StyleProp, StyleSheet, View, ViewStyle} from 'react-native';
 import React from 'react';
 
 import {Button, Card, Text} from 'react-native-paper';
+import {useNavigation} from '@react-navigation/native';
 
 import type {IRestaurant} from 'src/types/ordering';
 import font from 'src/styles/font';
@@ -11,29 +12,60 @@ import containers from 'src/styles/containers';
 import {STAR} from 'src/constants/icons';
 import copies from 'src/constants/copies';
 import FDAImage from '../atoms/FDAImage';
+import screenNames from 'src/constants/screenNames';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RootStackParamList} from 'src/types/navigator';
 
 const {MINS} = copies;
+const {productStackScreenNames} = screenNames;
 
-const Restaurant = ({restaurant}: {restaurant: IRestaurant}) => {
+type RestaurantProps = {
+  restaurant: IRestaurant;
+  onPress?: () => void;
+  style?: StyleProp<ViewStyle>;
+  showImage?: boolean;
+  mode?: 'outlined' | 'contained' | 'elevated' | undefined;
+};
+
+const Restaurant: React.FC<RestaurantProps> = ({
+  restaurant,
+  onPress,
+  style,
+  showImage = true,
+  mode = 'contained',
+}) => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const theme = useAppSelector(state => state.themeReducer.theme);
   const {name, image, distance, duration, rating} = restaurant;
   const description = `${distance} \u2022 ${duration} ${MINS}`;
 
   const onPressRestaurantCard = () => {
-    // TODO: navigato to products screen
+    if (onPress) {
+      onPress();
+    } else {
+      navigation.navigate('ProductStack', {
+        screen: productStackScreenNames.ProductsScreen,
+        params: {
+          restaurant,
+        },
+      });
+    }
   };
 
   return (
-    <Card style={styles.mainContainer} onPress={onPressRestaurantCard}>
-      <FDAImage url={image} style={styles.image} resizeMode="cover" />
+    <Card
+      style={[styles.mainContainer, style]}
+      onPress={onPressRestaurantCard}
+      mode={mode}>
+      {showImage ? (
+        <FDAImage url={image} style={styles.image} resizeMode="cover" />
+      ) : null}
       <View style={styles.contentContainer}>
         <View style={containers.rowCenterBetween}>
           <Text
             variant={'titleLarge'}
-            style={[
-              {...font.semiBold},
-              getThemedStyles({color: theme?.textHigh}),
-            ]}>
+            style={[font.semiBold, getThemedStyles({color: theme?.textHigh})]}>
             {name}
           </Text>
           <Button
@@ -45,15 +77,13 @@ const Restaurant = ({restaurant}: {restaurant: IRestaurant}) => {
         </View>
         <Text
           variant={'bodyMedium'}
-          style={[{...font.regular}, getThemedStyles({color: theme?.textMid})]}>
+          style={[font.regular, getThemedStyles({color: theme?.textMid})]}>
           {description}
         </Text>
       </View>
     </Card>
   );
 };
-
-export default Restaurant;
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -73,3 +103,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'green',
   },
 });
+
+export default Restaurant;

@@ -31,6 +31,11 @@ interface IProduct {
   id: string;
   name: string;
   price: number;
+  description: string;
+  rating: number;
+  num_of_ratings: number;
+  image: string;
+  restaurant_id: string;
 }
 
 interface IOrderRestaurant {
@@ -43,7 +48,10 @@ interface IOrderRestaurant {
   rating?: number;
 }
 
-interface IOrderProduct extends IProduct {
+interface IOrderProduct {
+  id: string;
+  name: string;
+  price: number;
   quantity: number;
 }
 
@@ -66,4 +74,4 @@ interface IOrder {
   payment: IOrderPayment;
 }
 
-export type {IProfile, IAddress, IRestaurant, IOrder, IOrderProduct};
+export type {IProfile, IAddress, IRestaurant, IOrder, IOrderProduct, IProduct};

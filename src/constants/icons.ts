@@ -8,6 +8,8 @@ const ACCOUNT_OUTLINE = 'account-outline';
 const CHEVRON_RIGHT = 'chevron-right';
 const INFORMATION_OUTLINE = 'information-outline';
 const POWER = 'power';
+const MINUS = 'minus';
+const PLUS = 'plus';
 
 export {
   STAR,
@@ -20,4 +22,6 @@ export {
   CHEVRON_RIGHT,
   INFORMATION_OUTLINE,
   POWER,
+  MINUS,
+  PLUS,
 };

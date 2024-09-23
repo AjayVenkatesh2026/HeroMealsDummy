@@ -36,6 +36,18 @@ const rowCenterBetween: ViewStyle = {
   justifyContent: 'space-between',
 };
 
+const columnStartStart: ViewStyle = {
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  justifyContent: 'flex-start',
+};
+
+const rowStretchCenter: ViewStyle = {
+  flexDirection: 'row',
+  alignItems: 'stretch',
+  justifyContent: 'center',
+};
+
 const containers = {
   rowCenterCenter,
   columnStretchCenter,
@@ -43,6 +55,8 @@ const containers = {
   rowCenterStart,
   columnStartCenter,
   rowCenterBetween,
+  columnStartStart,
+  rowStretchCenter,
 };
 
 export default containers;
