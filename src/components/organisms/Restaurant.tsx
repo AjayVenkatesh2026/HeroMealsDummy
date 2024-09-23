@@ -10,7 +10,6 @@ import {useAppSelector} from 'src/hooks/reduxHooks';
 import containers from 'src/styles/containers';
 import {STAR} from 'src/constants/icons';
 import copies from 'src/constants/copies';
-
 import FDAImage from '../atoms/FDAImage';
 
 const {MINS} = copies;

@@ -1,4 +1,5 @@
 import {useCallback, useState} from 'react';
+
 import {dummyRestaurantsList} from 'src/constants/dummyData';
 import type {IRestaurant} from 'src/types/ordering';
 

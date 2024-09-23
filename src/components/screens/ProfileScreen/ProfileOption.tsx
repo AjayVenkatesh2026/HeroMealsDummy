@@ -1,8 +1,10 @@
 import {Dimensions, StyleSheet} from 'react-native';
 import React from 'react';
-import {IProfileOption} from 'src/types/global';
+
 import {Card, Menu} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
+
+import type {IProfileOption} from 'src/types/global';
 
 const {width: WINDOW_WIDTH} = Dimensions.get('window');
 

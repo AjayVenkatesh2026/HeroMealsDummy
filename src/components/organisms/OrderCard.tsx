@@ -1,13 +1,15 @@
 import {StyleSheet, View} from 'react-native';
 import React from 'react';
-import type {IOrder, IOrderProduct} from 'src/types/ordering';
+
 import {Card, Divider, Text} from 'react-native-paper';
+import {format} from 'date-fns';
+
+import type {IOrder, IOrderProduct} from 'src/types/ordering';
 import {useAppSelector} from 'src/hooks/reduxHooks';
 import containers from 'src/styles/containers';
 import FDAImage from '../atoms/FDAImage';
 import font from 'src/styles/font';
 import {getThemedStyles} from 'src/utils/theme';
-import {format} from 'date-fns';
 import {ddLLLhhmmbb} from 'src/constants/date';
 import copies from 'src/constants/copies';
 import {getFormattedPrice} from 'src/utils/helpers';

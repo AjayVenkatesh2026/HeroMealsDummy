@@ -30,7 +30,7 @@ const Header = ({
         />
       ) : null}
       {children}
-      <View style={{...containers.columnCenterCenter}}>
+      <View style={containers.columnCenterCenter}>
         {trailingIcon ? (
           <>
             <Appbar.Action

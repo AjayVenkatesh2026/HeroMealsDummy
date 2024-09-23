@@ -4,6 +4,7 @@ import type {
   ViewStyle,
   GestureResponderEvent,
   StyleProp,
+  ImageProps,
 } from 'react-native';
 
 type Style = ViewStyle | TextStyle | ImageStyle;
@@ -30,4 +31,8 @@ type HeaderProps = {
   containerStyles?: StyleProp<ViewStyle>;
 };
 
-export type {Style, IProfileOption, INavigation, HeaderProps};
+interface FDAImage extends ImageProps {
+  url?: string;
+}
+
+export type {Style, IProfileOption, INavigation, HeaderProps, FDAImage};

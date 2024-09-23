@@ -1,4 +1,4 @@
-import {INavigation, IProfileOption} from 'src/types/global';
+import type {INavigation, IProfileOption} from 'src/types/global';
 import screenNames from './screenNames';
 import {
   ACCOUNT_OUTLINE,
