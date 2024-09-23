@@ -10,6 +10,19 @@ const copies = {
   BY_CONTINUING_YOU_AGREE_TO_OUT: 'By continuing, you agree to our',
   TERMS_AND_SERVICES: 'Terms and Services',
   PRIVACY_POLICY: 'Privacy Policy',
+  CART: 'Cart',
+  SEARCH: 'Search',
+  INDIA_COUNTRY_CODE: '+91',
+  MINS: 'mins',
+  LOGIN: 'Login',
+  RESEND_OTP: 'Resend OTP',
+  BACK: 'Back',
+  YOUR_PROFILE: 'Your Profile',
+  YOUR_ORDERS: 'Your Orders',
+  ABOUT: 'About',
+  SIGN_OUT: 'Sign Out',
+  ORDER_PLACED_ON: 'Order placed on',
+  RUPEE: '\u20B9',
 };
 
 export default copies;

@@ -24,6 +24,7 @@ const {
   BY_CONTINUING_YOU_AGREE_TO_OUT,
   TERMS_AND_SERVICES,
   PRIVACY_POLICY,
+  INDIA_COUNTRY_CODE,
 } = copies;
 
 const LoginContent = ({
@@ -69,7 +70,7 @@ const LoginContent = ({
             onChangeText={onNumberChange}
             placeholder={ENTER_MOBILE_NUMBER}
             keyboardType="numeric"
-            leftLabel="+91"
+            leftLabel={INDIA_COUNTRY_CODE}
             autoFocus
             maxLength={10}
             containerStyles={getThemedStyles({
