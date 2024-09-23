@@ -20,7 +20,6 @@ const renderTabIcon = ({
 }) => {
   return <Icon name={icon} size={size} color={color} />;
 };
-
 // TODO: try and resolve Warning: A props object containing a "key" prop is being spread into JSX:
 const BottomTabBar = ({
   navigation,
