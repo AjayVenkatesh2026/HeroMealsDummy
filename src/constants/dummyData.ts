@@ -22,6 +22,7 @@ const dummyProfile: IProfile = {
   gender: 'Male',
   image: '',
   address: dummyAddress,
+  phone_number: '9848452084',
 };
 
 const dummyRestaurantsList: IRestaurant[] = [

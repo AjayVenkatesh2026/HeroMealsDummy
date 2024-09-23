@@ -29,7 +29,9 @@ const ProductsScreen: React.FC<ProductsScreenProps> = () => {
   const {
     params: {restaurant},
   } = useRoute<RouteProp<ProductStackParamList, 'ProductsScreen'>>();
-  const {loading, products, getProducts, getMoreProducts} = useGetProducts();
+  const {loading, products, getProducts, getMoreProducts} = useGetProducts({
+    restaurantId: restaurant.id,
+  });
 
   useLayoutEffect(() => {
     // TODO: add / remove restaurants from redux in a more efficent way
@@ -54,6 +56,7 @@ const ProductsScreen: React.FC<ProductsScreenProps> = () => {
       ]}>
       <Header
         showBack
+        leadingIconColor={theme?.primaryDark}
         containerStyles={getThemedStyles({
           backgroundColor: theme?.surface,
         })}

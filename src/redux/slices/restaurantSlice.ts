@@ -25,8 +25,12 @@ const restaurantSlice = createSlice({
         restaurant => restaurant.id !== action.payload.id,
       );
     },
+    clearRestaurants: state => {
+      state.restaurants = [];
+    },
   },
 });
 
-export const {addRestaurant, removeRestaurant} = restaurantSlice.actions;
+export const {addRestaurant, removeRestaurant, clearRestaurants} =
+  restaurantSlice.actions;
 export default restaurantSlice.reducer;

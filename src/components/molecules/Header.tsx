@@ -1,14 +1,15 @@
 import {View} from 'react-native';
 import React, {PropsWithChildren} from 'react';
 
+import {useNavigation} from '@react-navigation/native';
 import {Appbar, Text} from 'react-native-paper';
 
 import containers from 'src/styles/containers';
 import {useAppSelector} from 'src/hooks/reduxHooks';
 import {getThemedStyles} from 'src/utils/theme';
 import type {HeaderProps} from 'src/types/global';
-import {useNavigation} from '@react-navigation/native';
 
+// TODO: Add Cart icon button for trailing icon
 const Header = ({
   leadingIcon,
   trailingIcon,
@@ -19,6 +20,7 @@ const Header = ({
   children,
   containerStyles = {},
   showBack = false,
+  leadingIconColor,
 }: PropsWithChildren<HeaderProps>) => {
   const navigation = useNavigation();
   const theme = useAppSelector(state => state.themeReducer.theme);
@@ -29,11 +31,13 @@ const Header = ({
 
   return (
     <Appbar.Header style={[containerStyles]}>
-      {showBack ? <Appbar.BackAction onPress={onPressBack} /> : null}
+      {showBack ? (
+        <Appbar.BackAction onPress={onPressBack} color={leadingIconColor} />
+      ) : null}
       {leadingIcon ? (
         <Appbar.Action
           icon={leadingIcon}
-          color={theme?.bgTextHigh}
+          color={leadingIconColor || theme?.bgTextHigh}
           onPress={onPressLeadingIcon}
         />
       ) : null}

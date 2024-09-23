@@ -1,4 +1,8 @@
-type TItem = {id: string; name: string; quantity: number};
+type TItem = {
+  id: string;
+  name: string;
+  quantity: number;
+};
 
 interface IProductsQuantitiesProps {
   items: TItem[];

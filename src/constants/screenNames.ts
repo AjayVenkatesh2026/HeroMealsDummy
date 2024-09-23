@@ -3,6 +3,7 @@ import type {
   AuthStackScreens,
   BottomTabScreens,
   ProductStackScreens,
+  OrderStackScreens,
 } from 'src/types/navigator';
 
 const rootStackScreenNames: {[key in RootStackScreens]: RootStackScreens} = {
@@ -10,6 +11,7 @@ const rootStackScreenNames: {[key in RootStackScreens]: RootStackScreens} = {
   AuthStack: 'AuthStack',
   BottomTab: 'BottomTab',
   ProductStack: 'ProductStack',
+  OrderStack: 'OrderStack',
 };
 
 const loginStackScreenNames: {[key in AuthStackScreens]: AuthStackScreens} = {
@@ -28,11 +30,18 @@ const productStackScreenNames: {
   ProductsScreen: 'ProductsScreen',
 };
 
+const orderStackScreenNames: {
+  [key in OrderStackScreens]: OrderStackScreens;
+} = {
+  CartHomeScreen: 'CartHomeScreen',
+};
+
 const screenNames = {
   rootStackScreenNames,
   loginStackScreenNames,
   bottomTabScreenNames,
   productStackScreenNames,
+  orderStackScreenNames,
 };
 
 export default screenNames;

@@ -30,6 +30,7 @@ type HeaderProps = {
   trailingIconLabel?: string;
   containerStyles?: StyleProp<ViewStyle>;
   showBack?: boolean;
+  leadingIconColor?: string;
 };
 
 interface FDAImage extends ImageProps {

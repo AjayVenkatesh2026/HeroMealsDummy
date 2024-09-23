@@ -1,7 +1,5 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Text} from 'react-native';
 import React, {type FC} from 'react';
-
-import {Text} from 'react-native-paper';
 
 import {useAppSelector} from 'src/hooks/reduxHooks';
 import {getThemedStyles} from 'src/utils/theme';
@@ -13,8 +11,12 @@ const QuantityXProduct: FC<IQuantityXProductProps> = ({quantity, name}) => {
 
   return (
     <Text
-      variant="bodySmall"
-      style={[styles.productDetail, getThemedStyles({color: theme?.textHigh})]}>
+      style={[
+        styles.productDetail,
+        getThemedStyles({
+          color: theme?.textHigh,
+        }),
+      ]}>
       {quantity} x {name}
     </Text>
   );
@@ -23,7 +25,8 @@ const QuantityXProduct: FC<IQuantityXProductProps> = ({quantity, name}) => {
 const styles = StyleSheet.create({
   productDetail: {
     ...font.semiBold,
-    paddingVertical: 2,
+    marginBottom: 0,
+    fontSize: 12,
   },
 });
 

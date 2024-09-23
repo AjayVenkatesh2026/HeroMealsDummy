@@ -2,15 +2,20 @@ import {StyleSheet, View} from 'react-native';
 import React, {useRef} from 'react';
 import {OtpInput} from 'react-native-otp-entry';
 import {Button} from 'react-native-paper';
-import {useAppSelector} from 'src/hooks/reduxHooks';
+import {useAppDispatch, useAppSelector} from 'src/hooks/reduxHooks';
 import {getThemedStyles} from 'src/utils/theme';
 import copies from 'src/constants/copies';
+import {updateProfile} from 'src/redux/slices/profileSlice';
+import {dummyProfile} from 'src/constants/dummyData';
+import {StackActions, useNavigation} from '@react-navigation/native';
 
 const {LOGIN, RESEND_OTP, BACK} = copies;
 
 const OTPContent = ({setShowOTP}: {setShowOTP: Function}) => {
   const theme = useAppSelector(state => state.themeReducer.theme);
+  const dispatch = useAppDispatch();
   const textRef = useRef<string>('');
+  const navigation = useNavigation();
 
   const onTextChange = (text: string) => {
     textRef.current = text;
@@ -18,6 +23,8 @@ const OTPContent = ({setShowOTP}: {setShowOTP: Function}) => {
 
   const onPressLogin = () => {
     // TODO: call login api with text
+    dispatch(updateProfile(dummyProfile));
+    navigation.dispatch(StackActions.replace('BottomTab'));
     console.log(textRef.current);
   };
 

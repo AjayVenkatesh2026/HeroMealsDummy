@@ -11,9 +11,9 @@ type AuthStackParamList = {
 };
 
 type BottomTabParamList = {
-  HomeScreen: BottomTabOption;
-  OrderHistoryScreen: BottomTabOption;
-  ProfileScreen: BottomTabOption;
+  HomeScreen: undefined;
+  OrderHistoryScreen: undefined;
+  ProfileScreen: undefined;
 };
 
 type ProductStackParamList = {
@@ -22,24 +22,32 @@ type ProductStackParamList = {
   };
 };
 
+type OrderStackParamList = {
+  CartHomeScreen: undefined;
+};
+
 type RootStackParamList = {
   SplashScreen: undefined;
   AuthStack: NavigatorScreenParams<AuthStackParamList>;
   BottomTab: NavigatorScreenParams<BottomTabParamList>;
   ProductStack: NavigatorScreenParams<ProductStackParamList>;
+  OrderStack: NavigatorScreenParams<OrderStackParamList>;
 };
 
 type RootStackScreens =
   | 'SplashScreen'
   | 'AuthStack'
   | 'BottomTab'
-  | 'ProductStack';
+  | 'ProductStack'
+  | 'OrderStack';
 
 type AuthStackScreens = 'LoginScreen';
 
 type BottomTabScreens = 'HomeScreen' | 'OrderHistoryScreen' | 'ProfileScreen';
 
 type ProductStackScreens = 'ProductsScreen';
+
+type OrderStackScreens = 'CartHomeScreen';
 
 interface ITab {
   name: BottomTabScreens;
@@ -58,5 +66,7 @@ export type {
   BottomTabOption,
   ProductStackParamList,
   ProductStackScreens,
+  OrderStackParamList,
+  OrderStackScreens,
   ITab,
 };

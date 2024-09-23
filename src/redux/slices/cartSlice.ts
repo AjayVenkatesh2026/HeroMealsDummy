@@ -1,10 +1,9 @@
 import {createSlice, type PayloadAction} from '@reduxjs/toolkit';
 
 import type {IProduct} from 'src/types/ordering';
+import {ICartSlice} from 'src/types/redux';
 
-const initialState: {
-  products: {[key: string]: {details: IProduct; quantity: number}};
-} = {
+const initialState: ICartSlice = {
   products: {},
 };
 
@@ -36,8 +35,12 @@ const cartSlice = createSlice({
         cartProduct.quantity -= 1;
       }
     },
+    clearCart: state => {
+      state.products = {};
+    },
   },
 });
 
-export const {addProductQuantity, minusProductQuantity} = cartSlice.actions;
+export const {addProductQuantity, minusProductQuantity, clearCart} =
+  cartSlice.actions;
 export default cartSlice.reducer;

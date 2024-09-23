@@ -1,5 +1,4 @@
 import {TDateISO} from './date';
-
 interface IAddress {
   landmark: string;
   line_1: string;
@@ -14,6 +13,7 @@ interface IProfile {
   image?: string;
   gender: string;
   token: string;
+  phone_number: string;
   address: IAddress;
 }
 
@@ -62,6 +62,22 @@ interface IOrderPayment {
 
 type OrderStatus = 'Pending' | 'Cancelled' | 'Placed' | 'Delivered';
 
+interface ICartProduct {
+  details: IProduct;
+  quantity: number;
+}
+
+interface ICartData {
+  restaurant: IRestaurant;
+  products?: ICartProduct[];
+  orderData: {
+    total: number;
+    deliveryFee?: number;
+    tax?: number;
+    platformFee?: number;
+  };
+}
+
 interface IOrder {
   id: string;
   order_status: OrderStatus;
@@ -74,4 +90,13 @@ interface IOrder {
   payment: IOrderPayment;
 }
 
-export type {IProfile, IAddress, IRestaurant, IOrder, IOrderProduct, IProduct};
+export type {
+  IProfile,
+  IAddress,
+  IRestaurant,
+  IOrder,
+  IOrderProduct,
+  IProduct,
+  ICartProduct,
+  ICartData,
+};
