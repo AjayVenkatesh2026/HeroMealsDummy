@@ -1,15 +1,18 @@
 import {StyleSheet, View} from 'react-native';
 import React, {useRef} from 'react';
+
 import {OtpInput} from 'react-native-otp-entry';
-import {Button} from 'react-native-paper';
+import {Button, Text} from 'react-native-paper';
+import {StackActions, useNavigation} from '@react-navigation/native';
+
 import {useAppDispatch, useAppSelector} from 'src/hooks/reduxHooks';
 import {getThemedStyles} from 'src/utils/theme';
 import copies from 'src/constants/copies';
 import {updateProfile} from 'src/redux/slices/profileSlice';
 import {dummyProfile} from 'src/constants/dummyData';
-import {StackActions, useNavigation} from '@react-navigation/native';
+import font from 'src/styles/font';
 
-const {LOGIN, RESEND_OTP, BACK} = copies;
+const {LOGIN, RESEND_OTP, BACK, ENTER_OTP} = copies;
 
 const OTPContent = ({setShowOTP}: {setShowOTP: Function}) => {
   const theme = useAppSelector(state => state.themeReducer.theme);
@@ -38,6 +41,9 @@ const OTPContent = ({setShowOTP}: {setShowOTP: Function}) => {
 
   return (
     <View style={styles.container}>
+      <Text variant="titleLarge" style={styles.title}>
+        {ENTER_OTP}
+      </Text>
       <OtpInput numberOfDigits={6} onTextChange={onTextChange} />
       <Button
         mode="contained"
@@ -69,7 +75,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 16,
-    paddingTop: 100,
+    paddingTop: 80,
+  },
+  title: {
+    ...font.semiBold,
+    alignSelf: 'center',
+    marginBottom: 16,
   },
   button: {
     alignSelf: 'stretch',

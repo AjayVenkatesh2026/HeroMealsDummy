@@ -28,4 +28,15 @@ const getCartRestaurantData = ({
   };
 };
 
-export {getCartRestaurantData};
+const getProductTotalAllRestaurants = (cart: {
+  [key: string]: ICartProduct;
+}): number => {
+  const products = Object.values(cart);
+
+  return products.reduce(
+    (acc, product) => acc + product.details.price * product.quantity,
+    0,
+  );
+};
+
+export {getCartRestaurantData, getProductTotalAllRestaurants};

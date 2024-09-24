@@ -20,6 +20,7 @@ interface ITheme {
   borderPrimary: ColorValue;
   borderSecondary: ColorValue;
   borderTertiary: ColorValue;
+  accentPrimary: ColorValue;
 }
 
 export {type ITheme};

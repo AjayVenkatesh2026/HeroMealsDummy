@@ -61,7 +61,10 @@ const Restaurant: React.FC<IRestaurantProps> = ({
             {name}
           </Text>
           <Button
-            contentStyle={styles.buttonContent}
+            contentStyle={[
+              styles.buttonContent,
+              getThemedStyles({backgroundColor: theme?.accentPrimary}),
+            ]}
             labelStyle={getThemedStyles({color: theme?.bgTextHigh})}
             icon={STAR}>
             {rating}
@@ -91,8 +94,6 @@ const styles = StyleSheet.create({
   },
   buttonContent: {
     flexDirection: 'row-reverse',
-    // TODO: remove hard coded color
-    backgroundColor: 'green',
   },
 });
 

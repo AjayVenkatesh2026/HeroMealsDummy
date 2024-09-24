@@ -36,6 +36,7 @@ const copies = {
   PLATFORM_FEE: 'Platform Fee',
   GRAND_TOTAL: 'Grand Total',
   PLACE_ORDER: 'Place Order',
+  ENTER_OTP: 'Enter OTP',
 };
 
 export default copies;
