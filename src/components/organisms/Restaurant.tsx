@@ -1,10 +1,10 @@
-import {StyleProp, StyleSheet, View, ViewStyle} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React from 'react';
 
 import {Button, Card, Text} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
-import type {IRestaurant} from 'src/types/ordering';
 import font from 'src/styles/font';
 import {getThemedStyles} from 'src/utils/theme';
 import {useAppSelector} from 'src/hooks/reduxHooks';
@@ -13,21 +13,13 @@ import {STAR} from 'src/constants/icons';
 import copies from 'src/constants/copies';
 import FDAImage from '../atoms/FDAImage';
 import screenNames from 'src/constants/screenNames';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from 'src/types/navigator';
+import type {IRestaurantProps} from 'src/types/organisms';
 
 const {MINS} = copies;
 const {productStackScreenNames} = screenNames;
 
-type RestaurantProps = {
-  restaurant: IRestaurant;
-  onPress?: () => void;
-  style?: StyleProp<ViewStyle>;
-  showImage?: boolean;
-  mode?: 'outlined' | 'contained' | 'elevated' | undefined;
-};
-
-const Restaurant: React.FC<RestaurantProps> = ({
+const Restaurant: React.FC<IRestaurantProps> = ({
   restaurant,
   onPress,
   style,

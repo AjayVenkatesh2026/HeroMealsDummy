@@ -1,7 +1,21 @@
-import type {ICartData} from './ordering';
+import type {StyleProp, ViewStyle} from 'react-native';
+
+import type {ICartData, IProduct, IRestaurant} from './ordering';
 
 interface RestaurantInCartProps {
   restaurantData: ICartData;
 }
 
-export type {RestaurantInCartProps};
+interface IQuantitySelectorProps {
+  product: IProduct;
+}
+
+interface IRestaurantProps {
+  restaurant: IRestaurant;
+  onPress?: () => void;
+  style?: StyleProp<ViewStyle>;
+  showImage?: boolean;
+  mode?: 'outlined' | 'contained' | 'elevated' | undefined;
+}
+
+export type {RestaurantInCartProps, IQuantitySelectorProps, IRestaurantProps};

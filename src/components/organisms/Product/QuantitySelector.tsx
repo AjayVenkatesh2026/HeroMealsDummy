@@ -3,7 +3,6 @@ import React from 'react';
 
 import {IconButton, Text} from 'react-native-paper';
 
-import {IProduct} from 'src/types/ordering';
 import containers from 'src/styles/containers';
 import {MINUS, PLUS} from 'src/constants/icons';
 import {useAppDispatch, useAppSelector} from 'src/hooks/reduxHooks';
@@ -12,12 +11,9 @@ import {
   addProductQuantity,
   minusProductQuantity,
 } from 'src/redux/slices/cartSlice';
+import type {IQuantitySelectorProps} from 'src/types/organisms';
 
-interface QuantitySelectorProps {
-  product: IProduct;
-}
-
-const QuantitySelector: React.FC<QuantitySelectorProps> = ({product}) => {
+const QuantitySelector: React.FC<IQuantitySelectorProps> = ({product}) => {
   const theme = useAppSelector(state => state.themeReducer.theme);
   const cartProduct = useAppSelector(
     state => state.cartReducer.products[product.id],

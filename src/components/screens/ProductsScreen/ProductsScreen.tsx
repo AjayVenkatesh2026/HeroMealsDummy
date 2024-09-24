@@ -21,9 +21,7 @@ const keyExtractor = (item: IProduct) => item.id;
 
 const renderSeparator = () => <Divider bold />;
 
-interface ProductsScreenProps {}
-
-const ProductsScreen: React.FC<ProductsScreenProps> = () => {
+const ProductsScreen: React.FC = () => {
   const theme = useAppSelector(state => state.themeReducer.theme);
   const dispatch = useAppDispatch();
   const {
