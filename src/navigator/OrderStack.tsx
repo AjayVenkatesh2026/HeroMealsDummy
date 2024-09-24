@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import CartHomeScreen from 'src/components/screens/CartHomeScreen/CartHomeScreen';
 import type {OrderStackParamList} from 'src/types/navigator';
 import screenNames from 'src/constants/screenNames';
+import OrderDetails from 'src/components/screens/OrderDetails/OrderDetails';
 
 const {orderStackScreenNames} = screenNames;
 
@@ -17,6 +18,10 @@ const OrderStack = () => {
       <Stack.Screen
         name={orderStackScreenNames.CartHomeScreen}
         component={CartHomeScreen}
+      />
+      <Stack.Screen
+        name={orderStackScreenNames.OrderDetails}
+        component={OrderDetails}
       />
     </Stack.Navigator>
   );

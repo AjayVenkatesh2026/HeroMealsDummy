@@ -1,4 +1,4 @@
-import type {StyleProp, ViewStyle} from 'react-native';
+import type {StyleProp, ViewStyle, ViewProps, TextStyle} from 'react-native';
 
 interface IQuantityXProductProps {
   quantity: number;
@@ -8,4 +8,16 @@ interface ISeparator {
   style?: StyleProp<ViewStyle>;
 }
 
-export type {IQuantityXProductProps, ISeparator};
+interface IHeading extends ViewProps {
+  title: string;
+  description: string;
+}
+
+interface IKeyValueProps extends ViewProps {
+  name: string;
+  value: string;
+  keyStyles?: StyleProp<TextStyle>;
+  valueStyles?: StyleProp<TextStyle>;
+}
+
+export type {IQuantityXProductProps, ISeparator, IHeading, IKeyValueProps};

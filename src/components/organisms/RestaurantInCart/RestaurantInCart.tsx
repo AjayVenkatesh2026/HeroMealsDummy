@@ -12,13 +12,18 @@ import {getThemedStyles} from 'src/utils/theme';
 import {useAppSelector} from 'src/hooks/reduxHooks';
 import copies from 'src/constants/copies';
 import type {RestaurantInCartProps} from 'src/types/organisms';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RootStackParamList} from 'src/types/navigator';
 
 const {ORDER_TOTAL} = copies;
 
 const RestaurantInCart: FC<RestaurantInCartProps> = ({restaurantData}) => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const theme = useAppSelector(state => state.themeReducer.theme);
   const {restaurant, products, orderData} = restaurantData;
-  const {total} = orderData;
+  const {itemTotal} = orderData;
   const productDetails =
     products?.map(prod => ({
       quantity: prod.quantity,
@@ -26,9 +31,17 @@ const RestaurantInCart: FC<RestaurantInCartProps> = ({restaurantData}) => {
       id: prod.details.id,
     })) || [];
 
+  if (!restaurant) {
+    return null;
+  }
+
   const onPressCard = () => {
-    // TODO
-    console.log('go to order details screen');
+    navigation.navigate('OrderStack', {
+      screen: 'OrderDetails',
+      params: {
+        restaurantId: restaurant.id,
+      },
+    });
   };
 
   return (
@@ -54,7 +67,7 @@ const RestaurantInCart: FC<RestaurantInCartProps> = ({restaurantData}) => {
       <Divider />
       <View style={styles.priceContainer}>
         <Text variant="titleMedium">{ORDER_TOTAL}</Text>
-        <Text variant="titleMedium">{getFormattedPrice(total)}</Text>
+        <Text variant="titleMedium">{getFormattedPrice(itemTotal)}</Text>
       </View>
     </Card>
   );

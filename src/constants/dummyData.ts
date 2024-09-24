@@ -153,4 +153,16 @@ const dummyProducts: IProduct[] = [
   },
 ];
 
-export {dummyProfile, dummyRestaurantsList, dummyOrders, dummyProducts};
+const DUMMY_BILL_BREAKDOWN = {
+  DELIVERY_CHARGE: 25,
+  PLATFORM_FEE: 6,
+  TAX: 10,
+};
+
+export {
+  dummyProfile,
+  dummyRestaurantsList,
+  dummyOrders,
+  dummyProducts,
+  DUMMY_BILL_BREAKDOWN,
+};

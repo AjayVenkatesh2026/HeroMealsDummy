@@ -28,6 +28,14 @@ const copies = {
   ORDER_TOTAL: 'Order Total',
   YOUR_CART_IS_EMPTY: 'Your Cart is Empty!',
   ORDER: 'Order',
+  ORDER_SUMMARY: 'Order Summary',
+  YOUR_ITEMS: 'Your Items',
+  ITEM_TOTAL: 'Item Total',
+  TAXES: 'Taxes',
+  DELIVERY_CHARGE: 'Delivery Charge',
+  PLATFORM_FEE: 'Platform Fee',
+  GRAND_TOTAL: 'Grand Total',
+  PLACE_ORDER: 'Place Order',
 };
 
 export default copies;

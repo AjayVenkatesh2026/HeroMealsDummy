@@ -67,15 +67,17 @@ interface ICartProduct {
   quantity: number;
 }
 
+interface IBillBreakdown {
+  itemTotal: number;
+  deliveryFee?: number;
+  tax?: number;
+  platformFee?: number;
+}
+
 interface ICartData {
-  restaurant: IRestaurant;
+  restaurant: IRestaurant | null;
   products?: ICartProduct[];
-  orderData: {
-    total: number;
-    deliveryFee?: number;
-    tax?: number;
-    platformFee?: number;
-  };
+  orderData: IBillBreakdown;
 }
 
 interface IOrder {
@@ -99,4 +101,5 @@ export type {
   IProduct,
   ICartProduct,
   ICartData,
+  IBillBreakdown,
 };

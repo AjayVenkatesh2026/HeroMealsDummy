@@ -34,6 +34,7 @@ const orderStackScreenNames: {
   [key in OrderStackScreens]: OrderStackScreens;
 } = {
   CartHomeScreen: 'CartHomeScreen',
+  OrderDetails: 'OrderDetails',
 };
 
 const screenNames = {
