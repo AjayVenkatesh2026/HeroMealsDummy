@@ -1,4 +1,5 @@
 import type {NavigatorScreenParams} from '@react-navigation/native';
+import {IRestaurant} from '../ordering';
 
 type BottomTabOption = {
   icon: string;
@@ -10,22 +11,43 @@ type AuthStackParamList = {
 };
 
 type BottomTabParamList = {
-  HomeScreen: BottomTabOption;
-  OrderHistoryScreen: BottomTabOption;
-  ProfileScreen: BottomTabOption;
+  HomeScreen: undefined;
+  OrderHistoryScreen: undefined;
+  ProfileScreen: undefined;
+};
+
+type ProductStackParamList = {
+  ProductsScreen: {
+    restaurant: IRestaurant;
+  };
+};
+
+type OrderStackParamList = {
+  CartHomeScreen: undefined;
 };
 
 type RootStackParamList = {
   SplashScreen: undefined;
   AuthStack: NavigatorScreenParams<AuthStackParamList>;
   BottomTab: NavigatorScreenParams<BottomTabParamList>;
+  ProductStack: NavigatorScreenParams<ProductStackParamList>;
+  OrderStack: NavigatorScreenParams<OrderStackParamList>;
 };
 
-type RootStackScreens = 'SplashScreen' | 'AuthStack' | 'BottomTab';
+type RootStackScreens =
+  | 'SplashScreen'
+  | 'AuthStack'
+  | 'BottomTab'
+  | 'ProductStack'
+  | 'OrderStack';
 
 type AuthStackScreens = 'LoginScreen';
 
 type BottomTabScreens = 'HomeScreen' | 'OrderHistoryScreen' | 'ProfileScreen';
+
+type ProductStackScreens = 'ProductsScreen';
+
+type OrderStackScreens = 'CartHomeScreen';
 
 interface ITab {
   name: BottomTabScreens;
@@ -42,5 +64,9 @@ export type {
   AuthStackScreens,
   BottomTabScreens,
   BottomTabOption,
+  ProductStackParamList,
+  ProductStackScreens,
+  OrderStackParamList,
+  OrderStackScreens,
   ITab,
 };

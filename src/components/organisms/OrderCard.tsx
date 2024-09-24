@@ -4,15 +4,16 @@ import React from 'react';
 import {Card, Divider, Text} from 'react-native-paper';
 import {format} from 'date-fns';
 
-import type {IOrder, IOrderProduct} from 'src/types/ordering';
+import type {IOrder} from 'src/types/ordering';
 import {useAppSelector} from 'src/hooks/reduxHooks';
 import containers from 'src/styles/containers';
-import FDAImage from '../atoms/FDAImage';
 import font from 'src/styles/font';
 import {getThemedStyles} from 'src/utils/theme';
 import {ddLLLhhmmbb} from 'src/constants/date';
 import copies from 'src/constants/copies';
 import {getFormattedPrice} from 'src/utils/helpers';
+import RestaurantDetailsCard from '../molecules/RestaurantDetailsCard';
+import ProductsQuantities from '../molecules/ProductsQuantities';
 
 const {ORDER_PLACED_ON} = copies;
 
@@ -23,50 +24,13 @@ const OrderCard = ({order}: {order: IOrder}) => {
   const {line_2} = address;
   const onPressCard = () => {};
 
-  const renderProduct = (item: IOrderProduct) => {
-    return (
-      <Text
-        key={item.id}
-        variant="bodySmall"
-        style={[
-          styles.productDetail,
-          getThemedStyles({color: theme?.textHigh}),
-        ]}>
-        {item.quantity} x {item.name}
-      </Text>
-    );
-  };
-
   return (
     <Card
       onPress={onPressCard}
       style={getThemedStyles({backgroundColor: theme?.surface})}>
-      <View
-        style={[
-          styles.headerContainer,
-          getThemedStyles({backgroundColor: theme?.borderTertiary}),
-        ]}>
-        <FDAImage url={image} style={styles.image} resizeMode="cover" />
-        <View style={styles.restaurantDetails}>
-          <Text
-            variant="titleMedium"
-            style={[font.semiBold, getThemedStyles({color: theme?.textHigh})]}>
-            {name}
-          </Text>
-          <Text
-            variant="bodySmall"
-            style={[font.regular, getThemedStyles({color: theme?.textMid})]}>
-            {line_2}
-          </Text>
-        </View>
-        <Divider
-          style={getThemedStyles({backgroundColor: theme?.borderSecondary})}
-        />
-      </View>
+      <RestaurantDetailsCard image={image} name={name} description={line_2} />
       <View style={styles.middleContainer}>
-        <View style={styles.productDetailsContainer}>
-          {products.map(renderProduct)}
-        </View>
+        <ProductsQuantities items={products} />
         <Divider
           style={getThemedStyles({backgroundColor: theme?.borderSecondary})}
         />
@@ -94,27 +58,8 @@ const OrderCard = ({order}: {order: IOrder}) => {
 export default OrderCard;
 
 const styles = StyleSheet.create({
-  headerContainer: {
-    ...containers.rowCenterStart,
-    padding: 12,
-  },
-  image: {
-    width: 52,
-    height: 52,
-    borderRadius: 12,
-  },
-  restaurantDetails: {
-    paddingLeft: 12,
-  },
   middleContainer: {
     paddingHorizontal: 12,
-  },
-  productDetailsContainer: {
-    paddingVertical: 12,
-  },
-  productDetail: {
-    ...font.semiBold,
-    paddingVertical: 2,
   },
   footerContainer: {
     ...containers.rowCenterStart,
