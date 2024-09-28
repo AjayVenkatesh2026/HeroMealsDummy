@@ -1,5 +1,5 @@
 import {ScrollView, StyleSheet, View} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {Button, Divider, Text} from 'react-native-paper';
@@ -16,8 +16,19 @@ import ProductItem from 'src/components/molecules/OrderDetails/ProductItem';
 import BillBreakdown from '../../molecules/OrderDetails/BillBreakdown';
 import type {OrderStackParamList} from 'src/types/navigator';
 import type {ICartProduct} from 'src/types/ordering';
+import OrderSuccessModal from 'src/components/organisms/OrderModal';
+import OrderFailedModal from 'src/components/organisms/OrderModal';
+import {CHECK_CIRCLE_OUTLINE, CLOSE_CIRCLE_OUTLINE} from 'src/constants/icons';
 
-const {ORDER_SUMMARY, YOUR_ITEMS, PLACE_ORDER} = copies;
+const {
+  ORDER_SUMMARY,
+  YOUR_ITEMS,
+  PLACE_ORDER,
+  TRACK_ORDER,
+  YOU_HAVE_SUCCESSFULLY_PLACED_YOUR_ORDER,
+  SORRY_YOUR_ORDER_HAS_FAILED_PLEASE_TRY_AGAIN_LATER,
+  BACK,
+} = copies;
 
 const renderItem = (item: ICartProduct) => (
   <ProductItem
@@ -28,6 +39,8 @@ const renderItem = (item: ICartProduct) => (
 );
 
 const OrderDetails: React.FC = () => {
+  const [showSuccessModal, setShowSuccessModal] = useState<boolean>(false);
+  const [showFailedModal, setShowFailedModal] = useState<boolean>(false);
   const {
     params: {restaurantId = ''},
   } = useRoute<RouteProp<OrderStackParamList, 'OrderDetails'>>();
@@ -40,7 +53,18 @@ const OrderDetails: React.FC = () => {
   }
 
   const onPressPlaceOrder = () => {
+    setShowSuccessModal(true);
+    // setShowFailedModal(true);
     //TODO: navigate to payments screen
+  };
+
+  const onPressTrackOrder = () => {
+    setShowSuccessModal(false);
+    // navigate to track order screen
+  };
+
+  const onPressOrder = () => {
+    setShowFailedModal(false);
   };
 
   return (
@@ -89,6 +113,24 @@ const OrderDetails: React.FC = () => {
           {PLACE_ORDER}
         </Button>
       </View>
+      <OrderSuccessModal
+        visible={showSuccessModal}
+        buttonColor={theme?.accentPrimary}
+        icon={CHECK_CIRCLE_OUTLINE}
+        iconColor={theme?.accentPrimary}
+        buttonLabel={TRACK_ORDER}
+        description={YOU_HAVE_SUCCESSFULLY_PLACED_YOUR_ORDER}
+        onPressButton={onPressTrackOrder}
+      />
+      <OrderFailedModal
+        visible={showFailedModal}
+        buttonColor={theme?.primaryDark}
+        icon={CLOSE_CIRCLE_OUTLINE}
+        iconColor={theme?.primaryDark}
+        buttonLabel={BACK}
+        description={SORRY_YOUR_ORDER_HAS_FAILED_PLEASE_TRY_AGAIN_LATER}
+        onPressButton={onPressOrder}
+      />
     </View>
   );
 };

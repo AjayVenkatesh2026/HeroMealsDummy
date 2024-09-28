@@ -21,6 +21,7 @@ interface ITheme {
   borderSecondary: ColorValue;
   borderTertiary: ColorValue;
   accentPrimary: ColorValue;
+  modalBakcground: ColorValue;
 }
 
 export {type ITheme};

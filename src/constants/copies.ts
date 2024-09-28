@@ -37,6 +37,11 @@ const copies = {
   GRAND_TOTAL: 'Grand Total',
   PLACE_ORDER: 'Place Order',
   ENTER_OTP: 'Enter OTP',
+  YOU_HAVE_SUCCESSFULLY_PLACED_YOUR_ORDER:
+    'You have successfully placed your order !',
+  TRACK_ORDER: 'Track Order',
+  SORRY_YOUR_ORDER_HAS_FAILED_PLEASE_TRY_AGAIN_LATER:
+    'Sorry! Your Order has failed. Please, Try again later !',
 };
 
 export default copies;

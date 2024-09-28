@@ -16,6 +16,7 @@ const backgroundPalette = {
   surface: whitePalette.white,
   highlight: whitePalette.ghostWhite,
   primaryBGColor: whitePalette.lavendarBlush,
+  modalBakcground: whitePalette.white50,
 };
 
 const textPalette = {

@@ -10,6 +10,8 @@ const INFORMATION_OUTLINE = 'information-outline';
 const POWER = 'power';
 const MINUS = 'minus';
 const PLUS = 'plus';
+const CHECK_CIRCLE_OUTLINE = 'check-circle-outline';
+const CLOSE_CIRCLE_OUTLINE = 'close-circle-outline';
 
 export {
   STAR,
@@ -24,4 +26,6 @@ export {
   POWER,
   MINUS,
   PLUS,
+  CHECK_CIRCLE_OUTLINE,
+  CLOSE_CIRCLE_OUTLINE,
 };

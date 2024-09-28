@@ -60,7 +60,7 @@ interface IOrderPayment {
   payment_method: string;
 }
 
-type OrderStatus = 'Pending' | 'Cancelled' | 'Placed' | 'Delivered';
+type OrderStatus = 'Pending' | 'Cancelled' | 'In Progress' | 'Delivered';
 
 interface ICartProduct {
   details: IProduct;
