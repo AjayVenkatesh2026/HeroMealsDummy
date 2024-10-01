@@ -24,6 +24,9 @@ type ProductStackParamList = {
 
 type OrderStackParamList = {
   CartHomeScreen: undefined;
+  OrderDetails: {
+    restaurantId: string;
+  };
 };
 
 type RootStackParamList = {
@@ -47,7 +50,7 @@ type BottomTabScreens = 'HomeScreen' | 'OrderHistoryScreen' | 'ProfileScreen';
 
 type ProductStackScreens = 'ProductsScreen';
 
-type OrderStackScreens = 'CartHomeScreen';
+type OrderStackScreens = 'CartHomeScreen' | 'OrderDetails';
 
 interface ITab {
   name: BottomTabScreens;

@@ -26,11 +26,16 @@ const grayPalette = {
   gainsboro: '#D9DBE9',
 };
 
+const greenPalette = {
+  green: 'green',
+};
+
 const colors = {
   redPalette,
   whitePalette,
   bluePalette,
   grayPalette,
+  greenPalette,
 };
 
 export default colors;

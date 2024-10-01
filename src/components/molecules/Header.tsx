@@ -7,7 +7,8 @@ import {Appbar, Text} from 'react-native-paper';
 import containers from 'src/styles/containers';
 import {useAppSelector} from 'src/hooks/reduxHooks';
 import {getThemedStyles} from 'src/utils/theme';
-import type {HeaderProps} from 'src/types/global';
+import type {THeaderProps} from 'src/types/global';
+import CartButton from './CartButton';
 
 // TODO: Add Cart icon button for trailing icon
 const Header = ({
@@ -20,8 +21,9 @@ const Header = ({
   children,
   containerStyles = {},
   showBack = false,
+  showCart = false,
   leadingIconColor,
-}: PropsWithChildren<HeaderProps>) => {
+}: PropsWithChildren<THeaderProps>) => {
   const navigation = useNavigation();
   const theme = useAppSelector(state => state.themeReducer.theme);
 
@@ -61,6 +63,7 @@ const Header = ({
           </>
         ) : null}
       </View>
+      {showCart ? <CartButton /> : null}
     </Appbar.Header>
   );
 };

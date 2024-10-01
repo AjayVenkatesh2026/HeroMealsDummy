@@ -12,8 +12,12 @@ import {
   minusProductQuantity,
 } from 'src/redux/slices/cartSlice';
 import type {IQuantitySelectorProps} from 'src/types/organisms';
+import {addRestaurant} from 'src/redux/slices/restaurantSlice';
 
-const QuantitySelector: React.FC<IQuantitySelectorProps> = ({product}) => {
+const QuantitySelector: React.FC<IQuantitySelectorProps> = ({
+  product,
+  restaurant,
+}) => {
   const theme = useAppSelector(state => state.themeReducer.theme);
   const cartProduct = useAppSelector(
     state => state.cartReducer.products[product.id],
@@ -27,6 +31,7 @@ const QuantitySelector: React.FC<IQuantitySelectorProps> = ({product}) => {
   };
 
   const onPressPlus = () => {
+    dispatch(addRestaurant(restaurant));
     dispatch(addProductQuantity(product));
   };
 

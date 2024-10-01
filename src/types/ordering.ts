@@ -60,22 +60,24 @@ interface IOrderPayment {
   payment_method: string;
 }
 
-type OrderStatus = 'Pending' | 'Cancelled' | 'Placed' | 'Delivered';
+type OrderStatus = 'Pending' | 'Cancelled' | 'In Progress' | 'Delivered';
 
 interface ICartProduct {
   details: IProduct;
   quantity: number;
 }
 
+interface IBillBreakdown {
+  itemTotal: number;
+  deliveryFee?: number;
+  tax?: number;
+  platformFee?: number;
+}
+
 interface ICartData {
-  restaurant: IRestaurant;
+  restaurant: IRestaurant | null;
   products?: ICartProduct[];
-  orderData: {
-    total: number;
-    deliveryFee?: number;
-    tax?: number;
-    platformFee?: number;
-  };
+  orderData: IBillBreakdown;
 }
 
 interface IOrder {
@@ -99,4 +101,5 @@ export type {
   IProduct,
   ICartProduct,
   ICartData,
+  IBillBreakdown,
 };

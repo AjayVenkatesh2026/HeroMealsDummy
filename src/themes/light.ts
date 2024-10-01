@@ -1,7 +1,8 @@
 import colors from '../constants/colors';
 import {LIGHT_THEME} from '../constants/themes';
 
-const {bluePalette, redPalette, whitePalette, grayPalette} = colors;
+const {bluePalette, redPalette, whitePalette, grayPalette, greenPalette} =
+  colors;
 
 const primaryPalette = {
   primaryDefault: redPalette.lavaRed,
@@ -15,6 +16,7 @@ const backgroundPalette = {
   surface: whitePalette.white,
   highlight: whitePalette.ghostWhite,
   primaryBGColor: whitePalette.lavendarBlush,
+  modalBakcground: whitePalette.white50,
 };
 
 const textPalette = {
@@ -30,10 +32,14 @@ const bgTextPalette = {
   bgTextLow: whitePalette.white50,
 };
 
-const borderPallette = {
+const borderPalette = {
   borderPrimary: grayPalette.lavendarGray,
   borderSecondary: grayPalette.gainsboro,
   borderTertiary: whitePalette.antiFlash,
+};
+
+const accentPalette = {
+  accentPrimary: greenPalette.green,
 };
 
 const light = {
@@ -42,7 +48,8 @@ const light = {
   ...backgroundPalette,
   ...textPalette,
   ...bgTextPalette,
-  ...borderPallette,
+  ...borderPalette,
+  ...accentPalette,
 };
 
 export default light;

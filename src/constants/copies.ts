@@ -28,6 +28,20 @@ const copies = {
   ORDER_TOTAL: 'Order Total',
   YOUR_CART_IS_EMPTY: 'Your Cart is Empty!',
   ORDER: 'Order',
+  ORDER_SUMMARY: 'Order Summary',
+  YOUR_ITEMS: 'Your Items',
+  ITEM_TOTAL: 'Item Total',
+  TAXES: 'Taxes',
+  DELIVERY_CHARGE: 'Delivery Charge',
+  PLATFORM_FEE: 'Platform Fee',
+  GRAND_TOTAL: 'Grand Total',
+  PLACE_ORDER: 'Place Order',
+  ENTER_OTP: 'Enter OTP',
+  YOU_HAVE_SUCCESSFULLY_PLACED_YOUR_ORDER:
+    'You have successfully placed your order !',
+  TRACK_ORDER: 'Track Order',
+  SORRY_YOUR_ORDER_HAS_FAILED_PLEASE_TRY_AGAIN_LATER:
+    'Sorry! Your Order has failed. Please, Try again later !',
 };
 
 export default copies;

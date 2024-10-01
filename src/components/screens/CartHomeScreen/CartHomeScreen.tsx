@@ -11,15 +11,17 @@ import RestaurantInCart from 'src/components/organisms/RestaurantInCart/Restaura
 import Separator from 'src/components/atoms/Separator';
 import EmptyCart from 'src/components/atoms/EmptyCart';
 import type {ICartData} from 'src/types/ordering';
+import {getThemedStyles} from 'src/utils/theme';
 
 const {MY_CARTS} = copies;
 
-const renderItem = (item: ICartData) => (
-  <React.Fragment key={item.restaurant.id}>
-    <RestaurantInCart restaurantData={item} key={item.restaurant.id} />
-    <Separator />
-  </React.Fragment>
-);
+const renderItem = (item: ICartData) =>
+  item.restaurant ? (
+    <React.Fragment key={item.restaurant.id}>
+      <RestaurantInCart restaurantData={item} key={item.restaurant.id} />
+      <Separator />
+    </React.Fragment>
+  ) : null;
 
 // TODO: Add maybe clear all carts and clear restaurant cart options
 const CartHomeScreen = () => {
@@ -28,7 +30,12 @@ const CartHomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Header showBack leadingIconColor={theme?.primaryDark}>
+      <Header
+        showBack
+        leadingIconColor={theme?.primaryDark}
+        containerStyles={getThemedStyles({
+          backgroundColor: theme?.backgroundColor,
+        })}>
         <Text variant="titleMedium">{MY_CARTS}</Text>
       </Header>
       <Separator />

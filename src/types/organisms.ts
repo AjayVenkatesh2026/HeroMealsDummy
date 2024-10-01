@@ -8,6 +8,7 @@ interface RestaurantInCartProps {
 
 interface IQuantitySelectorProps {
   product: IProduct;
+  restaurant: IRestaurant;
 }
 
 interface IRestaurantProps {
@@ -18,4 +19,13 @@ interface IRestaurantProps {
   mode?: 'outlined' | 'contained' | 'elevated' | undefined;
 }
 
-export type {RestaurantInCartProps, IQuantitySelectorProps, IRestaurantProps};
+interface IProductProps {
+  product: IProduct;
+}
+
+export type {
+  RestaurantInCartProps,
+  IQuantitySelectorProps,
+  IRestaurantProps,
+  IProductProps,
+};

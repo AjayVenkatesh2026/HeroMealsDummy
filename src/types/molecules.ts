@@ -1,3 +1,6 @@
+import type {IProduct} from './ordering';
+import type {IBillBreakdown} from './ordering';
+
 type TItem = {
   id: string;
   name: string;
@@ -14,4 +17,19 @@ interface IRestaurantDetailsCardProps {
   description: string;
 }
 
-export type {IProductsQuantitiesProps, TItem, IRestaurantDetailsCardProps};
+interface IProductItem {
+  quantity: number;
+  product: IProduct;
+}
+
+interface IBillBreakdownProps {
+  data: IBillBreakdown;
+}
+
+export type {
+  IProductsQuantitiesProps,
+  TItem,
+  IRestaurantDetailsCardProps,
+  IProductItem,
+  IBillBreakdownProps,
+};

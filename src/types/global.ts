@@ -21,7 +21,7 @@ interface INavigation {
   navigate: Function;
 }
 
-type HeaderProps = {
+type THeaderProps = {
   leadingIcon?: string;
   trailingIcon?: string;
   onPressLeadingIcon?: (event?: GestureResponderEvent) => void;
@@ -31,10 +31,11 @@ type HeaderProps = {
   containerStyles?: StyleProp<ViewStyle>;
   showBack?: boolean;
   leadingIconColor?: string;
+  showCart?: boolean;
 };
 
 interface FDAImage extends ImageProps {
   url?: string;
 }
 
-export type {Style, IProfileOption, INavigation, HeaderProps, FDAImage};
+export type {Style, IProfileOption, INavigation, THeaderProps, FDAImage};

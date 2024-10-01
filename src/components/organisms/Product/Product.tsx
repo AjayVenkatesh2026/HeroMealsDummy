@@ -3,8 +3,8 @@ import React from 'react';
 
 import {Text} from 'react-native-paper';
 import {Rating} from 'react-native-ratings';
+import {useRoute, type RouteProp} from '@react-navigation/native';
 
-import {IProduct} from 'src/types/ordering';
 import {useAppSelector} from 'src/hooks/reduxHooks';
 import {getThemedStyles} from 'src/utils/theme';
 import containers from 'src/styles/containers';
@@ -13,17 +13,18 @@ import font from 'src/styles/font';
 import copies from 'src/constants/copies';
 import {getFormattedPrice} from 'src/utils/helpers';
 import QuantitySelector from './QuantitySelector';
+import type {ProductStackParamList} from 'src/types/navigator';
+import type {IProductProps} from 'src/types/organisms';
 
 const {width: WINDOW_WIDTH} = Dimensions.get('window');
 const imageWidth = Math.floor(WINDOW_WIDTH * 0.3);
 const {RATINGS} = copies;
 
-interface ProductProps {
-  product: IProduct;
-}
-
-const Product: React.FC<ProductProps> = ({product}) => {
+const Product: React.FC<IProductProps> = ({product}) => {
   const theme = useAppSelector(state => state.themeReducer.theme);
+  const {
+    params: {restaurant},
+  } = useRoute<RouteProp<ProductStackParamList, 'ProductsScreen'>>();
   const {
     name = '',
     image = '',
@@ -77,7 +78,7 @@ const Product: React.FC<ProductProps> = ({product}) => {
       </View>
       <View>
         <FDAImage url={image} style={styles.image} />
-        <QuantitySelector product={product} />
+        <QuantitySelector product={product} restaurant={restaurant} />
       </View>
     </View>
   );

@@ -1,11 +1,11 @@
 import {StyleSheet, View, FlatList} from 'react-native';
-import React, {useEffect, useLayoutEffect} from 'react';
+import React, {useEffect} from 'react';
 
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {ActivityIndicator, Divider} from 'react-native-paper';
 
 import Header from 'src/components/molecules/Header';
-import {useAppDispatch, useAppSelector} from 'src/hooks/reduxHooks';
+import {useAppSelector} from 'src/hooks/reduxHooks';
 import {getThemedStyles} from 'src/utils/theme';
 import Restaurant from 'src/components/organisms/Restaurant';
 import {ProductStackParamList} from 'src/types/navigator';
@@ -13,7 +13,6 @@ import Product from 'src/components/organisms/Product/Product';
 import useGetProducts from 'src/hooks/useGetProducts';
 import {IProduct} from 'src/types/ordering';
 import containers from 'src/styles/containers';
-import {addRestaurant} from 'src/redux/slices/restaurantSlice';
 
 const renderItem = ({item}: {item: IProduct}) => <Product product={item} />;
 
@@ -23,18 +22,12 @@ const renderSeparator = () => <Divider bold />;
 
 const ProductsScreen: React.FC = () => {
   const theme = useAppSelector(state => state.themeReducer.theme);
-  const dispatch = useAppDispatch();
   const {
     params: {restaurant},
   } = useRoute<RouteProp<ProductStackParamList, 'ProductsScreen'>>();
   const {loading, products, getProducts, getMoreProducts} = useGetProducts({
     restaurantId: restaurant.id,
   });
-
-  useLayoutEffect(() => {
-    // TODO: add / remove restaurants from redux in a more efficent way
-    dispatch(addRestaurant(restaurant));
-  }, [dispatch, restaurant]);
 
   useEffect(() => {
     getProducts();
