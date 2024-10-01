@@ -1,6 +1,4 @@
 const copies = {
-  FDA: 'FDA',
-  NUMBER_1_FOOD_DELIVERY_APP_IN_INDIA: '#1 food delivery app in india',
   NUMBER_1_FOOD_DELIVERY_APP_IN_INDIA_CAPITALIZED:
     '#1 Food Delivery App In India',
   ENTER_MOBILE_NUMBER: 'Enter Mobile Number',

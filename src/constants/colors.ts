@@ -4,6 +4,7 @@ const redPalette = {
   fuzzyWuzzyBrown: '#BF5252',
   duskyRose: '#BF6969',
   dirtyPink: '#DA7878',
+  roseMadder: '#ED2128',
 };
 
 const whitePalette = {
