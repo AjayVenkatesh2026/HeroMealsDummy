@@ -20,4 +20,16 @@ interface IKeyValueProps extends ViewProps {
   valueStyles?: StyleProp<TextStyle>;
 }
 
-export type {IQuantityXProductProps, ISeparator, IHeading, IKeyValueProps};
+interface IStrikedTextProps {
+  label: string;
+  showDots?: boolean;
+  containerStyles?: StyleProp<ViewStyle>;
+}
+
+export type {
+  IQuantityXProductProps,
+  ISeparator,
+  IHeading,
+  IKeyValueProps,
+  IStrikedTextProps,
+};

@@ -6,15 +6,14 @@ import {Button, Text} from 'react-native-paper';
 import {StackActions, useNavigation} from '@react-navigation/native';
 
 import {useAppDispatch, useAppSelector} from 'src/hooks/reduxHooks';
-import {getThemedStyles} from 'src/utils/theme';
 import copies from 'src/constants/copies';
 import {updateProfile} from 'src/redux/slices/profileSlice';
 import {dummyProfile} from 'src/constants/dummyData';
 import font from 'src/styles/font';
 
-const {LOGIN, RESEND_OTP, BACK, ENTER_OTP} = copies;
+const {LOGIN, ENTER_OTP} = copies;
 
-const OTPContent = ({setShowOTP}: {setShowOTP: Function}) => {
+const OTPContent: React.FC = () => {
   const theme = useAppSelector(state => state.themeReducer.theme);
   const dispatch = useAppDispatch();
   const textRef = useRef<string>('');
@@ -31,39 +30,26 @@ const OTPContent = ({setShowOTP}: {setShowOTP: Function}) => {
     console.log(textRef.current);
   };
 
-  const onPressResendOTP = () => {
-    // TODO: call resend otp
-  };
-
-  const onPressBack = () => {
-    setShowOTP(false);
-  };
-
   return (
     <View style={styles.container}>
       <Text variant="titleLarge" style={styles.title}>
         {ENTER_OTP}
       </Text>
-      <OtpInput numberOfDigits={6} onTextChange={onTextChange} />
+      <OtpInput
+        numberOfDigits={6}
+        onTextChange={onTextChange}
+        focusColor={theme?.primaryDefault}
+        textInputProps={{style: {borderRadius: 0}}}
+        theme={{
+          pinCodeContainerStyle: styles.pinCodeContainerStyle,
+        }}
+      />
       <Button
         mode="contained"
         buttonColor={theme?.primaryDark}
         onPress={onPressLogin}
         style={styles.button}>
         {LOGIN}
-      </Button>
-      <Button
-        mode="outlined"
-        textColor={theme?.primaryDark}
-        onPress={onPressResendOTP}
-        style={[
-          styles.button,
-          getThemedStyles({borderColor: theme?.primaryDark}),
-        ]}>
-        {RESEND_OTP}
-      </Button>
-      <Button mode="text" textColor={theme?.primaryDark} onPress={onPressBack}>
-        {BACK}
       </Button>
     </View>
   );
@@ -75,7 +61,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 16,
-    paddingTop: 80,
+    paddingTop: 16,
   },
   title: {
     ...font.semiBold,
@@ -85,5 +71,9 @@ const styles = StyleSheet.create({
   button: {
     alignSelf: 'stretch',
     marginTop: 16,
+  },
+  pinCodeContainerStyle: {
+    width: 48,
+    height: 48,
   },
 });

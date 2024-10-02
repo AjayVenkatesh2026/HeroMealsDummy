@@ -1,20 +1,13 @@
 const copies = {
-  NUMBER_1_FOOD_DELIVERY_APP_IN_INDIA_CAPITALIZED:
-    '#1 Food Delivery App In India',
-  ENTER_MOBILE_NUMBER: 'Enter Mobile Number',
   CONTINUE: 'Continue',
-  LOGIN_OR: 'Login or',
-  SIGN_UP: 'sign up',
+  SIGN_UP: 'Sign Up',
   BY_CONTINUING_YOU_AGREE_TO_OUT: 'By continuing, you agree to our',
   TERMS_AND_SERVICES: 'Terms and Services',
   PRIVACY_POLICY: 'Privacy Policy',
   CART: 'Cart',
   SEARCH: 'Search',
-  INDIA_COUNTRY_CODE: '+91',
   MINS: 'mins',
   LOGIN: 'Login',
-  RESEND_OTP: 'Resend OTP',
-  BACK: 'Back',
   YOUR_PROFILE: 'Your Profile',
   YOUR_ORDERS: 'Your Orders',
   ABOUT: 'About',
@@ -53,6 +46,13 @@ const copies = {
   DELIVERY_AT_YOUT_DOORSTEP: 'Delivery at your Doorstep',
   WE_PROVIDE_DOOR_TO_DOOR_SERVICE:
     'We provide door to door service in\nmean time with best quality of food',
+  PHONE_NO: 'Phone No.',
+  PHILIPPINES_COUNTRY_CODE: '+63',
+  EXAMPLE_PH_NO: 'Ex: 9070000000',
+  SIGN_IN: 'Sign In',
+  OR: 'Or',
+  CONTENT_POLICIES: 'Content Policies',
+  SIGN_IN_WITH_EMAIL: 'Sign in with email',
 };
 
 export default copies;
