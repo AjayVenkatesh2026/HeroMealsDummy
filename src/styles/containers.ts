@@ -48,6 +48,12 @@ const rowStretchCenter: ViewStyle = {
   justifyContent: 'center',
 };
 
+const rowEndCenter: ViewStyle = {
+  flexDirection: 'row',
+  alignItems: 'flex-end',
+  justifyContent: 'center',
+};
+
 const containers = {
   rowCenterCenter,
   columnStretchCenter,
@@ -57,6 +63,7 @@ const containers = {
   rowCenterBetween,
   columnStartStart,
   rowStretchCenter,
+  rowEndCenter,
 };
 
 export default containers;

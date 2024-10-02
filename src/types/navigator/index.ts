@@ -35,6 +35,7 @@ type RootStackParamList = {
   BottomTab: NavigatorScreenParams<BottomTabParamList>;
   ProductStack: NavigatorScreenParams<ProductStackParamList>;
   OrderStack: NavigatorScreenParams<OrderStackParamList>;
+  OnboardingScreen: undefined;
 };
 
 type RootStackScreens =
@@ -42,7 +43,8 @@ type RootStackScreens =
   | 'AuthStack'
   | 'BottomTab'
   | 'ProductStack'
-  | 'OrderStack';
+  | 'OrderStack'
+  | 'OnboardingScreen';
 
 type AuthStackScreens = 'LoginScreen';
 

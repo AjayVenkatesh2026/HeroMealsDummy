@@ -12,6 +12,7 @@ const rootStackScreenNames: {[key in RootStackScreens]: RootStackScreens} = {
   BottomTab: 'BottomTab',
   ProductStack: 'ProductStack',
   OrderStack: 'OrderStack',
+  OnboardingScreen: 'OnboardingScreen',
 };
 
 const loginStackScreenNames: {[key in AuthStackScreens]: AuthStackScreens} = {

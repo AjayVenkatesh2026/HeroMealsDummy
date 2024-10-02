@@ -10,6 +10,7 @@ import screenNames from 'src/constants/screenNames';
 import BottomTab from '../components/organisms/BottomTab';
 import ProductsStack from './ProductsStack';
 import OrderStack from './OrderStack';
+import OnboardingScreen from 'src/components/screens/OnboardingScreen/OnboardingScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const {rootStackScreenNames} = screenNames;
@@ -24,6 +25,10 @@ const RootStack = () => {
       <Stack.Screen
         name={rootStackScreenNames.SplashScreen}
         component={SplashScreen}
+      />
+      <Stack.Screen
+        name={rootStackScreenNames.OnboardingScreen}
+        component={OnboardingScreen}
       />
       <Stack.Screen
         name={rootStackScreenNames.AuthStack}

@@ -40,6 +40,19 @@ const copies = {
   TRACK_ORDER: 'Track Order',
   SORRY_YOUR_ORDER_HAS_FAILED_PLEASE_TRY_AGAIN_LATER:
     'Sorry! Your Order has failed. Please, Try again later !',
+  ORDER_FAST: 'Order Fast',
+  ORDER_YOUR_FOOD: 'Order your Food',
+  A_GOOD_MEAL_CAN_TURN_ANY_DAY_AROUND_ORDER_NOW_FOR_DELICIOUS_CRAVINGS:
+    'A good meal can turn any day around.\nOrder now for delicious cravings.',
+  NEXT: 'Next',
+  EASY_PAYMENT: 'Easy Payment',
+  SAFE_ONLINE_PAYMENT: 'Safe Online Payment',
+  AS_PART_OF_SECURE_PAYMENT:
+    'As part of a secure payment, your credit/\nDabit card number, expiry are encrypted',
+  FAST_DELIVERY: 'Fast Delivery',
+  DELIVERY_AT_YOUT_DOORSTEP: 'Delivery at your Doorstep',
+  WE_PROVIDE_DOOR_TO_DOOR_SERVICE:
+    'We provide door to door service in\nmean time with best quality of food',
 };
 
 export default copies;
