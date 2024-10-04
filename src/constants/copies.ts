@@ -54,6 +54,7 @@ const copies = {
   CONTENT_POLICIES: 'Content Policies',
   SIGN_IN_WITH_EMAIL: 'Sign in with email',
   DELIVER_TO: 'Deliver to',
+  SPECIAL_OFFERS: 'Special Offers',
 };
 
 export default copies;

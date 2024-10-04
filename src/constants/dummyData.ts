@@ -4,7 +4,12 @@ import type {
   IRestaurant,
   IOrder,
   IProduct,
+  IBanner,
 } from 'src/types/ordering';
+
+import banner1 from 'src/assets/banners/banner-1.png';
+import banner2 from 'src/assets/banners/banner-2.png';
+import banner3 from 'src/assets/banners/banner-3.png';
 
 const dummyAddress: IAddress = {
   landmark: "Near St. John's Library",
@@ -159,10 +164,26 @@ const DUMMY_BILL_BREAKDOWN = {
   TAX: 10,
 };
 
+const banners: IBanner[] = [
+  {
+    id: 'banner-1',
+    source: banner1,
+  },
+  {
+    id: 'banner-2',
+    source: banner2,
+  },
+  {
+    id: 'banner-3',
+    source: banner3,
+  },
+];
+
 export {
   dummyProfile,
   dummyRestaurantsList,
   dummyOrders,
   dummyProducts,
   DUMMY_BILL_BREAKDOWN,
+  banners,
 };

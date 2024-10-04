@@ -10,6 +10,8 @@ import type {IRestaurant} from 'src/types/ordering';
 import containers from 'src/styles/containers';
 import {useAppSelector} from 'src/hooks/reduxHooks';
 import {getThemedStyles} from 'src/utils/theme';
+import Banners from 'src/components/molecules/Banners';
+import {banners} from 'src/constants/dummyData';
 
 const renderItem = ({item}: {item: IRestaurant}) => (
   <Restaurant restaurant={item} />
@@ -36,9 +38,10 @@ const HomeScreen = () => {
     <View
       style={[
         styles.container,
-        getThemedStyles({backgroundColor: theme?.backgroundColor}),
+        getThemedStyles({backgroundColor: theme?.surface}),
       ]}>
       <HomeScreenHeader />
+      <Banners banners={banners} />
       <FlatList
         data={restaurants}
         renderItem={renderItem}

@@ -1,4 +1,6 @@
+import {ImageSourcePropType} from 'react-native';
 import {TDateISO} from './date';
+
 interface IAddress {
   landmark: string;
   line_1: string;
@@ -92,6 +94,11 @@ interface IOrder {
   payment: IOrderPayment;
 }
 
+interface IBanner {
+  id: string;
+  source: ImageSourcePropType;
+}
+
 export type {
   IProfile,
   IAddress,
@@ -102,4 +109,5 @@ export type {
   ICartProduct,
   ICartData,
   IBillBreakdown,
+  IBanner,
 };
