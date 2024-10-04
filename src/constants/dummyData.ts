@@ -5,6 +5,7 @@ import type {
   IOrder,
   IProduct,
   IBanner,
+  ICategory,
 } from 'src/types/ordering';
 
 import banner1 from 'src/assets/banners/banner-1.png';
@@ -179,6 +180,57 @@ const banners: IBanner[] = [
   },
 ];
 
+const categories: ICategory[] = [
+  {
+    id: 'cat-1',
+    image:
+      'https://5.imimg.com/data5/SA/HH/BP/SELLER-15290474/food-packaging-paper-bags.jpg',
+    name: 'Available now',
+  },
+  {
+    id: 'cat-2',
+    image:
+      'https://5.imimg.com/data5/SA/HH/BP/SELLER-15290474/food-packaging-paper-bags.jpg',
+    name: 'Near me',
+  },
+  {
+    id: 'cat-3',
+    image:
+      'https://5.imimg.com/data5/SA/HH/BP/SELLER-15290474/food-packaging-paper-bags.jpg',
+    name: 'Top Deals',
+  },
+  {
+    id: 'cat-4',
+    image:
+      'https://5.imimg.com/data5/SA/HH/BP/SELLER-15290474/food-packaging-paper-bags.jpg',
+    name: 'Groceries',
+  },
+  {
+    id: 'cat-5',
+    image:
+      'https://5.imimg.com/data5/SA/HH/BP/SELLER-15290474/food-packaging-paper-bags.jpg',
+    name: 'Best Reviews',
+  },
+  {
+    id: 'cat-6',
+    image:
+      'https://5.imimg.com/data5/SA/HH/BP/SELLER-15290474/food-packaging-paper-bags.jpg',
+    name: 'Meals',
+  },
+  {
+    id: 'cat-7',
+    image:
+      'https://5.imimg.com/data5/SA/HH/BP/SELLER-15290474/food-packaging-paper-bags.jpg',
+    name: 'Pastries',
+  },
+  {
+    id: 'cat-8',
+    image:
+      'https://5.imimg.com/data5/SA/HH/BP/SELLER-15290474/food-packaging-paper-bags.jpg',
+    name: 'Healthy',
+  },
+];
+
 export {
   dummyProfile,
   dummyRestaurantsList,
@@ -186,4 +238,5 @@ export {
   dummyProducts,
   DUMMY_BILL_BREAKDOWN,
   banners,
+  categories,
 };

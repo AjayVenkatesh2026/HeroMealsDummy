@@ -12,6 +12,7 @@ import {useAppSelector} from 'src/hooks/reduxHooks';
 import {getThemedStyles} from 'src/utils/theme';
 import Banners from 'src/components/molecules/Banners';
 import {banners} from 'src/constants/dummyData';
+import CategoriesList from 'src/components/molecules/CategoriesList';
 
 const renderItem = ({item}: {item: IRestaurant}) => (
   <Restaurant restaurant={item} />
@@ -42,6 +43,7 @@ const HomeScreen = () => {
       ]}>
       <HomeScreenHeader />
       <Banners banners={banners} />
+      <CategoriesList />
       <FlatList
         data={restaurants}
         renderItem={renderItem}

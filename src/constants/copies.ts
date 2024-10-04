@@ -55,6 +55,8 @@ const copies = {
   SIGN_IN_WITH_EMAIL: 'Sign in with email',
   DELIVER_TO: 'Deliver to',
   SPECIAL_OFFERS: 'Special Offers',
+  CATEGORIES: 'Categories',
+  SEE_ALL: 'See All',
 };
 
 export default copies;

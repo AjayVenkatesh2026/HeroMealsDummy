@@ -99,6 +99,12 @@ interface IBanner {
   source: ImageSourcePropType;
 }
 
+interface ICategory {
+  id: string;
+  image: string;
+  name: string;
+}
+
 export type {
   IProfile,
   IAddress,
@@ -110,4 +116,5 @@ export type {
   ICartData,
   IBillBreakdown,
   IBanner,
+  ICategory,
 };
