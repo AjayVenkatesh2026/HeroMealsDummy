@@ -12,6 +12,10 @@ const MINUS = 'minus';
 const PLUS = 'plus';
 const CHECK_CIRCLE_OUTLINE = 'check-circle-outline';
 const CLOSE_CIRCLE_OUTLINE = 'close-circle-outline';
+const BELL_OUTLINE = 'bell-outline';
+const BASKET_OUTLINE = 'basket-outline';
+const MAGNIFY = 'magnify';
+const MICROPHONE_OUTLINE = 'microphone-outline';
 
 export {
   STAR,
@@ -28,4 +32,8 @@ export {
   PLUS,
   CHECK_CIRCLE_OUTLINE,
   CLOSE_CIRCLE_OUTLINE,
+  BELL_OUTLINE,
+  BASKET_OUTLINE,
+  MAGNIFY,
+  MICROPHONE_OUTLINE,
 };

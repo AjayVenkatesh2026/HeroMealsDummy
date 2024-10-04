@@ -1,59 +1,89 @@
-import {StyleSheet, Text, View} from 'react-native';
-import React, {useState} from 'react';
+import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
+import React from 'react';
 
-import {Searchbar} from 'react-native-paper';
+import {Icon} from 'react-native-paper';
 
 import Header from 'src/components/molecules/Header';
 import font from 'src/styles/font';
 import {useAppSelector} from 'src/hooks/reduxHooks';
 import {getMergedAddress, isValidProfile} from 'src/utils/helpers';
 import {getThemedStyles} from 'src/utils/theme';
-import {GOOGLE_MAPS} from 'src/constants/icons';
+import {
+  BELL_OUTLINE,
+  GOOGLE_MAPS,
+  MAGNIFY,
+  MICROPHONE_OUTLINE,
+} from 'src/constants/icons';
 import copies from 'src/constants/copies';
+import containers from 'src/styles/containers';
 
-const {SEARCH} = copies;
+import defaultAvatar from 'src/assets/default-avatar.png';
+
+const {SEARCH, DELIVER_TO} = copies;
 
 const HomeScreenHeader = () => {
-  const [searchQuery, setSearchQuery] = useState<string>('');
   const theme = useAppSelector(state => state.themeReducer.theme);
   const profile = useAppSelector(state => state.profileReducer.profile);
-  const {name = '', address = {}} = isValidProfile(profile) ? profile : {};
+  const {address = {}, image = ''} = isValidProfile(profile) ? profile : {};
   const mergedAddress = getMergedAddress({address});
+  const src = image ? {uri: image} : defaultAvatar;
 
   return (
     <View
       style={[
+        styles.container,
         getThemedStyles({
-          backgroundColor: theme?.primaryDark,
+          backgroundColor: theme?.surface,
         }),
       ]}>
       <Header
-        leadingIcon={GOOGLE_MAPS}
         showCart
-        containerStyles={getThemedStyles({
-          backgroundColor: theme?.primaryDark,
-        })}>
+        trailingIcon={BELL_OUTLINE}
+        trailingIconStyles={[
+          styles.trailingIconStyles,
+          getThemedStyles({borderColor: theme?.borderSecondary}),
+        ]}
+        containerStyles={[
+          getThemedStyles({
+            backgroundColor: theme?.surface,
+          }),
+        ]}>
+        <Image source={src} style={styles.image} />
         <View style={styles.contentContainer}>
           <Text
-            style={[styles.title, getThemedStyles({color: theme?.bgTextHigh})]}>
-            {name}
+            style={[styles.title, getThemedStyles({color: theme?.textLow})]}>
+            {DELIVER_TO}
           </Text>
-          <Text
-            style={[styles.address, getThemedStyles({color: theme?.bgTextMid})]}
-            numberOfLines={1}
-            ellipsizeMode="tail">
-            {mergedAddress}
-          </Text>
+          <View style={containers.rowCenterStart}>
+            <Icon source={GOOGLE_MAPS} size={18} />
+            <Text
+              style={[
+                styles.address,
+                getThemedStyles({color: theme?.textHigh}),
+              ]}
+              numberOfLines={1}
+              ellipsizeMode="tail">
+              {mergedAddress}
+            </Text>
+          </View>
         </View>
       </Header>
       <View style={styles.searchBarContainer}>
-        <Searchbar
-          value={searchQuery}
-          placeholder={SEARCH}
-          onChangeText={setSearchQuery}
-          // TODO: implement search
-          onSubmitEditing={() => null}
-        />
+        <Pressable
+          style={[
+            styles.search,
+            getThemedStyles({backgroundColor: theme?.searchBackground}),
+          ]}>
+          <Icon source={MAGNIFY} size={20} color={theme?.textHigh} />
+          <Text
+            style={[
+              styles.searchText,
+              getThemedStyles({color: theme?.textLow}),
+            ]}>
+            {SEARCH}
+          </Text>
+          <Icon source={MICROPHONE_OUTLINE} size={20} color={theme?.textHigh} />
+        </Pressable>
       </View>
     </View>
   );
@@ -62,24 +92,47 @@ const HomeScreenHeader = () => {
 export default HomeScreenHeader;
 
 const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 16,
+    paddingTop: 16,
+  },
   contentContainer: {
     flex: 1,
-    paddingTop: 12,
+    ...containers.columnStretchBetween,
   },
   title: {
-    ...font.semiBold,
-    fontSize: 16,
+    ...font.regular,
+    fontSize: 14,
   },
   address: {
-    ...font.regular,
-    fontSize: 13,
-    maxWidth: 240,
+    ...font.bold,
+    flex: 1,
+    fontSize: 15,
+    marginLeft: 8,
   },
   trailingIconStyles: {
-    padding: 0,
-    margin: 0,
+    borderWidth: 1,
+    alignSelf: 'center',
   },
   searchBarContainer: {
+    paddingVertical: 16,
+  },
+  image: {
+    width: 48,
+    height: 48,
+    marginRight: 8,
+  },
+  search: {
+    ...containers.rowCenterStart,
     padding: 16,
+    borderRadius: 10,
+  },
+  searchText: {
+    ...font.regular,
+    flex: 1,
+    marginLeft: 8,
+    textAlignVertical: 'center',
+    fontSize: 16,
+    includeFontPadding: false,
   },
 });

@@ -53,6 +53,7 @@ const copies = {
   OR: 'Or',
   CONTENT_POLICIES: 'Content Policies',
   SIGN_IN_WITH_EMAIL: 'Sign in with email',
+  DELIVER_TO: 'Deliver to',
 };
 
 export default copies;

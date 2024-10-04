@@ -26,7 +26,7 @@ type THeaderProps = {
   trailingIcon?: string;
   onPressLeadingIcon?: (event?: GestureResponderEvent) => void;
   onPressTrailingIcon?: (event?: GestureResponderEvent) => void;
-  trailingIconStyles?: Style;
+  trailingIconStyles?: StyleProp<Style>;
   trailingIconLabel?: string;
   containerStyles?: StyleProp<ViewStyle>;
   showBack?: boolean;

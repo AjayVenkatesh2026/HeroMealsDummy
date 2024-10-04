@@ -50,8 +50,9 @@ const Header = ({
             <Appbar.Action
               icon={trailingIcon}
               onPress={onPressTrailingIcon}
-              color={theme?.bgTextHigh}
+              color={theme?.textHigh}
               style={trailingIconStyles}
+              size={20}
             />
             {trailingIconLabel ? (
               <Text

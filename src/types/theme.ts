@@ -22,6 +22,7 @@ interface ITheme {
   borderTertiary: ColorValue;
   accentPrimary: ColorValue;
   modalBakcground: ColorValue;
+  searchBackground: ColorValue;
 }
 
 export {type ITheme};

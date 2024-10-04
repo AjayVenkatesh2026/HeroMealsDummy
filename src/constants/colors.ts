@@ -25,6 +25,7 @@ const bluePalette = {
 const grayPalette = {
   lavendarGray: '#C5BFDB',
   gainsboro: '#D9DBE9',
+  greyGoose: '#D1D3D4',
 };
 
 const greenPalette = {
