@@ -1,12 +1,12 @@
-import {StyleSheet, View, FlatList, ScrollView} from 'react-native';
-import React, {useEffect} from 'react';
+import {StyleSheet, View, ScrollView} from 'react-native';
+import React from 'react';
 
-import {ActivityIndicator} from 'react-native-paper';
+// import {ActivityIndicator} from 'react-native-paper';
 
 import HomeScreenHeader from './HomeScreenHeader';
-import Restaurant from 'src/components/organisms/Restaurant';
-import useGetRestaurants from 'src/hooks/useGetRestuarants';
-import type {IRestaurant} from 'src/types/ordering';
+// import Restaurant from 'src/components/organisms/Restaurant';
+// import useGetRestaurants from 'src/hooks/useGetRestuarants';
+// import type {IRestaurant} from 'src/types/ordering';
 import containers from 'src/styles/containers';
 import {useAppSelector} from 'src/hooks/reduxHooks';
 import {getThemedStyles} from 'src/utils/theme';
@@ -16,26 +16,26 @@ import CategoriesList from 'src/components/molecules/CategoriesList';
 import Merchants from 'src/components/organisms/Merchants/Merchants';
 import RestaurantsCarousel from 'src/components/organisms/RestaurantsCarousel/RestaurantsCarousel';
 
-const renderItem = ({item}: {item: IRestaurant}) => (
-  <Restaurant restaurant={item} />
-);
+// const renderItem = ({item}: {item: IRestaurant}) => (
+//   <Restaurant restaurant={item} />
+// );
 
-const keyExtractor = (item: IRestaurant) => item.id;
+// const keyExtractor = (item: IRestaurant) => item.id;
 
-const renderSeparator = () => <View style={styles.separator} />;
+// const renderSeparator = () => <View style={styles.separator} />;
 
 const HomeScreen = () => {
   const theme = useAppSelector(state => state.themeReducer.theme);
-  const {loading, restaurants, getMoreRestaurants, getRestaurants} =
-    useGetRestaurants();
+  // const {loading, restaurants, getMoreRestaurants, getRestaurants} =
+  //   useGetRestaurants();
 
-  useEffect(() => {
-    getRestaurants();
-  }, [getRestaurants]);
+  // useEffect(() => {
+  //   getRestaurants();
+  // }, [getRestaurants]);
 
-  const onEndReached = () => {
-    getMoreRestaurants();
-  };
+  // const onEndReached = () => {
+  //   getMoreRestaurants();
+  // };
 
   return (
     <View
@@ -49,7 +49,7 @@ const HomeScreen = () => {
         <CategoriesList />
         <Merchants />
         <RestaurantsCarousel />
-        <FlatList
+        {/* <FlatList
           data={restaurants}
           renderItem={renderItem}
           keyExtractor={keyExtractor}
@@ -65,7 +65,7 @@ const HomeScreen = () => {
             ) : null
           }
           ItemSeparatorComponent={renderSeparator}
-        />
+        /> */}
       </ScrollView>
     </View>
   );
