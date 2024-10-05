@@ -24,6 +24,7 @@ const MENU_DOTS = 'dots-vertical';
 const HOME_VARIANT_OUTLINE = 'home-variant-outline';
 const SILVERWARE_FORK_KNIFE = 'silverware-fork-knife';
 const SILVERWARE = 'silverware';
+const CAR_PICKUP = 'car-pickup';
 
 export {
   STAR,
@@ -52,4 +53,5 @@ export {
   HOME_VARIANT_OUTLINE,
   SILVERWARE_FORK_KNIFE,
   SILVERWARE,
+  CAR_PICKUP,
 };

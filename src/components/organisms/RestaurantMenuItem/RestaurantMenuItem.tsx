@@ -12,19 +12,23 @@ import copies from 'src/constants/copies';
 import font from 'src/styles/font';
 import {useAppSelector} from 'src/hooks/reduxHooks';
 
-const {TODAY, SOLD_OUT} = copies;
+const {TODAY, SOLD_OUT, NOTIFY_ME} = copies;
 
 interface IRestaurantMenuItemProps {
   product: IProduct;
   restaurant: IRestaurant;
+  showTimings?: boolean;
+  showCategory?: boolean;
 }
 
 const RestaurantMenuItem: React.FC<IRestaurantMenuItemProps> = ({
   product,
   restaurant,
+  showTimings = true,
+  showCategory = false,
 }) => {
   const theme = useAppSelector(state => state.themeReducer.theme);
-  const {image_url, name, price} = product;
+  const {image_url, name, price, category} = product;
   const {openingTime, closingTime} = restaurant;
   const timings = `${TODAY}, ${openingTime} - ${closingTime}`;
   const is_available = true;
@@ -36,12 +40,21 @@ const RestaurantMenuItem: React.FC<IRestaurantMenuItemProps> = ({
         <Text variant="titleMedium" style={styles.title}>
           {name}
         </Text>
+        {showCategory && category ? (
+          <Text
+            variant="bodySmall"
+            style={[styles.category, {color: theme?.textMid}]}>
+            {category}
+          </Text>
+        ) : null}
         <Text variant="bodyMedium" style={styles.price}>
           {getFormattedPrice(price)}
         </Text>
-        <Text variant="bodySmall" style={styles.timings}>
-          {timings}
-        </Text>
+        {showTimings ? (
+          <Text variant="bodySmall" style={styles.timings}>
+            {timings}
+          </Text>
+        ) : null}
         {!is_available ? (
           <Text
             variant="bodySmall"
@@ -64,7 +77,7 @@ const RestaurantMenuItem: React.FC<IRestaurantMenuItemProps> = ({
             ]}
             labelStyle={styles.labelStyle}
             textColor={theme?.primaryDefault}>
-            {'Notify Me'}
+            {NOTIFY_ME}
           </Button>
         )}
       </View>
@@ -115,5 +128,9 @@ const styles = StyleSheet.create({
   },
   rightContainer: {
     paddingTop: 8,
+  },
+  category: {
+    ...font.regular,
+    fontSize: 12,
   },
 });

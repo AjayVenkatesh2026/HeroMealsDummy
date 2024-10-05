@@ -77,9 +77,10 @@ interface ICartProduct {
 
 interface IBillBreakdown {
   itemTotal: number;
-  deliveryFee?: number;
-  tax?: number;
-  platformFee?: number;
+  deliveryFee: number;
+  tax: number;
+  platformFee: number;
+  pickupDiscount: number;
 }
 
 interface ICartData {
@@ -117,6 +118,12 @@ interface IMerchant {
   name: string;
 }
 
+interface IPaymentMethod {
+  id: string;
+  image: ImageSourcePropType;
+  name: string;
+}
+
 export type {
   IProfile,
   IAddress,
@@ -130,4 +137,5 @@ export type {
   IBanner,
   ICategory,
   IMerchant,
+  IPaymentMethod,
 };

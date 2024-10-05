@@ -14,6 +14,7 @@ const whitePalette = {
   lavendarBlush: '#FCF4F3',
   white75: 'rgba(255, 255, 255, 0.75)',
   white50: 'rgba(255, 255, 255, 0.50)',
+  catskillWhite: '#F0F5FA',
 };
 
 const bluePalette = {

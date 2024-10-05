@@ -31,6 +31,10 @@ const useGetCartDataPerRestaurant = ({
       restaurant: null,
       orderData: {
         itemTotal: 0,
+        deliveryFee: 0,
+        platformFee: 0,
+        tax: 0,
+        pickupDiscount: 0,
       },
       products: [],
     };

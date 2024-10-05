@@ -182,6 +182,7 @@ const DUMMY_BILL_BREAKDOWN = {
   DELIVERY_CHARGE: 25,
   PLATFORM_FEE: 6,
   TAX: 10,
+  PICKUP_DISCOUNT: 49,
 };
 
 const banners: IBanner[] = [
@@ -389,7 +390,7 @@ const dummyProducts: IProduct[] = [
     description:
       'Ex magna occaecat magna eiusmod ipsum cupidatat labore adipisicing aliquip reprehenderit quis anim anim veniam. Dolor duis enim deserunt amet aliquip dolore officia ipsum cillum nulla. Et eu tempor voluptate incididunt aute proident incididunt nostrud non sint. Anim labore cillum eiusmod ut labore.',
     rating: 4.3,
-    restaurant_id: '2',
+    restaurant_id: '1',
     image_url:
       'https://images.unsplash.com/photo-1603122876935-13e7f40c3984?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     category: 'cat 1',

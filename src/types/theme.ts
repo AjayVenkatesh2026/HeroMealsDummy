@@ -23,6 +23,7 @@ interface ITheme {
   accentPrimary: ColorValue;
   modalBakcground: ColorValue;
   searchBackground: ColorValue;
+  paymentMethodBackground: ColorValue;
 }
 
 export {type ITheme};

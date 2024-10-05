@@ -17,6 +17,16 @@ const cartSlice = createSlice({
       if (cartProduct && cartProduct.quantity && cartProduct.details.id) {
         cartProduct.quantity += 1;
       } else {
+        const restaurantId = product.restaurant_id;
+        const prodsToBeDeleted: string[] = [];
+        Object.values(state.products).forEach(prod => {
+          if (prod.details.restaurant_id !== restaurantId) {
+            prodsToBeDeleted.push(prod.details.id);
+          }
+        });
+        for (const id of prodsToBeDeleted) {
+          delete state.products[id];
+        }
         state.products[product.id] = {
           quantity: 1,
           details: product,
