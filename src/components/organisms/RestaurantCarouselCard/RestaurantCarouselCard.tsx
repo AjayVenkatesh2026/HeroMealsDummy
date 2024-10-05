@@ -11,6 +11,7 @@ import {
 import React from 'react';
 
 import {Icon, Text} from 'react-native-paper';
+import {useNavigation} from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import type {IRestaurant} from 'src/types/ordering';
@@ -20,6 +21,8 @@ import {useAppSelector} from 'src/hooks/reduxHooks';
 import copies from 'src/constants/copies';
 import containers from 'src/styles/containers';
 import {CLOCK_OUTLINE} from 'src/constants/icons';
+import type {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import type {RootStackParamList} from 'src/types/navigator';
 
 const {DOT} = copies;
 
@@ -45,6 +48,8 @@ const RestaurantCarouselCard: React.FC<IRestaurantCarouselCardProps> = ({
   contentContainerStyles = {},
 }) => {
   const theme = useAppSelector(state => state.themeReducer.theme);
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const {image, name, distance, tags, rating, openingTime, closingTime} =
     restaurant;
   const tagsText = tags.join(` ${DOT} `);
@@ -52,7 +57,14 @@ const RestaurantCarouselCard: React.FC<IRestaurantCarouselCardProps> = ({
   const description =
     showTimings && timings ? [timings, distance].join(` ${DOT} `) : distance;
 
-  const onPress = () => {};
+  const onPress = () => {
+    navigation.navigate('ProductStack', {
+      screen: 'RestaurantScreen',
+      params: {
+        restaurant,
+      },
+    });
+  };
 
   return (
     <Pressable onPress={onPress}>

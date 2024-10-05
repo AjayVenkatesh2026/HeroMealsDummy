@@ -60,6 +60,12 @@ const columnStretchBetween: ViewStyle = {
   justifyContent: 'space-between',
 };
 
+const rowCenterAround: ViewStyle = {
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-around',
+};
+
 const containers = {
   rowCenterCenter,
   columnStretchCenter,
@@ -71,6 +77,7 @@ const containers = {
   rowStretchCenter,
   rowEndCenter,
   columnStretchBetween,
+  rowCenterAround,
 };
 
 export default containers;

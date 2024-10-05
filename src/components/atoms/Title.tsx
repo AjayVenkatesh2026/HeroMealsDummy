@@ -1,4 +1,4 @@
-import {View} from 'react-native';
+import {StyleProp, View, ViewStyle} from 'react-native';
 import React from 'react';
 
 import {Button, Text} from 'react-native-paper';
@@ -14,28 +14,37 @@ const {SEE_ALL} = copies;
 interface ITitleProps {
   title: string;
   onPress?: () => void;
+  containerStyles?: StyleProp<ViewStyle>;
+  showSeeAll?: boolean;
 }
 
-const Title: React.FC<ITitleProps> = ({title, onPress = () => null}) => {
+const Title: React.FC<ITitleProps> = ({
+  title,
+  onPress = () => null,
+  containerStyles = {},
+  showSeeAll = true,
+}) => {
   const theme = useAppSelector(state => state.themeReducer.theme);
 
   return (
-    <View style={containers.rowCenterBetween}>
+    <View style={[containers.rowCenterBetween, containerStyles]}>
       <Text
         variant="titleMedium"
         style={[font.bold, getThemedStyles({color: theme?.textHigh})]}>
         {title}
       </Text>
-      <Button onPress={onPress}>
-        <Text
-          variant="bodyMedium"
-          style={[
-            font.semiBold,
-            getThemedStyles({color: theme?.primaryDefault}),
-          ]}>
-          {SEE_ALL}
-        </Text>
-      </Button>
+      {showSeeAll ? (
+        <Button onPress={onPress}>
+          <Text
+            variant="bodyMedium"
+            style={[
+              font.semiBold,
+              getThemedStyles({color: theme?.primaryDefault}),
+            ]}>
+            {SEE_ALL}
+          </Text>
+        </Button>
+      ) : null}
     </View>
   );
 };

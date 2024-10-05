@@ -30,17 +30,20 @@ interface IRestaurant {
   tags: string[];
   openingTime: string;
   closingTime: string;
+  description: string;
 }
 
 interface IProduct {
+  category: string;
+  description: string;
   id: string;
+  image_url: string;
+  is_available: boolean;
   name: string;
   price: number;
-  description: string;
   rating: number;
-  num_of_ratings: number;
-  image: string;
   restaurant_id: string;
+  restaurant_name: string;
 }
 
 interface IOrderRestaurant {

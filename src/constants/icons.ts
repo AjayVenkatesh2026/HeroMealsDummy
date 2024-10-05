@@ -19,6 +19,11 @@ const MICROPHONE_OUTLINE = 'microphone-outline';
 const TEXT_SEARCH = 'text-search';
 const HEART_OUTLINE = 'heart-outline';
 const CLOCK_OUTLINE = 'clock-outline';
+const ARROW_LEFT = 'arrow-left';
+const MENU_DOTS = 'dots-vertical';
+const HOME_VARIANT_OUTLINE = 'home-variant-outline';
+const SILVERWARE_FORK_KNIFE = 'silverware-fork-knife';
+const SILVERWARE = 'silverware';
 
 export {
   STAR,
@@ -42,4 +47,9 @@ export {
   TEXT_SEARCH,
   HEART_OUTLINE,
   CLOCK_OUTLINE,
+  ARROW_LEFT,
+  MENU_DOTS,
+  HOME_VARIANT_OUTLINE,
+  SILVERWARE_FORK_KNIFE,
+  SILVERWARE,
 };

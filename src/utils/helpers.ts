@@ -1,7 +1,7 @@
 import type {IProfile, IAddress} from 'src/types/ordering';
 import copies from 'src/constants/copies';
 
-const {RUPEE} = copies;
+const {PESO} = copies;
 
 const isValidProfile = (profile: any): profile is IProfile => {
   if (typeof profile === 'object') {
@@ -59,7 +59,7 @@ const isValidHttpUrl = (string: string) => {
 };
 
 const getFormattedPrice = (price: number) => {
-  return `${RUPEE}${price.toFixed(2)}`;
+  return `${PESO}${price.toFixed(2)}`;
 };
 
 export {

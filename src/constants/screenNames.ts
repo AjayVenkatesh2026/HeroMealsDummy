@@ -31,6 +31,7 @@ const productStackScreenNames: {
   [key in ProductStackScreens]: ProductStackScreens;
 } = {
   ProductsScreen: 'ProductsScreen',
+  RestaurantScreen: 'RestaurantScreen',
 };
 
 const orderStackScreenNames: {

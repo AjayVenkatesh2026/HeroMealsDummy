@@ -64,6 +64,19 @@ const copies = {
   COLLECT_NOW: 'Collect Now',
   LIST: 'List',
   MAP: 'Map',
+  OPENING_HOURS: 'Opening Hours:',
+  TODAY: 'Today',
+  SOLD_OUT: 'Sold out',
+  LEFT: 'left',
+  PESO: '\u20B1',
+  MENU_ITEMS: 'Menu Items',
+  FRIENDLY_STAFF: 'Friendly Staff',
+  DELICIOUS_FOOD: 'Delicious Food',
+  GREAT_AMOUNT_OF_FOOD: 'Great amount of food',
+  REVIEWS: 'Reviews',
+  ABOUT_STORE: 'About store',
+  BASED_ON_72_RATINGS_OVER_THE_PAST_MONTH:
+    'Based on 72 ratings over the past month',
 };
 
 export default copies;

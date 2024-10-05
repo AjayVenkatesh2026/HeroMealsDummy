@@ -50,6 +50,8 @@ const dummyRestaurantsList: IRestaurant[] = [
     tags: ['Salad Bags', 'Healthy'],
     openingTime: '09:00 am',
     closingTime: '11:00 pm',
+    description:
+      'Dolor in velit labore irure ut ullamco sint eu sint nulla duis irure. Ullamco qui enim tempor consectetur laborum anim sunt ad eiusmod consectetur aliquip. Aliqua minim reprehenderit pariatur ut aute incididunt mollit ea. Quis veniam enim labore ut dolore et Lorem Lorem nostrud cupidatat. Amet ullamco mollit eu ad ullamco. Aliquip proident eu laboris magna enim excepteur eu consectetur adipisicing mollit est do cillum. In ex id magna dolor ad ipsum officia elit qui.',
   },
   {
     id: '2',
@@ -63,6 +65,7 @@ const dummyRestaurantsList: IRestaurant[] = [
     tags: ['Pastries Bags', 'Top Deals'],
     openingTime: '09:00 am',
     closingTime: '11:00 pm',
+    description: 'Reprehenderit quis tempor ullamco sit eu commodo incididunt.',
   },
   {
     id: '3',
@@ -76,6 +79,7 @@ const dummyRestaurantsList: IRestaurant[] = [
     tags: [],
     openingTime: '09:00 am',
     closingTime: '11:00 pm',
+    description: '',
   },
 ];
 
@@ -148,31 +152,31 @@ const dummyOrders: IOrder[] = [
   },
 ];
 
-const dummyProducts: IProduct[] = [
-  {
-    id: 'prod-1',
-    name: 'Chicken Biryanai',
-    price: 280,
-    description: 'Qui elit non sit duis veniam duis consectetur sit.',
-    rating: 3.5,
-    num_of_ratings: 200,
-    restaurant_id: '1',
-    image:
-      'https://images.unsplash.com/photo-1603122876935-13e7f40c3984?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  },
-  {
-    id: 'prod-2',
-    name: 'Chicken 65',
-    price: 280,
-    description:
-      'Ex magna occaecat magna eiusmod ipsum cupidatat labore adipisicing aliquip reprehenderit quis anim anim veniam. Dolor duis enim deserunt amet aliquip dolore officia ipsum cillum nulla. Et eu tempor voluptate incididunt aute proident incididunt nostrud non sint. Anim labore cillum eiusmod ut labore.',
-    rating: 4.3,
-    num_of_ratings: 1200,
-    restaurant_id: '2',
-    image:
-      'https://images.unsplash.com/photo-1603122876935-13e7f40c3984?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  },
-];
+// const dummyProducts: IProduct[] = [
+//   {
+//     id: 'prod-1',
+//     name: 'Chicken Biryanai',
+//     price: 280,
+//     description: 'Qui elit non sit duis veniam duis consectetur sit.',
+//     rating: 3.5,
+//     num_of_ratings: 200,
+//     restaurant_id: '1',
+//     image:
+//       'https://images.unsplash.com/photo-1603122876935-13e7f40c3984?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+//   },
+//   {
+//     id: 'prod-2',
+//     name: 'Chicken 65',
+//     price: 280,
+//     description:
+//       'Ex magna occaecat magna eiusmod ipsum cupidatat labore adipisicing aliquip reprehenderit quis anim anim veniam. Dolor duis enim deserunt amet aliquip dolore officia ipsum cillum nulla. Et eu tempor voluptate incididunt aute proident incididunt nostrud non sint. Anim labore cillum eiusmod ut labore.',
+//     rating: 4.3,
+//     num_of_ratings: 1200,
+//     restaurant_id: '2',
+//     image:
+//       'https://images.unsplash.com/photo-1603122876935-13e7f40c3984?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+//   },
+// ];
 
 const DUMMY_BILL_BREAKDOWN = {
   DELIVERY_CHARGE: 25,
@@ -287,6 +291,7 @@ const dummyNewOnHeroMeals: IRestaurant[] = [
     tags: ['Afternoon Tea Pasty Box'],
     openingTime: '09:00 pm',
     closingTime: '11:00 pm',
+    description: '',
   },
   {
     id: 'res-2',
@@ -300,6 +305,7 @@ const dummyNewOnHeroMeals: IRestaurant[] = [
     tags: ['Bakery Box'],
     openingTime: '03:00 pm',
     closingTime: '05:00 pm',
+    description: '',
   },
   {
     id: 'res-3',
@@ -313,6 +319,7 @@ const dummyNewOnHeroMeals: IRestaurant[] = [
     tags: ['Meat Bag'],
     openingTime: '01:00 pm',
     closingTime: '05:00 pm',
+    description: '',
   },
 ];
 
@@ -329,6 +336,7 @@ const dummyCollectNow: IRestaurant[] = [
     tags: ['Salad Bag'],
     openingTime: '3:00 pm',
     closingTime: '5:00 pm',
+    description: '',
   },
   {
     id: 'res-collect-2',
@@ -342,6 +350,7 @@ const dummyCollectNow: IRestaurant[] = [
     tags: ['Bakery Box'],
     openingTime: '6:00 am',
     closingTime: '5:00 pm',
+    description: '',
   },
   {
     id: 'res-collect-3',
@@ -355,6 +364,37 @@ const dummyCollectNow: IRestaurant[] = [
     tags: ['Groceris Bag'],
     openingTime: '9:45 am',
     closingTime: '12:00 pm',
+    description: '',
+  },
+];
+
+const dummyProducts: IProduct[] = [
+  {
+    id: 'prod-1',
+    name: 'Chicken Biryanai',
+    price: 280,
+    description: 'Qui elit non sit duis veniam duis consectetur sit.',
+    rating: 3.5,
+    restaurant_id: '1',
+    image_url:
+      'https://images.unsplash.com/photo-1603122876935-13e7f40c3984?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    category: 'cat 1',
+    is_available: true,
+    restaurant_name: 'Restaurant 1',
+  },
+  {
+    id: 'prod-2',
+    name: 'Chicken 65',
+    price: 280,
+    description:
+      'Ex magna occaecat magna eiusmod ipsum cupidatat labore adipisicing aliquip reprehenderit quis anim anim veniam. Dolor duis enim deserunt amet aliquip dolore officia ipsum cillum nulla. Et eu tempor voluptate incididunt aute proident incididunt nostrud non sint. Anim labore cillum eiusmod ut labore.',
+    rating: 4.3,
+    restaurant_id: '2',
+    image_url:
+      'https://images.unsplash.com/photo-1603122876935-13e7f40c3984?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    category: 'cat 1',
+    is_available: true,
+    restaurant_name: 'Restaurant 1',
   },
 ];
 
