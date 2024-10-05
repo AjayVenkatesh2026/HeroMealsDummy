@@ -105,6 +105,12 @@ interface ICategory {
   name: string;
 }
 
+interface IMerchant {
+  id: string;
+  image: ImageSourcePropType;
+  name: string;
+}
+
 export type {
   IProfile,
   IAddress,
@@ -117,4 +123,5 @@ export type {
   IBillBreakdown,
   IBanner,
   ICategory,
+  IMerchant,
 };

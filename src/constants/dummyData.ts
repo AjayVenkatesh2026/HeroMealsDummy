@@ -6,11 +6,17 @@ import type {
   IProduct,
   IBanner,
   ICategory,
+  IMerchant,
 } from 'src/types/ordering';
 
 import banner1 from 'src/assets/banners/banner-1.png';
 import banner2 from 'src/assets/banners/banner-2.png';
 import banner3 from 'src/assets/banners/banner-3.png';
+import mer1 from 'src/assets/merchants/saladstop.png';
+import mer2 from 'src/assets/merchants/robinsons.png';
+import mer3 from 'src/assets/merchants/the-french.png';
+import mer4 from 'src/assets/merchants/army-navy.png';
+import mer5 from 'src/assets/merchants/krispy-kreme.png';
 
 const dummyAddress: IAddress = {
   landmark: "Near St. John's Library",
@@ -231,6 +237,34 @@ const categories: ICategory[] = [
   },
 ];
 
+const dummyMerchants: IMerchant[] = [
+  {
+    id: 'mer-1',
+    image: mer1,
+    name: 'SaladStop!',
+  },
+  {
+    id: 'mer-2',
+    image: mer2,
+    name: 'Robinsons Supermarket!',
+  },
+  {
+    id: 'mer-3',
+    image: mer3,
+    name: 'The French',
+  },
+  {
+    id: 'mer-4',
+    image: mer4,
+    name: 'Army Navy',
+  },
+  {
+    id: 'mer-5',
+    image: mer5,
+    name: 'Krispy Kreme!',
+  },
+];
+
 export {
   dummyProfile,
   dummyRestaurantsList,
@@ -239,4 +273,5 @@ export {
   DUMMY_BILL_BREAKDOWN,
   banners,
   categories,
+  dummyMerchants,
 };

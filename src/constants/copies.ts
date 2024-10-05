@@ -57,6 +57,7 @@ const copies = {
   SPECIAL_OFFERS: 'Special Offers',
   CATEGORIES: 'Categories',
   SEE_ALL: 'See All',
+  FEATURED_MERCHANTS: 'Featured Merchants',
 };
 
 export default copies;

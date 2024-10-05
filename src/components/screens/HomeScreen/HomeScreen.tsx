@@ -1,4 +1,4 @@
-import {StyleSheet, View, FlatList} from 'react-native';
+import {StyleSheet, View, FlatList, ScrollView} from 'react-native';
 import React, {useEffect} from 'react';
 
 import {ActivityIndicator} from 'react-native-paper';
@@ -13,6 +13,7 @@ import {getThemedStyles} from 'src/utils/theme';
 import Banners from 'src/components/molecules/Banners';
 import {banners} from 'src/constants/dummyData';
 import CategoriesList from 'src/components/molecules/CategoriesList';
+import Merchants from 'src/components/organisms/Merchants/Merchants';
 
 const renderItem = ({item}: {item: IRestaurant}) => (
   <Restaurant restaurant={item} />
@@ -42,25 +43,28 @@ const HomeScreen = () => {
         getThemedStyles({backgroundColor: theme?.surface}),
       ]}>
       <HomeScreenHeader />
-      <Banners banners={banners} />
-      <CategoriesList />
-      <FlatList
-        data={restaurants}
-        renderItem={renderItem}
-        keyExtractor={keyExtractor}
-        onEndReachedThreshold={0.7}
-        onEndReached={onEndReached}
-        contentContainerStyle={styles.listContainer}
-        style={styles.list}
-        ListFooterComponent={
-          loading ? (
-            <View style={styles.loaderContainer}>
-              <ActivityIndicator size={'large'} color={theme?.primaryDark} />
-            </View>
-          ) : null
-        }
-        ItemSeparatorComponent={renderSeparator}
-      />
+      <ScrollView>
+        <Banners banners={banners} />
+        <CategoriesList />
+        <Merchants />
+        <FlatList
+          data={restaurants}
+          renderItem={renderItem}
+          keyExtractor={keyExtractor}
+          onEndReachedThreshold={0.7}
+          onEndReached={onEndReached}
+          contentContainerStyle={styles.listContainer}
+          style={styles.list}
+          ListFooterComponent={
+            loading ? (
+              <View style={styles.loaderContainer}>
+                <ActivityIndicator size={'large'} color={theme?.primaryDark} />
+              </View>
+            ) : null
+          }
+          ItemSeparatorComponent={renderSeparator}
+        />
+      </ScrollView>
     </View>
   );
 };
