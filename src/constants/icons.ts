@@ -16,6 +16,8 @@ const BELL_OUTLINE = 'bell-outline';
 const BASKET_OUTLINE = 'basket-outline';
 const MAGNIFY = 'magnify';
 const MICROPHONE_OUTLINE = 'microphone-outline';
+const TEXT_SEARCH = 'text-search';
+const HEART_OUTLINE = 'heart-outline';
 
 export {
   STAR,
@@ -36,4 +38,6 @@ export {
   BASKET_OUTLINE,
   MAGNIFY,
   MICROPHONE_OUTLINE,
+  TEXT_SEARCH,
+  HEART_OUTLINE,
 };

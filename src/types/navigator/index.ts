@@ -12,8 +12,11 @@ type AuthStackParamList = {
 
 type BottomTabParamList = {
   HomeScreen: undefined;
-  OrderHistoryScreen: undefined;
+  // OrderHistoryScreen: undefined;
   ProfileScreen: undefined;
+  CategoriesScreen: undefined;
+  FaviouritesScreen: undefined;
+  BasketsScreen: undefined;
 };
 
 type ProductStackParamList = {
@@ -48,7 +51,12 @@ type RootStackScreens =
 
 type AuthStackScreens = 'LoginScreen';
 
-type BottomTabScreens = 'HomeScreen' | 'OrderHistoryScreen' | 'ProfileScreen';
+type BottomTabScreens =
+  | 'HomeScreen'
+  | 'ProfileScreen'
+  | 'CategoriesScreen'
+  | 'FaviouritesScreen'
+  | 'BasketsScreen';
 
 type ProductStackScreens = 'ProductsScreen';
 

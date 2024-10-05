@@ -8,6 +8,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import type {BottomTabOption} from 'src/types/navigator';
 import {useAppSelector} from 'src/hooks/reduxHooks';
 import {getThemedStyles} from 'src/utils/theme';
+import {StyleSheet} from 'react-native';
 
 const renderTabIcon = ({
   color,
@@ -34,9 +35,15 @@ const BottomTabBar = ({
       navigationState={state}
       safeAreaInsets={insets}
       activeColor={theme?.primaryDefault}
-      style={getThemedStyles({backgroundColor: theme?.borderSecondary})}
+      style={[
+        styles.bottomTabContainer,
+        getThemedStyles({
+          backgroundColor: theme?.surface,
+          borderColor: theme?.borderPrimary,
+        }),
+      ]}
       activeIndicatorStyle={getThemedStyles({
-        backgroundColor: theme?.borderSecondary,
+        backgroundColor: theme?.surface,
       })}
       onTabPress={({route, preventDefault}) => {
         const event = navigation.emit({
@@ -80,5 +87,11 @@ const BottomTabBar = ({
     />
   );
 };
+
+const styles = StyleSheet.create({
+  bottomTabContainer: {
+    borderTopWidth: 1,
+  },
+});
 
 export default BottomTabBar;

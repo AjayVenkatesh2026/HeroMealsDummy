@@ -21,8 +21,10 @@ const loginStackScreenNames: {[key in AuthStackScreens]: AuthStackScreens} = {
 
 const bottomTabScreenNames: {[key in BottomTabScreens]: BottomTabScreens} = {
   HomeScreen: 'HomeScreen',
-  OrderHistoryScreen: 'OrderHistoryScreen',
   ProfileScreen: 'ProfileScreen',
+  CategoriesScreen: 'CategoriesScreen',
+  FaviouritesScreen: 'FaviouritesScreen',
+  BasketsScreen: 'BasketsScreen',
 };
 
 const productStackScreenNames: {
