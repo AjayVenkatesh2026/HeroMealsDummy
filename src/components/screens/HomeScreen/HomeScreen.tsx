@@ -49,6 +49,7 @@ const HomeScreen = () => {
         <CategoriesList />
         <Merchants />
         <RestaurantsCarousel />
+        {/* TODO: Implement 'Make a Donation' section */}
         {/* <FlatList
           data={restaurants}
           renderItem={renderItem}

@@ -60,6 +60,10 @@ const copies = {
   FEATURED_MERCHANTS: 'Featured Merchants',
   DOT: '\u2022',
   RESTAURANTS_NEAR_YOU: 'Restaurants near You',
+  NEW_ON_HERO_MEALS: 'New on HeroMeals',
+  COLLECT_NOW: 'Collect Now',
+  LIST: 'List',
+  MAP: 'Map',
 };
 
 export default copies;

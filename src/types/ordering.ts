@@ -28,6 +28,8 @@ interface IRestaurant {
   rating: number;
   address: IAddress;
   tags: string[];
+  openingTime: string;
+  closingTime: string;
 }
 
 interface IProduct {

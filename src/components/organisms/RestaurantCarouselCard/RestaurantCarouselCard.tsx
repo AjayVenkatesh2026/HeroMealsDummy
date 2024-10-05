@@ -1,4 +1,13 @@
-import {ImageBackground, Pressable, StyleSheet, View} from 'react-native';
+import {
+  ImageBackground,
+  ImageStyle,
+  Pressable,
+  StyleProp,
+  StyleSheet,
+  TextStyle,
+  View,
+  ViewStyle,
+} from 'react-native';
 import React from 'react';
 
 import {Icon, Text} from 'react-native-paper';
@@ -9,25 +18,47 @@ import font from 'src/styles/font';
 import {getThemedStyles} from 'src/utils/theme';
 import {useAppSelector} from 'src/hooks/reduxHooks';
 import copies from 'src/constants/copies';
+import containers from 'src/styles/containers';
+import {CLOCK_OUTLINE} from 'src/constants/icons';
 
 const {DOT} = copies;
 
 interface IRestaurantCarouselCardProps {
   restaurant: IRestaurant;
+  showTimings?: boolean;
+  bgImageStyles?: StyleProp<ImageStyle>;
+  titleStyles?: StyleProp<TextStyle>;
+  descriptionStyles?: StyleProp<TextStyle>;
+  taglineStyles?: StyleProp<TextStyle>;
+  clockIconSize?: number;
+  contentContainerStyles?: StyleProp<ViewStyle>;
 }
 
 const RestaurantCarouselCard: React.FC<IRestaurantCarouselCardProps> = ({
   restaurant,
+  showTimings = false,
+  bgImageStyles = {},
+  titleStyles = {},
+  descriptionStyles = {},
+  taglineStyles = {},
+  clockIconSize = 16,
+  contentContainerStyles = {},
 }) => {
   const theme = useAppSelector(state => state.themeReducer.theme);
-  const {image, name, distance, tags, rating} = restaurant;
+  const {image, name, distance, tags, rating, openingTime, closingTime} =
+    restaurant;
   const tagsText = tags.join(` ${DOT} `);
+  const timings = `${openingTime} - ${closingTime}`;
+  const description =
+    showTimings && timings ? [timings, distance].join(` ${DOT} `) : distance;
 
   const onPress = () => {};
 
   return (
     <Pressable onPress={onPress}>
-      <ImageBackground source={{uri: image}} style={styles.bgImage}>
+      <ImageBackground
+        source={{uri: image}}
+        style={[styles.bgImage, bgImageStyles]}>
         <LinearGradient
           start={{x: 0.5, y: 0}}
           end={{x: 0.5, y: 1}}
@@ -55,30 +86,51 @@ const RestaurantCarouselCard: React.FC<IRestaurantCarouselCardProps> = ({
                 {rating}
               </Text>
             </View>
-            <View style={styles.contentContainer}>
+            <View style={[styles.contentContainer, contentContainerStyles]}>
               <Text
                 variant="titleLarge"
                 style={[
                   font.bold,
                   getThemedStyles({color: theme?.bgTextHigh}),
+                  titleStyles,
                 ]}>
                 {name}
               </Text>
               {tagsText ? (
                 <Text
                   variant="bodyMedium"
+                  numberOfLines={1}
+                  ellipsizeMode="tail"
                   style={[
                     font.regular,
                     getThemedStyles({color: theme?.bgTextHigh}),
+                    taglineStyles,
                   ]}>
                   {tagsText}
                 </Text>
               ) : null}
-              <Text
-                variant="bodyMedium"
-                style={[font.bold, getThemedStyles({color: theme?.bgTextMid})]}>
-                {distance}
-              </Text>
+              <View style={containers.rowCenterStart}>
+                {showTimings && timings ? (
+                  <View style={styles.iconContainer}>
+                    <Icon
+                      size={clockIconSize}
+                      source={CLOCK_OUTLINE}
+                      color={theme?.bgTextHigh}
+                    />
+                  </View>
+                ) : null}
+                <Text
+                  variant="bodyMedium"
+                  numberOfLines={1}
+                  ellipsizeMode="tail"
+                  style={[
+                    font.bold,
+                    getThemedStyles({color: theme?.bgTextMid}),
+                    descriptionStyles,
+                  ]}>
+                  {description}
+                </Text>
+              </View>
               {/* TODO: ADD favourtes icon */}
             </View>
           </View>
@@ -119,5 +171,9 @@ const styles = StyleSheet.create({
     includeFontPadding: false,
     marginTop: -2,
     marginLeft: 2,
+  },
+  iconContainer: {
+    marginTop: 4,
+    marginRight: 4,
   },
 });

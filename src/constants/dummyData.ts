@@ -48,6 +48,8 @@ const dummyRestaurantsList: IRestaurant[] = [
     rating: 4.7,
     address: dummyAddress,
     tags: ['Salad Bags', 'Healthy'],
+    openingTime: '09:00 am',
+    closingTime: '11:00 pm',
   },
   {
     id: '2',
@@ -59,6 +61,8 @@ const dummyRestaurantsList: IRestaurant[] = [
     rating: 4.7,
     address: dummyAddress,
     tags: ['Pastries Bags', 'Top Deals'],
+    openingTime: '09:00 am',
+    closingTime: '11:00 pm',
   },
   {
     id: '3',
@@ -70,6 +74,8 @@ const dummyRestaurantsList: IRestaurant[] = [
     rating: 4.7,
     address: dummyAddress,
     tags: [],
+    openingTime: '09:00 am',
+    closingTime: '11:00 pm',
   },
 ];
 
@@ -268,6 +274,90 @@ const dummyMerchants: IMerchant[] = [
   },
 ];
 
+const dummyNewOnHeroMeals: IRestaurant[] = [
+  {
+    id: 'res-1',
+    image:
+      'https://images.unsplash.com/photo-1603122876935-13e7f40c3984?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    distance: '3 km',
+    duration: 20,
+    name: 'Shangri-La Hotel',
+    rating: 4.0,
+    address: dummyAddress,
+    tags: ['Afternoon Tea Pasty Box'],
+    openingTime: '09:00 pm',
+    closingTime: '11:00 pm',
+  },
+  {
+    id: 'res-2',
+    image:
+      'https://images.unsplash.com/photo-1603122876935-13e7f40c3984?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    distance: '1.5 km',
+    duration: 20,
+    name: 'ButterBoy',
+    rating: 4.2,
+    address: dummyAddress,
+    tags: ['Bakery Box'],
+    openingTime: '03:00 pm',
+    closingTime: '05:00 pm',
+  },
+  {
+    id: 'res-3',
+    image:
+      'https://images.unsplash.com/photo-1603122876935-13e7f40c3984?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    distance: '1.5 km',
+    duration: 20,
+    name: 'Kenny Rogers',
+    rating: 4.6,
+    address: dummyAddress,
+    tags: ['Meat Bag'],
+    openingTime: '01:00 pm',
+    closingTime: '05:00 pm',
+  },
+];
+
+const dummyCollectNow: IRestaurant[] = [
+  {
+    id: 'res-collect-1',
+    image:
+      'https://images.unsplash.com/photo-1603122876935-13e7f40c3984?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    distance: '3 km',
+    duration: 20,
+    name: 'SaladStop!',
+    rating: 4.6,
+    address: dummyAddress,
+    tags: ['Salad Bag'],
+    openingTime: '3:00 pm',
+    closingTime: '5:00 pm',
+  },
+  {
+    id: 'res-collect-2',
+    image:
+      'https://images.unsplash.com/photo-1603122876935-13e7f40c3984?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    distance: '2.5 km',
+    duration: 20,
+    name: 'The French Baker',
+    rating: 4.7,
+    address: dummyAddress,
+    tags: ['Bakery Box'],
+    openingTime: '6:00 am',
+    closingTime: '5:00 pm',
+  },
+  {
+    id: 'res-collect-3',
+    image:
+      'https://images.unsplash.com/photo-1603122876935-13e7f40c3984?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    distance: '',
+    duration: 20,
+    name: 'Marks & Spencers',
+    rating: 4.6,
+    address: dummyAddress,
+    tags: ['Groceris Bag'],
+    openingTime: '9:45 am',
+    closingTime: '12:00 pm',
+  },
+];
+
 export {
   dummyProfile,
   dummyRestaurantsList,
@@ -277,4 +367,6 @@ export {
   banners,
   categories,
   dummyMerchants,
+  dummyNewOnHeroMeals,
+  dummyCollectNow,
 };
