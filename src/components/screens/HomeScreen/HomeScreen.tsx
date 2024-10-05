@@ -14,6 +14,7 @@ import Banners from 'src/components/molecules/Banners';
 import {banners} from 'src/constants/dummyData';
 import CategoriesList from 'src/components/molecules/CategoriesList';
 import Merchants from 'src/components/organisms/Merchants/Merchants';
+import RestaurantsCarousel from 'src/components/organisms/RestaurantsCarousel/RestaurantsCarousel';
 
 const renderItem = ({item}: {item: IRestaurant}) => (
   <Restaurant restaurant={item} />
@@ -47,6 +48,7 @@ const HomeScreen = () => {
         <Banners banners={banners} />
         <CategoriesList />
         <Merchants />
+        <RestaurantsCarousel />
         <FlatList
           data={restaurants}
           renderItem={renderItem}

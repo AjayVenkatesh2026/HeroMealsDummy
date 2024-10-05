@@ -47,6 +47,7 @@ const dummyRestaurantsList: IRestaurant[] = [
     name: 'Restaurant 1',
     rating: 4.7,
     address: dummyAddress,
+    tags: ['Salad Bags', 'Healthy'],
   },
   {
     id: '2',
@@ -57,6 +58,7 @@ const dummyRestaurantsList: IRestaurant[] = [
     name: 'Restaurant 2',
     rating: 4.7,
     address: dummyAddress,
+    tags: ['Pastries Bags', 'Top Deals'],
   },
   {
     id: '3',
@@ -67,6 +69,7 @@ const dummyRestaurantsList: IRestaurant[] = [
     name: 'Restaurant 3',
     rating: 4.7,
     address: dummyAddress,
+    tags: [],
   },
 ];
 

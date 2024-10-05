@@ -27,6 +27,7 @@ interface IRestaurant {
   name: string;
   rating: number;
   address: IAddress;
+  tags: string[];
 }
 
 interface IProduct {

@@ -58,6 +58,8 @@ const copies = {
   CATEGORIES: 'Categories',
   SEE_ALL: 'See All',
   FEATURED_MERCHANTS: 'Featured Merchants',
+  DOT: '\u2022',
+  RESTAURANTS_NEAR_YOU: 'Restaurants near You',
 };
 
 export default copies;
