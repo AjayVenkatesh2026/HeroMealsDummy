@@ -39,6 +39,7 @@ const orderStackScreenNames: {
 } = {
   CartHomeScreen: 'CartHomeScreen',
   OrderDetails: 'OrderDetails',
+  OrderSuccess: 'OrderSuccess',
 };
 
 const screenNames = {

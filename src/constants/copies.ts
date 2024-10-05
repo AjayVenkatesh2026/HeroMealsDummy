@@ -101,6 +101,12 @@ const copies = {
   VISA: 'Visa',
   MASTERCARD: 'Mastercard',
   GCASH: 'GCash',
+  YOUR_ORDER_IS_CONFIRMED: 'Your order is confirmed!',
+  WE_LL_DELIVER_YOUR_ORDER_IMMEDIATELY_DURING_THE_COLLECTION_TIME:
+    "We'll deliver your order immediately during\n the collection time.",
+  GET_READY_TO_PICK_UP_YOUR_ORDER_DURING_THE_COLLECTION_TIME:
+    'Get ready to pick up your order during the\n collection time. Don’t be late!',
+  CHECK_ORDER_STATUS: 'Check order status',
 };
 
 export default copies;

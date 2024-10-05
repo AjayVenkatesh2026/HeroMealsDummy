@@ -3,6 +3,8 @@ import React, {useState} from 'react';
 
 import {Button, Text} from 'react-native-paper';
 import {isEmpty} from 'radash';
+import {useNavigation} from '@react-navigation/native';
+import type {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import Header from 'src/components/molecules/Header';
 import copies from 'src/constants/copies';
@@ -14,6 +16,7 @@ import {getCartRestaurant} from 'src/utils/cart';
 import MyBasket from './MyBasket';
 import PaymentBreakdown from './PaymentBreakdown';
 import PaymentMethods from 'src/components/organisms/PaymentMethods/PaymentMethods';
+import type {RootStackParamList} from 'src/types/navigator';
 
 const {CHECKOUT, DELIVERY, PICKUP, EMPTY_BASKET} = copies;
 
@@ -24,6 +27,8 @@ const BasketsScreen = () => {
     state => state.restaurantsReducer.restaurants,
   );
   const cart = useAppSelector(state => state.cartReducer.products);
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const cartRestaurant = getCartRestaurant(cart, restaurants);
 
   const onPressDelivery = () => {
@@ -34,7 +39,15 @@ const BasketsScreen = () => {
     setIsPickup(true);
   };
 
-  const onPressCheckout = () => {};
+  const onPressCheckout = () => {
+    navigation.navigate('OrderStack', {
+      screen: 'OrderSuccess',
+      params: {
+        orderId: '',
+        isPickup,
+      },
+    });
+  };
 
   return (
     <View style={[styles.container, {backgroundColor: theme?.surface}]}>
