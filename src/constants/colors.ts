@@ -5,6 +5,7 @@ const redPalette = {
   duskyRose: '#BF6969',
   dirtyPink: '#DA7878',
   roseMadder: '#ED2128',
+  paleOrange: '#F2AB58',
 };
 
 const whitePalette = {
@@ -31,6 +32,8 @@ const grayPalette = {
 
 const greenPalette = {
   green: 'green',
+  darkPastelGreen: '#4CAF50',
+  aquaSprint: '#EAFAEB',
 };
 
 const colors = {

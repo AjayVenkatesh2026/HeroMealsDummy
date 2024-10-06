@@ -72,6 +72,12 @@ const rowStartAround: ViewStyle = {
   justifyContent: 'space-around',
 };
 
+const rowStartStart: ViewStyle = {
+  flexDirection: 'row',
+  alignItems: 'flex-start',
+  justifyContent: 'flex-start',
+};
+
 const containers = {
   rowCenterCenter,
   columnStretchCenter,
@@ -85,6 +91,7 @@ const containers = {
   columnStretchBetween,
   rowCenterAround,
   rowStartAround,
+  rowStartStart,
 };
 
 export default containers;

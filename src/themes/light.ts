@@ -44,6 +44,15 @@ const accentPalette = {
   accentPrimary: greenPalette.green,
 };
 
+const miscellaneous = {
+  starColor: redPalette.paleOrange,
+};
+
+const positivePalette = {
+  positivePrimary: greenPalette.darkPastelGreen,
+  positiveBG: greenPalette.aquaSprint,
+};
+
 const light = {
   name: LIGHT_THEME,
   ...primaryPalette,
@@ -52,6 +61,8 @@ const light = {
   ...bgTextPalette,
   ...borderPalette,
   ...accentPalette,
+  ...miscellaneous,
+  ...positivePalette,
 };
 
 export default light;

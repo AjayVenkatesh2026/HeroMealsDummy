@@ -1,16 +1,24 @@
 import {Image, StyleSheet, View} from 'react-native';
 import React from 'react';
 
-import {type RouteProp, useRoute} from '@react-navigation/native';
+import {
+  type RouteProp,
+  useNavigation,
+  useRoute,
+} from '@react-navigation/native';
 import {Button, Text} from 'react-native-paper';
 
 import copies from 'src/constants/copies';
-import {type OrderStackParamList} from 'src/types/navigator';
+import {
+  RootStackParamList,
+  type OrderStackParamList,
+} from 'src/types/navigator';
 import {useAppSelector} from 'src/hooks/reduxHooks';
 import font from 'src/styles/font';
 
 import successDelivery from 'src/assets/order-success/rabbit-success-1.png';
 import successPickup from 'src/assets/order-success/rabbit-success-2.png';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 const {
   YOUR_ORDER_IS_CONFIRMED,
@@ -24,9 +32,16 @@ const OrderSuccessScreen = () => {
   const {
     params: {orderId = '', isPickup = false},
   } = useRoute<RouteProp<OrderStackParamList, 'OrderSuccess'>>();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   const onPress = () => {
-    console.log(orderId);
+    navigation.replace('OrderStack', {
+      screen: 'OrderTrackingScreen',
+      params: {
+        orderId,
+      },
+    });
   };
 
   return (

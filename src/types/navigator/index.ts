@@ -37,6 +37,9 @@ type OrderStackParamList = {
     orderId: string;
     isPickup: boolean;
   };
+  OrderTrackingScreen: {
+    orderId: string;
+  };
 };
 
 type RootStackParamList = {
@@ -67,7 +70,11 @@ type BottomTabScreens =
 
 type ProductStackScreens = 'ProductsScreen' | 'RestaurantScreen';
 
-type OrderStackScreens = 'CartHomeScreen' | 'OrderDetails' | 'OrderSuccess';
+type OrderStackScreens =
+  | 'CartHomeScreen'
+  | 'OrderDetails'
+  | 'OrderSuccess'
+  | 'OrderTrackingScreen';
 
 interface ITab {
   name: BottomTabScreens;

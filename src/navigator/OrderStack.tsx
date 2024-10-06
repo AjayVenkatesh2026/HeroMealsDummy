@@ -6,6 +6,7 @@ import type {OrderStackParamList} from 'src/types/navigator';
 import screenNames from 'src/constants/screenNames';
 import OrderDetails from 'src/components/screens/OrderDetails/OrderDetails';
 import OrderSuccessScreen from 'src/components/screens/OrderSuccessScreen/OrderSuccessScreen';
+import OrderTrackingScreen from 'src/components/screens/OrderTrackingScreen/OrderTrackingScreen';
 
 const {orderStackScreenNames} = screenNames;
 
@@ -27,6 +28,10 @@ const OrderStack = () => {
       <Stack.Screen
         name={orderStackScreenNames.OrderSuccess}
         component={OrderSuccessScreen}
+      />
+      <Stack.Screen
+        name={orderStackScreenNames.OrderTrackingScreen}
+        component={OrderTrackingScreen}
       />
     </Stack.Navigator>
   );

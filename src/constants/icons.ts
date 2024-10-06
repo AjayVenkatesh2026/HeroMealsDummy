@@ -25,6 +25,10 @@ const HOME_VARIANT_OUTLINE = 'home-variant-outline';
 const SILVERWARE_FORK_KNIFE = 'silverware-fork-knife';
 const SILVERWARE = 'silverware';
 const CAR_PICKUP = 'car-pickup';
+const RECORD_CIRCLE_OUTLINE = 'record-circle-outline';
+const MAP_MARKER_OUTLINE = 'map-marker-outline';
+const PHONE = 'phone';
+const CHAT_PROCESSING = 'chat-processing';
 
 export {
   STAR,
@@ -54,4 +58,8 @@ export {
   SILVERWARE_FORK_KNIFE,
   SILVERWARE,
   CAR_PICKUP,
+  RECORD_CIRCLE_OUTLINE,
+  MAP_MARKER_OUTLINE,
+  PHONE,
+  CHAT_PROCESSING,
 };

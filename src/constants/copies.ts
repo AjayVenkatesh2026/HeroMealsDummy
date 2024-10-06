@@ -107,6 +107,7 @@ const copies = {
   GET_READY_TO_PICK_UP_YOUR_ORDER_DURING_THE_COLLECTION_TIME:
     'Get ready to pick up your order during the\n collection time. Don’t be late!',
   CHECK_ORDER_STATUS: 'Check order status',
+  ORDER_NO: 'Order No:',
 };
 
 export default copies;
