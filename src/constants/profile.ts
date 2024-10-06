@@ -1,5 +1,4 @@
-import type {INavigation, IProfileOption} from 'src/types/global';
-import screenNames from './screenNames';
+import type {IProfileOption} from 'src/types/global';
 import {
   ACCOUNT_OUTLINE,
   CART_OUTLINE,
@@ -9,7 +8,6 @@ import {
 } from './icons';
 import copies from './copies';
 
-const {bottomTabScreenNames} = screenNames;
 const {YOUR_PROFILE, YOUR_ORDERS, ABOUT, SIGN_OUT} = copies;
 
 const options: IProfileOption[] = [
@@ -24,9 +22,7 @@ const options: IProfileOption[] = [
     id: 'your-orders',
     icon: CART_OUTLINE,
     name: YOUR_ORDERS,
-    onClick: ({navigation}: {navigation: INavigation}) => {
-      navigation?.navigate(bottomTabScreenNames.OrderHistoryScreen);
-    },
+    onClick: () => {},
     trailingIcon: CHEVRON_RIGHT,
   },
   // {
