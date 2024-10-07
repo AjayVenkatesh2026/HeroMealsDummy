@@ -65,6 +65,7 @@ const SearchScreen = () => {
   const onSubmitEditing = (
     e: NativeSyntheticEvent<TextInputSubmitEditingEventData>,
   ) => {
+    // TODO: remove console.log
     console.log(e.nativeEvent.text);
     if (searchQuery) {
       getRestaurants();
