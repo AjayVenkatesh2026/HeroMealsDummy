@@ -4,7 +4,7 @@ import React from 'react';
 import {Button, Text} from 'react-native-paper';
 
 import {dummyRestaurantsList} from 'src/constants/dummyData';
-import {IRestaurant} from 'src/types/ordering';
+import type {IRestaurant} from 'src/types/ordering';
 import RestaurantCarouselCard from '../RestaurantCarouselCard/RestaurantCarouselCard';
 import containers from 'src/styles/containers';
 import {useAppSelector} from 'src/hooks/reduxHooks';
@@ -12,15 +12,19 @@ import font from 'src/styles/font';
 import {getThemedStyles} from 'src/utils/theme';
 import copies from 'src/constants/copies';
 
-const {RESTAURANTS_NEAR_YOU, SEE_ALL} = copies;
+const {FAVOURITE_PLACES, SEE_ALL} = copies;
 
 const renderItem = ({item}: {item: IRestaurant}) => (
-  <RestaurantCarouselCard restaurant={item} showFavouriteIcon />
+  <RestaurantCarouselCard
+    restaurant={item}
+    bgImageStyles={styles.restaurantCard}
+    showFavouriteIcon
+  />
 );
 
 const keyExtractor = (item: IRestaurant) => item.id;
 
-const RestaurantsCarousel = () => {
+const FavouritesCarousel = () => {
   const theme = useAppSelector(state => state.themeReducer.theme);
 
   const onPress = () => {};
@@ -31,7 +35,7 @@ const RestaurantsCarousel = () => {
         <Text
           variant="titleMedium"
           style={[font.bold, getThemedStyles({color: theme?.textHigh})]}>
-          {RESTAURANTS_NEAR_YOU}
+          {FAVOURITE_PLACES}
         </Text>
         <Button onPress={onPress}>
           <Text
@@ -55,7 +59,7 @@ const RestaurantsCarousel = () => {
   );
 };
 
-export default RestaurantsCarousel;
+export default FavouritesCarousel;
 
 const styles = StyleSheet.create({
   container: {
@@ -65,5 +69,8 @@ const styles = StyleSheet.create({
   },
   list: {
     padding: 16,
+  },
+  restaurantCard: {
+    height: 200,
   },
 });

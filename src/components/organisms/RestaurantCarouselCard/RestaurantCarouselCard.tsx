@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import React from 'react';
 
-import {Icon, Text} from 'react-native-paper';
+import {Icon, Text, TouchableRipple} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -20,7 +20,7 @@ import {getThemedStyles} from 'src/utils/theme';
 import {useAppSelector} from 'src/hooks/reduxHooks';
 import copies from 'src/constants/copies';
 import containers from 'src/styles/containers';
-import {CLOCK_OUTLINE} from 'src/constants/icons';
+import {CLOCK_OUTLINE, HEART, HEART_OUTLINE} from 'src/constants/icons';
 import type {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import type {RootStackParamList} from 'src/types/navigator';
 
@@ -35,6 +35,7 @@ interface IRestaurantCarouselCardProps {
   taglineStyles?: StyleProp<TextStyle>;
   clockIconSize?: number;
   contentContainerStyles?: StyleProp<ViewStyle>;
+  showFavouriteIcon?: boolean;
 }
 
 const RestaurantCarouselCard: React.FC<IRestaurantCarouselCardProps> = ({
@@ -46,6 +47,7 @@ const RestaurantCarouselCard: React.FC<IRestaurantCarouselCardProps> = ({
   taglineStyles = {},
   clockIconSize = 16,
   contentContainerStyles = {},
+  showFavouriteIcon = false,
 }) => {
   const theme = useAppSelector(state => state.themeReducer.theme);
   const navigation =
@@ -56,6 +58,8 @@ const RestaurantCarouselCard: React.FC<IRestaurantCarouselCardProps> = ({
   const timings = `${openingTime} - ${closingTime}`;
   const description =
     showTimings && timings ? [timings, distance].join(` ${DOT} `) : distance;
+  // TODO: make isFavourite dynamic
+  const isFavourite = false;
 
   const onPress = () => {
     navigation.navigate('ProductStack', {
@@ -99,51 +103,68 @@ const RestaurantCarouselCard: React.FC<IRestaurantCarouselCardProps> = ({
               </Text>
             </View>
             <View style={[styles.contentContainer, contentContainerStyles]}>
-              <Text
-                variant="titleLarge"
-                style={[
-                  font.bold,
-                  getThemedStyles({color: theme?.bgTextHigh}),
-                  titleStyles,
-                ]}>
-                {name}
-              </Text>
-              {tagsText ? (
+              <View style={styles.leftContentContainer}>
                 <Text
-                  variant="bodyMedium"
-                  numberOfLines={1}
-                  ellipsizeMode="tail"
-                  style={[
-                    font.regular,
-                    getThemedStyles({color: theme?.bgTextHigh}),
-                    taglineStyles,
-                  ]}>
-                  {tagsText}
-                </Text>
-              ) : null}
-              <View style={containers.rowCenterStart}>
-                {showTimings && timings ? (
-                  <View style={styles.iconContainer}>
-                    <Icon
-                      size={clockIconSize}
-                      source={CLOCK_OUTLINE}
-                      color={theme?.bgTextHigh}
-                    />
-                  </View>
-                ) : null}
-                <Text
-                  variant="bodyMedium"
-                  numberOfLines={1}
-                  ellipsizeMode="tail"
+                  variant="titleLarge"
                   style={[
                     font.bold,
-                    getThemedStyles({color: theme?.bgTextMid}),
-                    descriptionStyles,
+                    getThemedStyles({color: theme?.bgTextHigh}),
+                    titleStyles,
                   ]}>
-                  {description}
+                  {name}
                 </Text>
+                {tagsText ? (
+                  <Text
+                    variant="bodyMedium"
+                    numberOfLines={1}
+                    ellipsizeMode="tail"
+                    style={[
+                      font.regular,
+                      getThemedStyles({color: theme?.bgTextHigh}),
+                      taglineStyles,
+                    ]}>
+                    {tagsText}
+                  </Text>
+                ) : null}
+                <View style={containers.rowCenterStart}>
+                  {showTimings && timings ? (
+                    <View style={styles.iconContainer}>
+                      <Icon
+                        size={clockIconSize}
+                        source={CLOCK_OUTLINE}
+                        color={theme?.bgTextHigh}
+                      />
+                    </View>
+                  ) : null}
+                  <Text
+                    variant="bodyMedium"
+                    numberOfLines={1}
+                    ellipsizeMode="tail"
+                    style={[
+                      font.bold,
+                      getThemedStyles({color: theme?.bgTextMid}),
+                      descriptionStyles,
+                    ]}>
+                    {description}
+                  </Text>
+                </View>
               </View>
-              {/* TODO: ADD favourtes icon */}
+              {showFavouriteIcon ? (
+                <View style={styles.rightContentContainer}>
+                  <TouchableRipple
+                    onPress={() => {}}
+                    style={[
+                      styles.heartIconContainer,
+                      {backgroundColor: theme?.primaryDefault},
+                    ]}>
+                    <Icon
+                      size={20}
+                      source={isFavourite ? HEART : HEART_OUTLINE}
+                      color={theme?.bgTextHigh}
+                    />
+                  </TouchableRipple>
+                </View>
+              ) : null}
             </View>
           </View>
         </LinearGradient>
@@ -168,6 +189,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   contentContainer: {
+    ...containers.rowStartStart,
     padding: 16,
   },
   ratingContainer: {
@@ -187,5 +209,16 @@ const styles = StyleSheet.create({
   iconContainer: {
     marginTop: 4,
     marginRight: 4,
+  },
+  leftContentContainer: {
+    flex: 1,
+  },
+  rightContentContainer: {
+    ...containers.columnCenterCenter,
+    alignSelf: 'stretch',
+  },
+  heartIconContainer: {
+    padding: 8,
+    borderRadius: 24,
   },
 });

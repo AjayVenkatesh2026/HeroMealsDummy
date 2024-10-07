@@ -7,6 +7,7 @@ import type {
   IBanner,
   ICategory,
   IMerchant,
+  TMysteryBag,
 } from 'src/types/ordering';
 
 import banner1 from 'src/assets/banners/banner-1.png';
@@ -399,6 +400,41 @@ const dummyProducts: IProduct[] = [
   },
 ];
 
+const dummyMysteryBags: TMysteryBag[] = [
+  {
+    id: 'mys-1',
+    name: 'Gourmet Lunch Mystery Bag',
+    restaurant_id: 'Pocofino',
+    image_url:
+      'https://images.unsplash.com/photo-1603122876935-13e7f40c3984?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    restaurant_name: 'Pocofino',
+  },
+  {
+    id: 'mys-2',
+    name: 'Donuts Box of 6',
+    restaurant_id: 'dunkin-donuts',
+    image_url:
+      'https://images.unsplash.com/photo-1603122876935-13e7f40c3984?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    restaurant_name: 'Dunkin Donuts',
+  },
+  {
+    id: 'mys-3',
+    name: 'Salad Bag',
+    restaurant_id: 'salad-stop',
+    image_url:
+      'https://images.unsplash.com/photo-1603122876935-13e7f40c3984?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    restaurant_name: 'SaladStop!',
+  },
+  {
+    id: 'mys-4',
+    name: 'Fruit Bag',
+    restaurant_id: 'salad-stop',
+    image_url:
+      'https://images.unsplash.com/photo-1603122876935-13e7f40c3984?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    restaurant_name: 'SaladStop!',
+  },
+];
+
 export {
   dummyProfile,
   dummyRestaurantsList,
@@ -410,4 +446,5 @@ export {
   dummyMerchants,
   dummyNewOnHeroMeals,
   dummyCollectNow,
+  dummyMysteryBags,
 };

@@ -120,6 +120,9 @@ const copies = {
   COMMUNITY: 'Community',
   SUPPORT: 'Support',
   MY_ACCOUNT: 'My Account',
+  MY_FAVOURITES: 'My Favourites',
+  FAVOURITE_PLACES: 'Favourite Places',
+  FAVOURITE_MYSTERY_BAGS: 'Favourite Mystery Bags',
 };
 
 export default copies;

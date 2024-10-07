@@ -124,6 +124,11 @@ interface IPaymentMethod {
   name: string;
 }
 
+type TMysteryBag = Pick<
+  IProduct,
+  'id' | 'restaurant_name' | 'name' | 'image_url' | 'restaurant_id'
+>;
+
 export type {
   IProfile,
   IAddress,
@@ -138,4 +143,5 @@ export type {
   ICategory,
   IMerchant,
   IPaymentMethod,
+  TMysteryBag,
 };

@@ -36,6 +36,7 @@ const FREQUENTLY_ASKED_QUESTIONS = 'frequently-asked-questions';
 // const LIST_BOX_OUTLINE = 'list-box-outline';
 const FORMAT_LIST_BULLETED = 'format-list-bulleted';
 const LOCATION_EXIT = 'location-exit';
+const HEART = 'heart';
 
 export {
   STAR,
@@ -75,4 +76,5 @@ export {
   FREQUENTLY_ASKED_QUESTIONS,
   FORMAT_LIST_BULLETED,
   LOCATION_EXIT,
+  HEART,
 };
