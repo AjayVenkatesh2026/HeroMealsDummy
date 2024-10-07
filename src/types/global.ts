@@ -50,6 +50,8 @@ interface FDAImage extends ImageProps {
   url?: string;
 }
 
+type TSearchType = 'RESTAURANTS' | 'CATEGORIES';
+
 export type {
   Style,
   TProfileOption,
@@ -57,4 +59,5 @@ export type {
   INavigation,
   THeaderProps,
   FDAImage,
+  TSearchType,
 };

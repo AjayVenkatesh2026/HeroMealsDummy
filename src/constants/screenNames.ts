@@ -32,6 +32,7 @@ const productStackScreenNames: {
 } = {
   ProductsScreen: 'ProductsScreen',
   RestaurantScreen: 'RestaurantScreen',
+  SearchScreen: 'SearchScreen',
 };
 
 const orderStackScreenNames: {

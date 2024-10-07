@@ -26,6 +26,7 @@ type ProductStackParamList = {
   RestaurantScreen: {
     restaurant: IRestaurant;
   };
+  SearchScreen: undefined;
 };
 
 type OrderStackParamList = {
@@ -68,7 +69,10 @@ type BottomTabScreens =
   | 'FaviouritesScreen'
   | 'BasketsScreen';
 
-type ProductStackScreens = 'ProductsScreen' | 'RestaurantScreen';
+type ProductStackScreens =
+  | 'ProductsScreen'
+  | 'RestaurantScreen'
+  | 'SearchScreen';
 
 type OrderStackScreens =
   | 'CartHomeScreen'

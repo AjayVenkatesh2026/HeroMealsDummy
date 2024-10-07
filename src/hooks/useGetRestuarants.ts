@@ -21,8 +21,8 @@ const useGetRestaurants = () => {
     }
     setLoading(true);
     setTimeout(() => {
-      setRestaurants((prevRestaurants = []) => {
-        if (prevRestaurants.length < 10) {
+      setRestaurants(prevRestaurants => {
+        if (prevRestaurants.length < 10 && prevRestaurants.length > 0) {
           const newRestaurants = prevRestaurants
             .slice(0, 3)
             .map((res, idx) => ({

@@ -123,6 +123,8 @@ const copies = {
   MY_FAVOURITES: 'My Favourites',
   FAVOURITE_PLACES: 'Favourite Places',
   FAVOURITE_MYSTERY_BAGS: 'Favourite Mystery Bags',
+  RESTAURANTS: 'Restaurants',
+  EMPTY_RESULTS: 'Empty Results !',
 };
 
 export default copies;

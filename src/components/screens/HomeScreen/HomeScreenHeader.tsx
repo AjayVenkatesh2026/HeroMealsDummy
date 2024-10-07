@@ -1,7 +1,9 @@
-import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
-import {Icon} from 'react-native-paper';
+import {Icon, TouchableRipple} from 'react-native-paper';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import Header from 'src/components/molecules/Header';
 import font from 'src/styles/font';
@@ -16,6 +18,7 @@ import {
 } from 'src/constants/icons';
 import copies from 'src/constants/copies';
 import containers from 'src/styles/containers';
+import {RootStackParamList} from 'src/types/navigator';
 
 import defaultAvatar from 'src/assets/default-avatar.png';
 
@@ -27,6 +30,14 @@ const HomeScreenHeader = () => {
   const {address = {}, image = ''} = isValidProfile(profile) ? profile : {};
   const mergedAddress = getMergedAddress({address});
   const src = image ? {uri: image} : defaultAvatar;
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
+  const onPressSearch = () => {
+    navigation.navigate('ProductStack', {
+      screen: 'SearchScreen',
+    });
+  };
 
   return (
     <View
@@ -69,21 +80,27 @@ const HomeScreenHeader = () => {
         </View>
       </Header>
       <View style={styles.searchBarContainer}>
-        <Pressable
-          style={[
-            styles.search,
-            getThemedStyles({backgroundColor: theme?.searchBackground}),
-          ]}>
-          <Icon source={MAGNIFY} size={20} color={theme?.textHigh} />
-          <Text
+        <TouchableRipple onPress={onPressSearch}>
+          <View
             style={[
-              styles.searchText,
-              getThemedStyles({color: theme?.textLow}),
+              styles.search,
+              getThemedStyles({backgroundColor: theme?.searchBackground}),
             ]}>
-            {SEARCH}
-          </Text>
-          <Icon source={MICROPHONE_OUTLINE} size={20} color={theme?.textHigh} />
-        </Pressable>
+            <Icon source={MAGNIFY} size={20} color={theme?.textHigh} />
+            <Text
+              style={[
+                styles.searchText,
+                getThemedStyles({color: theme?.textLow}),
+              ]}>
+              {SEARCH}
+            </Text>
+            <Icon
+              source={MICROPHONE_OUTLINE}
+              size={20}
+              color={theme?.textHigh}
+            />
+          </View>
+        </TouchableRipple>
       </View>
     </View>
   );
