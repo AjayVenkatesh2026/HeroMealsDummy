@@ -62,10 +62,15 @@ const getFormattedPrice = (price: number) => {
   return `${PESO}${price.toFixed(2)}`;
 };
 
+const getMobileNumberWithCountryCode = (phoneNumber: string) => {
+  return `+63 ${phoneNumber}`;
+};
+
 export {
   getInitials,
   isValidProfile,
   getMergedAddress,
   isValidHttpUrl,
   getFormattedPrice,
+  getMobileNumberWithCountryCode,
 };

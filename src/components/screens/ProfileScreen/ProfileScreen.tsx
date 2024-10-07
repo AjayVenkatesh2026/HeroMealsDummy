@@ -4,7 +4,10 @@ import React from 'react';
 import {Text} from 'react-native-paper';
 
 import {useAppSelector} from 'src/hooks/reduxHooks';
-import {isValidProfile} from 'src/utils/helpers';
+import {
+  getMobileNumberWithCountryCode,
+  isValidProfile,
+} from 'src/utils/helpers';
 import containers from 'src/styles/containers';
 import {getThemedStyles} from 'src/utils/theme';
 import {options} from 'src/constants/profile';
@@ -52,7 +55,7 @@ const ProfileScreen = () => {
               {profile.name}
             </Text>
             <Text variant="bodyMedium" style={styles.phoneNumber}>
-              {profile.phone_number}
+              {getMobileNumberWithCountryCode(profile.phone_number)}
             </Text>
           </View>
         </View>
