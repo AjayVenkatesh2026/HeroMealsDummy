@@ -6,16 +6,28 @@ import type {
   StyleProp,
   ImageProps,
 } from 'react-native';
+import {ITheme} from './theme';
 
 type Style = ViewStyle | TextStyle | ImageStyle;
 
-interface IProfileOption {
-  id: string;
-  name: string;
+type TProfileType = 'Title' | 'Option';
+
+type TProfileOptionTypeOption = {
+  type: 'Option';
   icon: string;
   onClick: Function;
   trailingIcon?: string;
-}
+  iconColor?: keyof ITheme;
+};
+
+type TProfileOptionTypeTitle = {
+  type: 'Title';
+};
+
+type TProfileOption = {id: string; name: string} & (
+  | TProfileOptionTypeOption
+  | TProfileOptionTypeTitle
+);
 
 interface INavigation {
   navigate: Function;
@@ -38,4 +50,11 @@ interface FDAImage extends ImageProps {
   url?: string;
 }
 
-export type {Style, IProfileOption, INavigation, THeaderProps, FDAImage};
+export type {
+  Style,
+  TProfileOption,
+  TProfileType,
+  INavigation,
+  THeaderProps,
+  FDAImage,
+};

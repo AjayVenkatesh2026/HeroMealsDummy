@@ -4,10 +4,7 @@ const CART_OUTLINE = 'cart-outline';
 const HOME = 'home';
 const HISTORY = 'history';
 const ACCOUNT = 'account';
-const ACCOUNT_OUTLINE = 'account-outline';
 const CHEVRON_RIGHT = 'chevron-right';
-const INFORMATION_OUTLINE = 'information-outline';
-const POWER = 'power';
 const MINUS = 'minus';
 const PLUS = 'plus';
 const CHECK_CIRCLE_OUTLINE = 'check-circle-outline';
@@ -29,6 +26,16 @@ const RECORD_CIRCLE_OUTLINE = 'record-circle-outline';
 const MAP_MARKER_OUTLINE = 'map-marker-outline';
 const PHONE = 'phone';
 const CHAT_PROCESSING = 'chat-processing';
+const CREDIT_CARD = 'credit-card';
+const TAG_HEART_OUTLINE = 'tag-heart-outline';
+const BELL_BADGE_OUTLINE = 'bell-badge-outline';
+const EMAIL_OPEN_OUTLINE = 'email-open-outline';
+const STORE_OUTLINE = 'store-outline';
+const HELP_CIRCLE_OUTLINE = 'help-circle-outline';
+const FREQUENTLY_ASKED_QUESTIONS = 'frequently-asked-questions';
+// const LIST_BOX_OUTLINE = 'list-box-outline';
+const FORMAT_LIST_BULLETED = 'format-list-bulleted';
+const LOCATION_EXIT = 'location-exit';
 
 export {
   STAR,
@@ -37,10 +44,7 @@ export {
   HISTORY,
   HOME,
   ACCOUNT,
-  ACCOUNT_OUTLINE,
   CHEVRON_RIGHT,
-  INFORMATION_OUTLINE,
-  POWER,
   MINUS,
   PLUS,
   CHECK_CIRCLE_OUTLINE,
@@ -62,4 +66,13 @@ export {
   MAP_MARKER_OUTLINE,
   PHONE,
   CHAT_PROCESSING,
+  CREDIT_CARD,
+  TAG_HEART_OUTLINE,
+  BELL_BADGE_OUTLINE,
+  EMAIL_OPEN_OUTLINE,
+  STORE_OUTLINE,
+  HELP_CIRCLE_OUTLINE,
+  FREQUENTLY_ASKED_QUESTIONS,
+  FORMAT_LIST_BULLETED,
+  LOCATION_EXIT,
 };
