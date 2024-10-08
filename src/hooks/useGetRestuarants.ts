@@ -3,7 +3,7 @@ import {useCallback, useState} from 'react';
 import {dummyRestaurantsList} from 'src/constants/dummyData';
 import type {IRestaurant} from 'src/types/ordering';
 
-const useGetRestaurants = () => {
+const useGetRestaurantsDummy = () => {
   const [restaurants, setRestaurants] = useState<IRestaurant[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -48,4 +48,4 @@ const useGetRestaurants = () => {
   };
 };
 
-export default useGetRestaurants;
+export default useGetRestaurantsDummy;

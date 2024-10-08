@@ -17,7 +17,7 @@ import containers from 'src/styles/containers';
 import {SEARCH_TYPES} from 'src/constants/search';
 import RestaurantCarouselCard from 'src/components/organisms/RestaurantCarouselCard/RestaurantCarouselCard';
 import Separator from 'src/components/atoms/Separator';
-import useGetRestaurants from 'src/hooks/useGetRestuarants';
+import useGetRestaurantsDummy from 'src/hooks/useGetRestuarants';
 import EmptySearch from './EmptySearch';
 import type {TSearchType} from 'src/types/global';
 import type {IRestaurant} from 'src/types/ordering';
@@ -46,7 +46,7 @@ const SearchScreen = () => {
   );
   const theme = useAppSelector(state => state.themeReducer.theme);
   const {loading, restaurants, getMoreRestaurants, getRestaurants} =
-    useGetRestaurants();
+    useGetRestaurantsDummy();
 
   const onEndReached = () => {
     if (searchQuery) {
