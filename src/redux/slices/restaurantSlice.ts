@@ -12,6 +12,13 @@ const restaurantSlice = createSlice({
   name: 'restaurant',
   initialState,
   reducers: {
+    addRestaurants: (state, action: PayloadAction<IRestaurant[]>) => {
+      const resIds = state.restaurants.map(res => res.id);
+      const restaurantsNotInRedux = action.payload.filter(
+        res => !resIds.includes(res.id),
+      );
+      state.restaurants.push(...restaurantsNotInRedux);
+    },
     addRestaurant: (state, action: PayloadAction<IRestaurant>) => {
       const currRestaurantIndex = state.restaurants.findIndex(
         restaurant => restaurant.id === action.payload.id,
@@ -31,6 +38,10 @@ const restaurantSlice = createSlice({
   },
 });
 
-export const {addRestaurant, removeRestaurant, clearRestaurants} =
-  restaurantSlice.actions;
+export const {
+  addRestaurant,
+  addRestaurants,
+  removeRestaurant,
+  clearRestaurants,
+} = restaurantSlice.actions;
 export default restaurantSlice.reducer;
