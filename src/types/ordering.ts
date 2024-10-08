@@ -25,13 +25,12 @@ interface IRestaurant {
   id: string;
   image: string;
   distance: string;
-  duration: number;
+  duration?: number;
   name: string;
   rating: number;
-  address: IAddress;
+  address: string;
   tags: string[];
-  openingTime: string;
-  closingTime: string;
+  openingHours: string;
   description: string;
 }
 
@@ -52,7 +51,7 @@ interface IOrderRestaurant {
   id: string;
   image: string;
   name: string;
-  address: IAddress;
+  address: string;
   distance?: string;
   duration?: number;
   rating?: number;
@@ -110,7 +109,7 @@ interface IBanner {
 
 interface ICategory {
   id: string;
-  image: string;
+  image_url: string;
   name: string;
 }
 
@@ -131,6 +130,21 @@ type TMysteryBag = Pick<
   'id' | 'restaurant_name' | 'name' | 'image_url' | 'restaurant_id'
 >;
 
+interface IRestaurantResponse {
+  menu: string[];
+  user_id: string;
+  commission_rate: number;
+  rating: number;
+  total_earnings: number;
+  operating_hours: string;
+  contact_details: string;
+  cuisine_type: string;
+  address: string;
+  description: string;
+  id: string;
+  name: string;
+}
+
 export type {
   IProfile,
   IAddress,
@@ -146,4 +160,5 @@ export type {
   IMerchant,
   IPaymentMethod,
   TMysteryBag,
+  IRestaurantResponse,
 };
