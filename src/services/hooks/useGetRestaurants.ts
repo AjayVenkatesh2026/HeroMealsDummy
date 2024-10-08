@@ -7,6 +7,7 @@ import type {IRestaurantResponse} from 'src/types/ordering';
 import {GET_RESTAURANTS} from '../gql/restaurants';
 import {addRestaurants} from 'src/redux/slices/restaurantSlice';
 import {translateRestaurantResponseToRestaurant} from 'src/utils/helpers';
+import {handleGqlError} from 'src/utils/services';
 
 interface IRestaurantsResponse {
   response: {
@@ -34,7 +35,7 @@ const useGetRestaurants = ({onCompleted}: {onCompleted?: Function}) => {
   };
 
   const onError = (err: ApolloError) => {
-    console.error(JSON.stringify(err));
+    handleGqlError({location: 'useGetRestaurants', error: err});
   };
 
   const [getRestaurants, {loading}] = useLazyQuery(GET_RESTAURANTS, {

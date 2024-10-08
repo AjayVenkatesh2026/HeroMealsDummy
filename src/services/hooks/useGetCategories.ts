@@ -6,6 +6,7 @@ import {useAppDispatch} from 'src/hooks/reduxHooks';
 import type {ICategory} from 'src/types/ordering';
 import {GET_CATEGORIES} from '../gql/categories';
 import {addCategories} from 'src/redux/slices/categoriesSlice';
+import {handleGqlError} from 'src/utils/services';
 
 interface ICategoriesResponse {
   resposne: {
@@ -30,7 +31,7 @@ const useGetCategories = ({onCompleted}: {onCompleted?: Function}) => {
   };
 
   const onError = (err: ApolloError) => {
-    console.error(JSON.stringify(err));
+    handleGqlError({location: 'useGetCategories', error: err});
   };
 
   const [getCategories, {loading}] = useLazyQuery(GET_CATEGORIES, {

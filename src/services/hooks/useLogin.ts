@@ -6,6 +6,7 @@ import {updateProfile} from 'src/redux/slices/profileSlice';
 import {set} from 'src/storage';
 import keys from 'src/storage/keys';
 import type {IProfile} from 'src/types/ordering';
+import {handleGqlError} from 'src/utils/services';
 
 interface ILoginResposne {
   user_login: {
@@ -31,7 +32,7 @@ const useLogin = ({onCompleted}: {onCompleted?: Function}) => {
   };
 
   const onError = (err: ApolloError) => {
-    console.log(JSON.stringify(err));
+    handleGqlError({location: 'useLogin', error: err});
   };
 
   const [login, {loading}] = useLazyQuery(USER_LOGIN, {
