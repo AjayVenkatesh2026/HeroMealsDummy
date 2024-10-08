@@ -92,7 +92,7 @@ const getDecodedToken = (): IJwtPaylod => {
 const isValidToken = (): boolean => {
   const token = getDecodedToken();
   if (token.exp) {
-    return new Date(token.exp) > new Date();
+    return token.exp * 1000 > Date.now();
   }
 
   return false;
