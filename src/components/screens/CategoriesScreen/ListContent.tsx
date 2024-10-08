@@ -48,6 +48,7 @@ export default ListContent;
 const styles = StyleSheet.create({
   bodyContainer: {
     paddingHorizontal: 16,
+    marginBottom: 16,
   },
   rowContainer: {
     ...containers.rowCenterBetween,

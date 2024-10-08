@@ -5,9 +5,17 @@ import {isEmpty} from 'radash';
 import {useAppDispatch} from 'src/hooks/reduxHooks';
 import type {IRestaurantResponse} from 'src/types/ordering';
 import {GET_RESTAURANTS} from '../gql/restaurants';
-import {addRestaurants} from 'src/redux/slices/restaurantSlice';
+import {
+  addCollectNowRestaurants,
+  addNewRestaurants,
+  addRestaurants,
+} from 'src/redux/slices/restaurantSlice';
 import {translateRestaurantResponseToRestaurant} from 'src/utils/helpers';
 import {handleGqlError} from 'src/utils/services';
+import {
+  getCollectNowRestaurants,
+  getNewRestaurants,
+} from 'src/utils/restaurant';
 
 interface IRestaurantsResponse {
   response: {
@@ -28,6 +36,10 @@ const useGetRestaurants = ({onCompleted}: {onCompleted?: Function}) => {
     );
     if (!isEmpty(newRestaurants)) {
       dispatch(addRestaurants(newRestaurants));
+      dispatch(
+        addCollectNowRestaurants(getCollectNowRestaurants(newRestaurants)),
+      );
+      dispatch(addNewRestaurants(getNewRestaurants(newRestaurants)));
     }
     if (onCompleted) {
       onCompleted();

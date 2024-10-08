@@ -4,8 +4,12 @@ import type {IRestaurant} from 'src/types/ordering';
 
 const initialState: {
   restaurants: IRestaurant[];
+  collectNow: IRestaurant[];
+  newRestaurants: IRestaurant[];
 } = {
   restaurants: [],
+  collectNow: [],
+  newRestaurants: [],
 };
 
 const restaurantSlice = createSlice({
@@ -27,6 +31,12 @@ const restaurantSlice = createSlice({
         state.restaurants.push(action.payload);
       }
     },
+    addCollectNowRestaurants: (state, action: PayloadAction<IRestaurant[]>) => {
+      state.collectNow.push(...action.payload);
+    },
+    addNewRestaurants: (state, action: PayloadAction<IRestaurant[]>) => {
+      state.newRestaurants.push(...action.payload);
+    },
     removeRestaurant: (state, action: PayloadAction<IRestaurant>) => {
       state.restaurants = state.restaurants.filter(
         restaurant => restaurant.id !== action.payload.id,
@@ -41,6 +51,8 @@ const restaurantSlice = createSlice({
 export const {
   addRestaurant,
   addRestaurants,
+  addCollectNowRestaurants,
+  addNewRestaurants,
   removeRestaurant,
   clearRestaurants,
 } = restaurantSlice.actions;

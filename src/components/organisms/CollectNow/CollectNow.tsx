@@ -3,9 +3,9 @@ import React from 'react';
 
 import Title from 'src/components/atoms/Title';
 import copies from 'src/constants/copies';
-import {dummyCollectNow} from 'src/constants/dummyData';
 import RestaurantCarouselCard from '../RestaurantCarouselCard/RestaurantCarouselCard';
 import type {IRestaurant} from 'src/types/ordering';
+import {useAppSelector} from 'src/hooks/reduxHooks';
 
 const {width: WINDOW_WIDTH} = Dimensions.get('window');
 const itemWidth = Math.floor(WINDOW_WIDTH * 0.48);
@@ -28,11 +28,15 @@ const renderItem = ({item}: {item: IRestaurant}) => (
 const keyExtractor = (item: IRestaurant) => item.id;
 
 const CollectNow = () => {
+  const collectNowRestaurants = useAppSelector(
+    state => state.restaurantsReducer.collectNow,
+  );
+
   return (
     <View style={styles.container}>
       <Title title={COLLECT_NOW} />
       <FlatList
-        data={dummyCollectNow}
+        data={collectNowRestaurants}
         renderItem={renderItem}
         horizontal
         keyExtractor={keyExtractor}
