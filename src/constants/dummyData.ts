@@ -1,5 +1,5 @@
 import type {
-  IAddress,
+  // IAddress,
   IRestaurant,
   IOrder,
   IProduct,
@@ -18,14 +18,17 @@ import mer3 from 'src/assets/merchants/the-french.png';
 import mer4 from 'src/assets/merchants/army-navy.png';
 import mer5 from 'src/assets/merchants/krispy-kreme.png';
 
-const dummyAddress: IAddress = {
-  landmark: "Near St. John's Library",
-  line_1: 'Luxary Residence, 5nd Floor, 504, 4560 Creek Rd',
-  line_2: 'Lewiston, New York, United States',
-  pin_code: '14092',
-  latitude: '43.194012',
-  longitude: '-79.022338',
-};
+// const dummyAddress: IAddress = {
+//   landmark: "Near St. John's Library",
+//   line_1: 'Luxary Residence, 5nd Floor, 504, 4560 Creek Rd',
+//   line_2: 'Lewiston, New York, United States',
+//   pin_code: '14092',
+//   latitude: '43.194012',
+//   longitude: '-79.022338',
+// };
+
+const dummyImageUrl =
+  'https://images.unsplash.com/photo-1603122876935-13e7f40c3984?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 
 const dummyRestaurantsList: IRestaurant[] = [
   {
@@ -36,10 +39,9 @@ const dummyRestaurantsList: IRestaurant[] = [
     duration: 20,
     name: 'Restaurant 1',
     rating: 4.7,
-    address: dummyAddress,
+    address: 'dummyAddress',
     tags: ['Salad Bags', 'Healthy'],
-    openingTime: '09:00 am',
-    closingTime: '11:00 pm',
+    openingHours: '09:00 am - 11:00 pm',
     description:
       'Dolor in velit labore irure ut ullamco sint eu sint nulla duis irure. Ullamco qui enim tempor consectetur laborum anim sunt ad eiusmod consectetur aliquip. Aliqua minim reprehenderit pariatur ut aute incididunt mollit ea. Quis veniam enim labore ut dolore et Lorem Lorem nostrud cupidatat. Amet ullamco mollit eu ad ullamco. Aliquip proident eu laboris magna enim excepteur eu consectetur adipisicing mollit est do cillum. In ex id magna dolor ad ipsum officia elit qui.',
   },
@@ -51,10 +53,9 @@ const dummyRestaurantsList: IRestaurant[] = [
     duration: 20,
     name: 'Restaurant 2',
     rating: 4.7,
-    address: dummyAddress,
+    address: 'dummyAddress',
     tags: ['Pastries Bags', 'Top Deals'],
-    openingTime: '09:00 am',
-    closingTime: '11:00 pm',
+    openingHours: '09:00 am - 11:00 pm',
     description: 'Reprehenderit quis tempor ullamco sit eu commodo incididunt.',
   },
   {
@@ -65,10 +66,9 @@ const dummyRestaurantsList: IRestaurant[] = [
     duration: 20,
     name: 'Restaurant 3',
     rating: 4.7,
-    address: dummyAddress,
+    address: 'dummyAddress',
     tags: [],
-    openingTime: '09:00 am',
-    closingTime: '11:00 pm',
+    openingHours: '09:00 am - 11:00 pm',
     description: '',
   },
 ];
@@ -86,7 +86,7 @@ const dummyOrders: IOrder[] = [
       name: 'Restaurant 1',
       image:
         'https://images.unsplash.com/photo-1603122876935-13e7f40c3984?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      address: dummyAddress,
+      address: 'dummyAddress',
     },
     products: [
       {
@@ -119,7 +119,7 @@ const dummyOrders: IOrder[] = [
       name: 'Restaurant 2',
       image:
         'https://images.unsplash.com/photo-1603122876935-13e7f40c3984?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      address: dummyAddress,
+      address: 'dummyAddress',
     },
     products: [
       {
@@ -193,49 +193,49 @@ const banners: IBanner[] = [
 const categories: ICategory[] = [
   {
     id: 'cat-1',
-    image:
+    image_url:
       'https://5.imimg.com/data5/SA/HH/BP/SELLER-15290474/food-packaging-paper-bags.jpg',
     name: 'Available now',
   },
   {
     id: 'cat-2',
-    image:
+    image_url:
       'https://5.imimg.com/data5/SA/HH/BP/SELLER-15290474/food-packaging-paper-bags.jpg',
     name: 'Near me',
   },
   {
     id: 'cat-3',
-    image:
+    image_url:
       'https://5.imimg.com/data5/SA/HH/BP/SELLER-15290474/food-packaging-paper-bags.jpg',
     name: 'Top Deals',
   },
   {
     id: 'cat-4',
-    image:
+    image_url:
       'https://5.imimg.com/data5/SA/HH/BP/SELLER-15290474/food-packaging-paper-bags.jpg',
     name: 'Groceries',
   },
   {
     id: 'cat-5',
-    image:
+    image_url:
       'https://5.imimg.com/data5/SA/HH/BP/SELLER-15290474/food-packaging-paper-bags.jpg',
     name: 'Best Reviews',
   },
   {
     id: 'cat-6',
-    image:
+    image_url:
       'https://5.imimg.com/data5/SA/HH/BP/SELLER-15290474/food-packaging-paper-bags.jpg',
     name: 'Meals',
   },
   {
     id: 'cat-7',
-    image:
+    image_url:
       'https://5.imimg.com/data5/SA/HH/BP/SELLER-15290474/food-packaging-paper-bags.jpg',
     name: 'Pastries',
   },
   {
     id: 'cat-8',
-    image:
+    image_url:
       'https://5.imimg.com/data5/SA/HH/BP/SELLER-15290474/food-packaging-paper-bags.jpg',
     name: 'Healthy',
   },
@@ -278,10 +278,9 @@ const dummyNewOnHeroMeals: IRestaurant[] = [
     duration: 20,
     name: 'Shangri-La Hotel',
     rating: 4.0,
-    address: dummyAddress,
+    address: 'dummyAddress',
     tags: ['Afternoon Tea Pasty Box'],
-    openingTime: '09:00 pm',
-    closingTime: '11:00 pm',
+    openingHours: '09:00 am - 11:00 pm',
     description: '',
   },
   {
@@ -292,10 +291,9 @@ const dummyNewOnHeroMeals: IRestaurant[] = [
     duration: 20,
     name: 'ButterBoy',
     rating: 4.2,
-    address: dummyAddress,
+    address: 'dummyAddress',
     tags: ['Bakery Box'],
-    openingTime: '03:00 pm',
-    closingTime: '05:00 pm',
+    openingHours: '09:00 am - 11:00 pm',
     description: '',
   },
   {
@@ -306,10 +304,9 @@ const dummyNewOnHeroMeals: IRestaurant[] = [
     duration: 20,
     name: 'Kenny Rogers',
     rating: 4.6,
-    address: dummyAddress,
+    address: 'dummyAddress',
     tags: ['Meat Bag'],
-    openingTime: '01:00 pm',
-    closingTime: '05:00 pm',
+    openingHours: '09:00 am - 11:00 pm',
     description: '',
   },
 ];
@@ -323,10 +320,9 @@ const dummyCollectNow: IRestaurant[] = [
     duration: 20,
     name: 'SaladStop!',
     rating: 4.6,
-    address: dummyAddress,
+    address: 'dummyAddress',
     tags: ['Salad Bag'],
-    openingTime: '3:00 pm',
-    closingTime: '5:00 pm',
+    openingHours: '3:00 am - 5:00 pm',
     description: '',
   },
   {
@@ -337,10 +333,9 @@ const dummyCollectNow: IRestaurant[] = [
     duration: 20,
     name: 'The French Baker',
     rating: 4.7,
-    address: dummyAddress,
+    address: 'dummyAddress',
     tags: ['Bakery Box'],
-    openingTime: '6:00 am',
-    closingTime: '5:00 pm',
+    openingHours: '6:00 am - 6:00 pm',
     description: '',
   },
   {
@@ -351,10 +346,9 @@ const dummyCollectNow: IRestaurant[] = [
     duration: 20,
     name: 'Marks & Spencers',
     rating: 4.6,
-    address: dummyAddress,
+    address: 'dummyAddress',
     tags: ['Groceris Bag'],
-    openingTime: '9:45 am',
-    closingTime: '12:00 pm',
+    openingHours: '9:45 am - 12:00 pm',
     description: '',
   },
 ];
@@ -424,6 +418,18 @@ const dummyMysteryBags: TMysteryBag[] = [
   },
 ];
 
+const dummyTags = [
+  'Salad Bags',
+  'Healthy',
+  'Pastries Bags',
+  'Top Deals',
+  'Afternoon Tea Pasty Box',
+  'Bakery Box',
+  'Meat Bag',
+  'Salad Bag',
+  'Groceris Bag',
+];
+
 export {
   dummyRestaurantsList,
   dummyOrders,
@@ -435,4 +441,6 @@ export {
   dummyNewOnHeroMeals,
   dummyCollectNow,
   dummyMysteryBags,
+  dummyImageUrl,
+  dummyTags,
 };
