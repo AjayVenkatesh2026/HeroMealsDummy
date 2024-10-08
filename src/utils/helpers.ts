@@ -12,6 +12,11 @@ import {get} from 'src/storage';
 import storageKeys from 'src/storage/keys';
 import {dummyImageUrl, dummyTags} from 'src/constants/dummyData';
 import {IJwtPaylod} from 'src/types/global';
+import {AppDispatch} from 'src/redux/store';
+import {clearRestaurants} from 'src/redux/slices/restaurantSlice';
+import {clearCategories} from 'src/redux/slices/categoriesSlice';
+import {clearCart} from 'src/redux/slices/cartSlice';
+import {clearProfile} from 'src/redux/slices/profileSlice';
 
 const {PESO} = copies;
 
@@ -118,6 +123,13 @@ const translateRestaurantResponseToRestaurant = (
   return res;
 };
 
+const clearRedux = (dispatch: AppDispatch) => {
+  dispatch(clearRestaurants());
+  dispatch(clearCategories());
+  dispatch(clearCart());
+  dispatch(clearProfile());
+};
+
 export {
   getInitials,
   isValidProfile,
@@ -129,4 +141,5 @@ export {
   translateRestaurantResponseToRestaurant,
   isValidToken,
   getDecodedToken,
+  clearRedux,
 };

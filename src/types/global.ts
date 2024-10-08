@@ -8,15 +8,21 @@ import type {
 } from 'react-native';
 import {ITheme} from './theme';
 import type {JwtPayload} from 'jwt-decode';
+import {AppDispatch} from 'src/redux/store';
 
 type Style = ViewStyle | TextStyle | ImageStyle;
 
 type TProfileType = 'Title' | 'Option';
 
+type TProfileOPtionOnClick = (props: {
+  navigation?: {navigate: Function; replace: Function};
+  dispatch?: AppDispatch;
+}) => void;
+
 type TProfileOptionTypeOption = {
   type: 'Option';
   icon: string;
-  onClick: Function;
+  onClick: TProfileOPtionOnClick;
   trailingIcon?: string;
   iconColor?: keyof ITheme;
 };

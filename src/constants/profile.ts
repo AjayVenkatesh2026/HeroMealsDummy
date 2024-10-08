@@ -14,6 +14,9 @@ import {
   FORMAT_LIST_BULLETED,
 } from './icons';
 import copies from './copies';
+import {set} from 'src/storage';
+import keys from 'src/storage/keys';
+import {clearRedux} from 'src/utils/helpers';
 
 const {
   ACCOUNT_DETAILS,
@@ -133,7 +136,17 @@ const options: TProfileOption[] = [
     type: 'Option',
     icon: LOCATION_EXIT,
     name: LOGOUT,
-    onClick: ({}) => {},
+    onClick: ({navigation, dispatch}) => {
+      set(keys.TOKEN, '');
+      if (navigation) {
+        navigation.replace('AuthStack', {
+          screen: 'LoginScreen',
+        });
+      }
+      if (dispatch) {
+        clearRedux(dispatch);
+      }
+    },
     trailingIcon: CHEVRON_RIGHT,
     iconColor: 'primaryDefault',
   },

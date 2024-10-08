@@ -44,6 +44,8 @@ const restaurantSlice = createSlice({
     },
     clearRestaurants: state => {
       state.restaurants = [];
+      state.collectNow = [];
+      state.newRestaurants = [];
     },
   },
 });

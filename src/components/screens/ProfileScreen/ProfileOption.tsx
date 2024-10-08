@@ -6,18 +6,22 @@ import {useNavigation} from '@react-navigation/native';
 
 import type {TProfileOption} from 'src/types/global';
 import font from 'src/styles/font';
-import {useAppSelector} from 'src/hooks/reduxHooks';
+import {useAppDispatch, useAppSelector} from 'src/hooks/reduxHooks';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RootStackParamList} from 'src/types/navigator';
 
 const {width: WINDOW_WIDTH} = Dimensions.get('window');
 
 const ProfileOption = ({option}: {option: TProfileOption}) => {
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const dispatch = useAppDispatch();
   const theme = useAppSelector(state => state.themeReducer.theme);
   const {name} = option;
 
   const onClickOption = () => {
     if (option.type === 'Option') {
-      option.onClick({navigation});
+      option.onClick({navigation, dispatch});
     }
   };
 
