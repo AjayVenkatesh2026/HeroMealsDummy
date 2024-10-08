@@ -1,4 +1,4 @@
-import {useLazyQuery} from '@apollo/client';
+import {ApolloError, useLazyQuery} from '@apollo/client';
 
 import {USER_LOGIN} from '../gql/login';
 import {useAppDispatch} from 'src/hooks/reduxHooks';
@@ -24,13 +24,15 @@ const useLogin = ({onCompleted}: {onCompleted?: Function}) => {
     if (data.user_login.token) {
       set(keys.TOKEN, data.user_login.token);
       dispatch(updateProfile(data.user_login.user));
-    }
-    if (onCompleted) {
-      onCompleted();
+      if (onCompleted) {
+        onCompleted();
+      }
     }
   };
 
-  const onError = () => {};
+  const onError = (err: ApolloError) => {
+    console.log(JSON.stringify(err));
+  };
 
   const [login, {loading}] = useLazyQuery(USER_LOGIN, {
     onCompleted: onLoginCompleted,
