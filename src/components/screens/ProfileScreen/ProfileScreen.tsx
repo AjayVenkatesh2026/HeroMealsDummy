@@ -55,7 +55,7 @@ const ProfileScreen = () => {
               {profile.name}
             </Text>
             <Text variant="bodyMedium" style={styles.phoneNumber}>
-              {getMobileNumberWithCountryCode(profile.phone_number)}
+              {getMobileNumberWithCountryCode(profile.phone)}
             </Text>
           </View>
         </View>

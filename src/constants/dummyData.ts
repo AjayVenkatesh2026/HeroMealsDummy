@@ -1,6 +1,5 @@
 import type {
   IAddress,
-  IProfile,
   IRestaurant,
   IOrder,
   IProduct,
@@ -26,16 +25,6 @@ const dummyAddress: IAddress = {
   pin_code: '14092',
   latitude: '43.194012',
   longitude: '-79.022338',
-};
-
-const dummyProfile: IProfile = {
-  id: 'id',
-  name: 'John Doe',
-  token: 'token',
-  gender: 'Male',
-  image: '',
-  address: dummyAddress,
-  phone_number: '9848452084',
 };
 
 const dummyRestaurantsList: IRestaurant[] = [
@@ -436,7 +425,6 @@ const dummyMysteryBags: TMysteryBag[] = [
 ];
 
 export {
-  dummyProfile,
   dummyRestaurantsList,
   dummyOrders,
   dummyProducts,

@@ -35,7 +35,7 @@ const DistributionDetails: React.FC<IDistributionDetailsProps> = ({
     ];
   const addressCopy = isPickup
     ? getMergedAddress({address: restaurant?.address})
-    : getMergedAddress({address: profile?.address || {}});
+    : profile.address;
 
   const distributionText = `${data.distributionText} ${expectedStartTime} ${TO} ${expectedEndTime}`;
 

@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 
+import {StackActions, useNavigation} from '@react-navigation/native';
+
 import {useAppSelector} from 'src/hooks/reduxHooks';
 import {getThemedStyles} from 'src/utils/theme';
 import containers from 'src/styles/containers';
@@ -18,6 +20,7 @@ import OTPContent from './OTPContent';
 import StrikedText from 'src/components/atoms/StrikedText';
 import copies from 'src/constants/copies';
 import font from 'src/styles/font';
+import useLogin from 'src/services/hooks/useLogin';
 
 import logoOutlined from 'src/assets/logo-white-bg.png';
 import googleLogo from 'src/assets/sigin/google-logo.png';
@@ -38,8 +41,14 @@ const {
 const LoginScreen = () => {
   const [number, setNumber] = useState<string>('');
   const [showOTP, setShowOTP] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
   const theme = useAppSelector(state => state.themeReducer.theme);
+  const navigation = useNavigation();
+
+  const onCompleted = () => {
+    navigation.dispatch(StackActions.replace('BottomTab'));
+  };
+
+  const {loginUser, loading} = useLogin({onCompleted});
 
   const onNumberChange = (value: string) => {
     const newValue = value.replace(/[^0-9]/g, '').slice(0, 10);
@@ -48,13 +57,7 @@ const LoginScreen = () => {
 
   const onPressContinue = () => {
     if (number && number.length === 10) {
-      setLoading(true);
-      // TODO: call /login to generate otp
-      console.log('navigaet to OTP screen');
-      setTimeout(() => {
-        setLoading(false);
-        setShowOTP(true);
-      }, 1000);
+      setShowOTP(true);
     } else {
       ToastAndroid.show('Please enter a valid mobile number!', 500);
     }
@@ -82,7 +85,7 @@ const LoginScreen = () => {
             <Image source={logoOutlined} style={styles.image} />
             <StrikedText label={SIGN_IN} showDots />
             {showOTP ? (
-              <OTPContent />
+              <OTPContent number={number} login={loginUser} />
             ) : (
               <LoginContent
                 number={number}

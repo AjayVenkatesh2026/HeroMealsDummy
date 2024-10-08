@@ -8,12 +8,12 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import Header from 'src/components/molecules/Header';
 import font from 'src/styles/font';
 import {useAppSelector} from 'src/hooks/reduxHooks';
-import {getMergedAddress, isValidProfile} from 'src/utils/helpers';
+import {isValidProfile} from 'src/utils/helpers';
 import {getThemedStyles} from 'src/utils/theme';
 import {
   BELL_OUTLINE,
-  GOOGLE_MAPS,
   MAGNIFY,
+  MAP_MARKER_OUTLINE,
   MICROPHONE_OUTLINE,
 } from 'src/constants/icons';
 import copies from 'src/constants/copies';
@@ -27,9 +27,7 @@ const {SEARCH, DELIVER_TO} = copies;
 const HomeScreenHeader = () => {
   const theme = useAppSelector(state => state.themeReducer.theme);
   const profile = useAppSelector(state => state.profileReducer.profile);
-  const {address = {}, image = ''} = isValidProfile(profile) ? profile : {};
-  const mergedAddress = getMergedAddress({address});
-  const src = image ? {uri: image} : defaultAvatar;
+  const {address} = isValidProfile(profile) ? profile : {};
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
@@ -59,14 +57,14 @@ const HomeScreenHeader = () => {
             backgroundColor: theme?.surface,
           }),
         ]}>
-        <Image source={src} style={styles.image} />
+        <Image source={defaultAvatar} style={styles.image} />
         <View style={styles.contentContainer}>
           <Text
             style={[styles.title, getThemedStyles({color: theme?.textLow})]}>
             {DELIVER_TO}
           </Text>
           <View style={containers.rowCenterStart}>
-            <Icon source={GOOGLE_MAPS} size={18} />
+            <Icon source={MAP_MARKER_OUTLINE} size={18} />
             <Text
               style={[
                 styles.address,
@@ -74,7 +72,7 @@ const HomeScreenHeader = () => {
               ]}
               numberOfLines={1}
               ellipsizeMode="tail">
-              {mergedAddress}
+              {address}
             </Text>
           </View>
         </View>

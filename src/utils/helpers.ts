@@ -10,11 +10,9 @@ const isValidProfile = (profile: any): profile is IProfile => {
     return (
       keys.length > 0 &&
       keys.includes('name') &&
-      keys.includes('token') &&
-      keys.includes('phone_number') &&
+      keys.includes('phone') &&
       !!profile.name &&
-      !!profile.token &&
-      !!profile.phone_number
+      !!profile.phone
     );
   }
 

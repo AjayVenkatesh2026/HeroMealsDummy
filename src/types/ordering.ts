@@ -10,13 +10,15 @@ interface IAddress {
   longitude?: string;
 }
 interface IProfile {
+  account_status: string;
+  address: string;
+  email: string;
+  favorites: string[];
   id: string;
   name: string;
-  image?: string;
-  gender: string;
-  token: string;
-  phone_number: string;
-  address: IAddress;
+  order_history: string[];
+  phone: string;
+  role: string;
 }
 
 interface IRestaurant {

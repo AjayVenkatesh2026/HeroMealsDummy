@@ -3,20 +3,15 @@ import {IProfile} from 'src/types/ordering';
 
 const initialState: {profile: IProfile} = {
   profile: {
-    id: '',
     name: '',
-    image: '',
-    gender: '',
-    token: '',
-    phone_number: '',
-    address: {
-      landmark: '',
-      line_1: '',
-      line_2: '',
-      pin_code: '',
-      latitude: '',
-      longitude: '',
-    },
+    phone: '',
+    address: '',
+    account_status: '',
+    email: '',
+    favorites: [],
+    id: '',
+    order_history: [],
+    role: '',
   },
 };
 
