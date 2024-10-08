@@ -5,12 +5,12 @@ import {cluster} from 'radash';
 
 import Title from 'src/components/atoms/Title';
 import copies from 'src/constants/copies';
-import {categories} from 'src/constants/dummyData';
 import containers from 'src/styles/containers';
 import NewOnHeroMeals from 'src/components/organisms/NewOnHeroMeals/NewOnHeroMeals';
 import CollectNow from 'src/components/organisms/CollectNow/CollectNow';
 import type {ICategory} from 'src/types/ordering';
 import CategoryItem from 'src/components/molecules/CategoriesList/CategoryItem';
+import {useAppSelector} from 'src/hooks/reduxHooks';
 
 const {CATEGORIES} = copies;
 
@@ -19,7 +19,10 @@ const renderCategory = (item: ICategory) => (
 );
 
 const ListContent = () => {
-  const cats = cluster(categories, 4);
+  const categories = useAppSelector(
+    state => state.categoriesReducer.categories,
+  );
+  const cats = cluster(categories, 4).slice(0, 2);
 
   return (
     <ScrollView style={styles.bodyContainer}>
