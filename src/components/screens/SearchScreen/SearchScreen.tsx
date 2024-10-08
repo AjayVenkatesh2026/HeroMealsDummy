@@ -17,7 +17,7 @@ import containers from 'src/styles/containers';
 import {SEARCH_TYPES} from 'src/constants/search';
 import RestaurantCarouselCard from 'src/components/organisms/RestaurantCarouselCard/RestaurantCarouselCard';
 import Separator from 'src/components/atoms/Separator';
-import useGetRestaurantsDummy from 'src/hooks/useGetRestuarants';
+import useGetRestaurantsDummy from 'src/hooks/useGetRestuarantsDummy';
 import EmptySearch from './EmptySearch';
 import type {TSearchType} from 'src/types/global';
 import type {IRestaurant} from 'src/types/ordering';
