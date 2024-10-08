@@ -3,7 +3,6 @@ import React from 'react';
 
 import {Button, Text} from 'react-native-paper';
 
-import {categories} from 'src/constants/dummyData';
 import type {ICategory} from 'src/types/ordering';
 import CategoryItem from './CategoryItem';
 import copies from 'src/constants/copies';
@@ -24,6 +23,9 @@ const separator = () => <View style={styles.separator} />;
 
 const CategoriesList = () => {
   const theme = useAppSelector(state => state.themeReducer.theme);
+  const categories = useAppSelector(
+    state => state.categoriesReducer.categories,
+  );
 
   const onPress = () => {};
 
@@ -47,7 +49,7 @@ const CategoriesList = () => {
         </Button>
       </View>
       <FlatList
-        data={categories}
+        data={categories.slice(0, 8)}
         renderItem={renderItem}
         keyExtractor={keyExtractor}
         ItemSeparatorComponent={separator}
