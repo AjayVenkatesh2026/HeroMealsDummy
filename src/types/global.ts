@@ -7,6 +7,7 @@ import type {
   ImageProps,
 } from 'react-native';
 import {ITheme} from './theme';
+import type {JwtPayload} from 'jwt-decode';
 
 type Style = ViewStyle | TextStyle | ImageStyle;
 
@@ -52,6 +53,11 @@ interface FDAImage extends ImageProps {
 
 type TSearchType = 'RESTAURANTS' | 'CATEGORIES';
 
+interface IJwtPaylod extends JwtPayload {
+  id?: string;
+  role?: string;
+}
+
 export type {
   Style,
   TProfileOption,
@@ -60,4 +66,5 @@ export type {
   THeaderProps,
   FDAImage,
   TSearchType,
+  IJwtPaylod,
 };

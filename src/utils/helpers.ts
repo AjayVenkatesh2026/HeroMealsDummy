@@ -1,4 +1,5 @@
 import {random, shuffle} from 'radash';
+import {jwtDecode} from 'jwt-decode';
 
 import type {
   IProfile,
@@ -10,6 +11,7 @@ import copies from 'src/constants/copies';
 import {get} from 'src/storage';
 import storageKeys from 'src/storage/keys';
 import {dummyImageUrl, dummyTags} from 'src/constants/dummyData';
+import {IJwtPaylod} from 'src/types/global';
 
 const {PESO} = copies;
 
@@ -74,12 +76,26 @@ const getMobileNumberWithCountryCode = (phoneNumber: string) => {
   return `+63 ${phoneNumber}`;
 };
 
-const isValidToken = (token: string): boolean => {
-  return !!token;
-};
-
 const getToken = (): string => {
   return `${get(storageKeys.TOKEN)}` || '';
+};
+
+const getDecodedToken = (): IJwtPaylod => {
+  const token = getToken();
+  if (token) {
+    return jwtDecode<IJwtPaylod>(token);
+  }
+
+  return {};
+};
+
+const isValidToken = (): boolean => {
+  const token = getDecodedToken();
+  if (token.exp) {
+    return new Date(token.exp) > new Date();
+  }
+
+  return false;
 };
 
 const translateRestaurantResponseToRestaurant = (
@@ -111,4 +127,5 @@ export {
   getToken,
   translateRestaurantResponseToRestaurant,
   isValidToken,
+  getDecodedToken,
 };
