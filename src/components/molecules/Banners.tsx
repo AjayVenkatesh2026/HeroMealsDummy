@@ -43,13 +43,10 @@ const Banners: React.FC<IBannersProps> = ({banners = []}) => {
         dotsLength={carouselItems.length || 0}
         activeDotIndex={idx || 0}
         containerStyle={styles.paginationContainer}
-        dotStyle={[
-          styles.dotStyle,
-          getThemedStyles({backgroundColor: theme?.primaryDefault}),
-        ]}
+        dotStyle={[styles.dotStyle, {backgroundColor: theme?.primaryDefault}]}
         inactiveDotStyle={[
           styles.inactiveDotStyle,
-          getThemedStyles({backgroundColor: theme?.textDisabled}),
+          {backgroundColor: theme?.textDisabled},
         ]}
         inactiveDotOpacity={0.8}
         inactiveDotScale={1}
