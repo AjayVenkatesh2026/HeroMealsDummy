@@ -52,12 +52,12 @@ const RestaurantCarouselCard: React.FC<IRestaurantCarouselCardProps> = ({
   const theme = useAppSelector(state => state.themeReducer.theme);
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-  const {image, name, distance, tags, rating, openingTime, closingTime} =
-    restaurant;
+  const {image, name, distance, tags, rating, openingHours} = restaurant;
   const tagsText = tags.join(` ${DOT} `);
-  const timings = `${openingTime} - ${closingTime}`;
   const description =
-    showTimings && timings ? [timings, distance].join(` ${DOT} `) : distance;
+    showTimings && openingHours
+      ? [openingHours, distance].join(` ${DOT} `)
+      : distance;
   // TODO: make isFavourite dynamic
   const isFavourite = false;
 
@@ -127,7 +127,7 @@ const RestaurantCarouselCard: React.FC<IRestaurantCarouselCardProps> = ({
                   </Text>
                 ) : null}
                 <View style={containers.rowCenterStart}>
-                  {showTimings && timings ? (
+                  {showTimings && openingHours ? (
                     <View style={styles.iconContainer}>
                       <Icon
                         size={clockIconSize}

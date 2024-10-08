@@ -3,7 +3,6 @@ import React from 'react';
 
 import {Button, Text} from 'react-native-paper';
 
-import {dummyRestaurantsList} from 'src/constants/dummyData';
 import {IRestaurant} from 'src/types/ordering';
 import RestaurantCarouselCard from '../RestaurantCarouselCard/RestaurantCarouselCard';
 import containers from 'src/styles/containers';
@@ -22,6 +21,9 @@ const keyExtractor = (item: IRestaurant) => item.id;
 
 const RestaurantsCarousel = () => {
   const theme = useAppSelector(state => state.themeReducer.theme);
+  const restaurants = useAppSelector(
+    state => state.restaurantsReducer.restaurants,
+  );
 
   const onPress = () => {};
 
@@ -45,7 +47,7 @@ const RestaurantsCarousel = () => {
         </Button>
       </View>
       <FlatList
-        data={dummyRestaurantsList}
+        data={restaurants}
         renderItem={renderItem}
         horizontal
         keyExtractor={keyExtractor}

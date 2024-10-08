@@ -4,7 +4,6 @@ import React from 'react';
 import {Card, Icon, Text} from 'react-native-paper';
 
 import type {IRestaurant} from 'src/types/ordering';
-import {getMergedAddress} from 'src/utils/helpers';
 import containers from 'src/styles/containers';
 import {GOOGLE_MAPS, STAR} from 'src/constants/icons';
 import {useAppSelector} from 'src/hooks/reduxHooks';
@@ -23,10 +22,7 @@ const RestaurantDetails: React.FC<IRestaurantDetailsProps> = ({
   containerStyles,
 }) => {
   const theme = useAppSelector(state => state.themeReducer.theme);
-  const {name, address, distance, openingTime, closingTime, rating} =
-    restaurant;
-  const mergedAddress = getMergedAddress({address});
-  const timings = ` ${openingTime} to ${closingTime}`;
+  const {name, address, distance, openingHours, rating} = restaurant;
   const ratingText = `${rating}/5.0`;
 
   return (
@@ -42,14 +38,14 @@ const RestaurantDetails: React.FC<IRestaurantDetailsProps> = ({
         {name}
       </Text>
       <Text variant="bodyMedium" style={styles.address}>
-        {mergedAddress}
+        {address}
       </Text>
       <View style={styles.timingsContainer}>
         <Text variant="titleSmall" style={styles.timingsTag}>
           {OPENING_HOURS}
         </Text>
         <Text variant="bodySmall" style={styles.timings}>
-          {timings}
+          {openingHours}
         </Text>
       </View>
       <View style={containers.rowCenterCenter}>

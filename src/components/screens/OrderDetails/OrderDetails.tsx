@@ -87,7 +87,7 @@ const OrderDetails: React.FC = () => {
       <ScrollView style={styles.bodyContainer}>
         <Heading
           title={restaurant.name}
-          description={getMergedAddress({address: restaurant.address})}
+          description={restaurant.address}
           style={[
             styles.restaurantContainer,
             getThemedStyles({backgroundColor: theme?.surface}),

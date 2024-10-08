@@ -9,7 +9,6 @@ import {useAppSelector} from 'src/hooks/reduxHooks';
 import {getThemedStyles} from 'src/utils/theme';
 import font from 'src/styles/font';
 import {DISTRIBUTION_DETAILS, DISTRIBUTION_TYPES} from 'src/constants/checkout';
-import {getMergedAddress} from 'src/utils/helpers';
 import copies from 'src/constants/copies';
 
 interface IDistributionDetailsProps {
@@ -33,9 +32,7 @@ const DistributionDetails: React.FC<IDistributionDetailsProps> = ({
     DISTRIBUTION_DETAILS[
       isPickup ? DISTRIBUTION_TYPES.PICKUP : DISTRIBUTION_TYPES.DELIVERY
     ];
-  const addressCopy = isPickup
-    ? getMergedAddress({address: restaurant?.address})
-    : profile.address;
+  const addressCopy = isPickup ? restaurant?.address : profile.address;
 
   const distributionText = `${data.distributionText} ${expectedStartTime} ${TO} ${expectedEndTime}`;
 

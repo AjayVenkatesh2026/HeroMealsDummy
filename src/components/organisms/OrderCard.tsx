@@ -21,14 +21,13 @@ const OrderCard = ({order}: {order: IOrder}) => {
   const theme = useAppSelector(state => state.themeReducer.theme);
   const {delivered_at, order_status, order_total, products, restaurant} = order;
   const {image, address, name} = restaurant;
-  const {line_2} = address;
   const onPressCard = () => {};
 
   return (
     <Card
       onPress={onPressCard}
       style={getThemedStyles({backgroundColor: theme?.surface})}>
-      <RestaurantDetailsCard image={image} name={name} description={line_2} />
+      <RestaurantDetailsCard image={image} name={name} description={address} />
       <View style={styles.middleContainer}>
         <ProductsQuantities items={products} />
         <Divider
