@@ -125,6 +125,8 @@ const copies = {
   FAVOURITE_MYSTERY_BAGS: 'Favourite Mystery Bags',
   RESTAURANTS: 'Restaurants',
   EMPTY_RESULTS: 'Empty Results !',
+  SORRY_THERE_ARE_NO_ITEMS_FOR_THIS_RESTAURANT:
+    'Sorry! There are no items for this restuarant!',
 };
 
 export default copies;

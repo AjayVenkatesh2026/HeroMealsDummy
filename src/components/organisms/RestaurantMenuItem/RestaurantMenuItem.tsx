@@ -28,10 +28,9 @@ const RestaurantMenuItem: React.FC<IRestaurantMenuItemProps> = ({
   showCategory = false,
 }) => {
   const theme = useAppSelector(state => state.themeReducer.theme);
-  const {image_url, name, price, category} = product;
+  const {image_url, name, price, category, is_available} = product;
   const {openingHours} = restaurant;
   const timings = `${TODAY}, ${openingHours}`;
-  const is_available = true;
 
   return (
     <View style={styles.container}>

@@ -45,6 +45,7 @@ interface IProduct {
   rating: number;
   restaurant_id: string;
   restaurant_name: string;
+  category_id: string;
 }
 
 interface IOrderRestaurant {
