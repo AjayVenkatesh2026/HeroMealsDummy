@@ -7,7 +7,7 @@ const handleGqlError = ({
   location: string;
   error: ApolloError;
 }) => {
-  console.error(location, JSON.stringify(error));
+  console.warn(location, JSON.stringify(error));
 };
 
 export {handleGqlError};
