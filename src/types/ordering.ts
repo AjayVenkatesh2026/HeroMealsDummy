@@ -131,6 +131,25 @@ type TMysteryBag = Pick<
   'id' | 'restaurant_name' | 'name' | 'image_url' | 'restaurant_id'
 >;
 
+interface IOrderResponse {
+  id: string;
+  user_id: string;
+  restaurant_id: string;
+  order_items: {
+    name: string;
+    price: number;
+    quantity: number;
+    id: string;
+  };
+  delivery_address: string;
+  total_amount: number;
+  vendor_earnings: number;
+  admin_commission: number;
+  order_status: string;
+  order_placed_at: TDateISO;
+  order_completed_at: TDateISO;
+}
+
 interface IRestaurantResponse {
   menu: string[];
   user_id: string;
@@ -162,4 +181,5 @@ export type {
   IPaymentMethod,
   TMysteryBag,
   IRestaurantResponse,
+  IOrderResponse,
 };

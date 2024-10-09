@@ -1,5 +1,5 @@
 import copies from './copies';
-import {CAR_PICKUP, CLOCK_OUTLINE, GOOGLE_MAPS, HOME} from './icons';
+import {CAR_PICKUP, CLOCK_OUTLINE, HOME, MAP_MARKER_OUTLINE} from './icons';
 import type {IPaymentMethod} from 'src/types/ordering';
 
 import cashOnDelivery from 'src/assets/payment-methods/cash-on-delivery.png';
@@ -30,7 +30,7 @@ const DISTRIBUTION_DETAILS = {
     titleIcon: HOME,
     title: SHIP_TO,
     rightButtonText: CHANGE,
-    addressIcon: GOOGLE_MAPS,
+    addressIcon: MAP_MARKER_OUTLINE,
     clockIcon: CLOCK_OUTLINE,
     distributionText: DELIVERY_EXPECTED_BETWEEN,
   },
@@ -38,7 +38,7 @@ const DISTRIBUTION_DETAILS = {
     titleIcon: CAR_PICKUP,
     title: PICKUP_AT,
     rightButtonText: VIEW_MAP,
-    addressIcon: GOOGLE_MAPS,
+    addressIcon: MAP_MARKER_OUTLINE,
     clockIcon: CLOCK_OUTLINE,
     distributionText: PICKUP_TODAY_FROM,
   },

@@ -1,7 +1,7 @@
 import {Image, StyleSheet, View} from 'react-native';
-import React from 'react';
+import React, {useLayoutEffect, useState} from 'react';
 
-import {Card, Divider, Icon, Text} from 'react-native-paper';
+import {ActivityIndicator, Card, Divider, Icon, Text} from 'react-native-paper';
 import {type RouteProp, useRoute} from '@react-navigation/native';
 
 import Header from 'src/components/molecules/Header';
@@ -22,31 +22,63 @@ import {useAppSelector} from 'src/hooks/reduxHooks';
 import dummyMap from 'src/assets/dummy/maps/dummy-map-tracking.png';
 import dummyProfile from 'src/assets/dummy/delivery-partner/delivery-partner.png';
 import copies from 'src/constants/copies';
+import {IOrderResponse} from 'src/types/ordering';
+import useGetOrder from 'src/services/hooks/useGetOrder';
 
 const {ORDER_NO} = copies;
 const ICON_SIZE = 20;
 const STAR_ICON_SIZE = 16;
+
+// TODO: replace with real data
+const DELIVERY_SOURCE = {
+  line_1: 'East Wing, Lower Ground Floor, Estancia Mall',
+  line_2: 'Pasig City, Metro Manila',
+};
+const DELIVERY_DESTINATION = {
+  line_1: '102 , P. Tuazon St., Cubao',
+  line_2: 'Quezon City, Metro Manila',
+};
+const DELIVERY_PARTNER = {
+  name: 'Alex F.',
+  rating: 4.9,
+};
 
 const OrderTrackingScreen = () => {
   const {
     params: {orderId},
   } = useRoute<RouteProp<OrderStackParamList, 'OrderTrackingScreen'>>();
   const theme = useAppSelector(state => state.themeReducer.theme);
-  // TODO: replace with real data
-  const ORDER_TOTAL = 349;
-  const ORDER_STATUS = 'Went to you';
-  const DELIVERY_SOURCE = {
-    line_1: 'East Wing, Lower Ground Floor, Estancia Mall',
-    line_2: 'Pasig City, Metro Manila',
+  const restaurants = useAppSelector(
+    state => state.restaurantsReducer.restaurants,
+  );
+  const [order, setOrder] = useState<IOrderResponse>();
+
+  const onCompleted = (orderDetails: IOrderResponse) => {
+    setOrder(orderDetails);
   };
-  const DELIVERY_DESTINATION = {
-    line_1: '102 , P. Tuazon St., Cubao',
-    line_2: 'Quezon City, Metro Manila',
-  };
-  const DELIVERY_PARTNER = {
-    name: 'Alex F.',
-    rating: 4.9,
-  };
+
+  const {getOrderById, loading} = useGetOrder({onCompleted});
+
+  useLayoutEffect(() => {
+    if (orderId) {
+      getOrderById({orderId});
+    }
+  }, [getOrderById, orderId]);
+
+  if (loading) {
+    return (
+      <View style={styles.loaderContainer}>
+        <ActivityIndicator size={'large'} color={theme?.primaryDefault} />
+      </View>
+    );
+  }
+
+  if (!order) {
+    return null;
+  }
+  const {total_amount, order_status, delivery_address, restaurant_id} = order;
+  const restaurant = restaurants.find(res => res.id === restaurant_id);
+  const {address = ''} = restaurant || {};
 
   return (
     <View style={styles.container}>
@@ -68,7 +100,7 @@ const OrderTrackingScreen = () => {
           <Text
             variant="titleMedium"
             style={[font.semiBold, {color: theme?.textHigh}]}>
-            {getFormattedPrice(ORDER_TOTAL)}
+            {getFormattedPrice(total_amount)}
           </Text>
           <View
             style={[
@@ -78,7 +110,7 @@ const OrderTrackingScreen = () => {
             <Text
               variant="bodyMedium"
               style={[font.regular, {color: theme?.positivePrimary}]}>
-              {ORDER_STATUS}
+              {order_status}
             </Text>
           </View>
         </View>
@@ -95,7 +127,7 @@ const OrderTrackingScreen = () => {
             <Text
               variant="bodyMedium"
               style={[styles.addressLine1, {color: theme?.textHigh}]}>
-              {DELIVERY_SOURCE.line_1}
+              {address}
             </Text>
             <Text
               variant="bodySmall"
@@ -116,7 +148,7 @@ const OrderTrackingScreen = () => {
             <Text
               variant="bodyMedium"
               style={[styles.addressLine1, {color: theme?.textHigh}]}>
-              {DELIVERY_DESTINATION.line_1}
+              {delivery_address}
             </Text>
             <Text
               variant="bodySmall"
@@ -239,5 +271,9 @@ const styles = StyleSheet.create({
     padding: 8,
     borderRadius: 40,
     marginRight: 8,
+  },
+  loaderContainer: {
+    ...containers.rowCenterCenter,
+    flex: 1,
   },
 });
